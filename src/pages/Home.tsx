@@ -6,7 +6,7 @@ const Home = () => {
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
             {/* Artistic Momo Plate - Left Side */}
             <motion.img
-                src="/src/assets/images/momo_plate_transparent.png"
+                src="/src/assets/images/plate_momos_new.jpg"
                 alt="Momo Plate"
                 initial={{ x: -100, opacity: 0, rotate: -15, y: "-50%" }}
                 animate={{ x: 0, opacity: 1, rotate: -5, y: "-50%" }}
@@ -21,6 +21,7 @@ const Home = () => {
                     filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.3))', // Enhanced shadow for depth
                 }}
             />
+
 
             {/* Tiger Stamp Logo */}
             <motion.img
