@@ -1,20 +1,31 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-
-const navLinks = [
-    { name: 'Menu', href: '#menu' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Reserve', href: '/reserve' },
-    { name: 'Vouchers', href: '/vouchers' }, // Changed to routing as per redesign
-    { name: 'Click & Collect', href: '#collect' },
-];
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    // const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Determine current location context
+    const isSoho = location.pathname.includes('/soho');
+    const isCovent = location.pathname.includes('/covent-garden');
+    const contextPrefix = isSoho ? '/soho' : isCovent ? '/covent-garden' : '';
+
+    // Dynamic Navigation Links
+    const navLinks = contextPrefix ? [
+        { name: 'Menu', href: '#menu' },
+        { name: 'Gallery', href: '#gallery' },
+        { name: 'Reserve', href: `${contextPrefix}/reserve` },
+        { name: 'Vouchers', href: `${contextPrefix}/vouchers` },
+        { name: 'Click & Collect', href: `${contextPrefix}/click-and-collect` },
+    ] : [
+        { name: 'Vouchers', href: '/vouchers' },
+        { name: 'Reserve', href: '/reserve' },
+        { name: 'Click & Collect', href: '/click-and-collect' },
+    ];
 
     // Handle scroll effect
     useEffect(() => {
@@ -29,9 +40,62 @@ const Navbar = () => {
         hidden: { y: -100 },
         visible: {
             y: 0,
-            backgroundColor: '#FFFFFF', // User requested white background
+            backgroundColor: '#FFFFFF',
             boxShadow: isScrolled ? '0 2px 10px rgba(0,0,0,0.1)' : 'none',
             transition: { duration: 0.3 }
+        }
+    };
+
+    // Helper to handle navigation
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith('#')) {
+            // Hash linking handling
+            const targetId = href.substring(1);
+            const element = document.getElementById(targetId);
+
+            if (element) {
+                e.preventDefault();
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                // Update URL to reflect the section
+                window.history.pushState(null, '', href);
+            } else {
+                e.preventDefault();
+                if (contextPrefix) {
+                    navigate(`${contextPrefix}/${href}`);
+                } else {
+                    navigate('/' + href);
+                }
+            }
+        } else if (href.startsWith('/')) {
+            // Internal client-side routing
+            e.preventDefault();
+            navigate(href);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setIsMobileMenuOpen(false);
+    };
+
+    // Keyboard navigation handler
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, href: string) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleNavClick(e as any, href);
+        }
+    };
+
+    // Mobile menu keyboard handler
+    const handleMobileMenuKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            setIsMobileMenuOpen(false);
         }
     };
 
@@ -51,8 +115,8 @@ const Navbar = () => {
                 }}
             >
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    {/* Logo - Inverted to be visible on white */}
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+                    {/* Logo - Always goes to Global Home */}
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <img
                             src="/src/assets/logos/logo.png"
                             alt="Fatt Pundit"
@@ -66,27 +130,35 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                                onKeyDown={(e) => handleKeyDown(e, link.href)}
+                                role="link"
+                                tabIndex={0}
+                                aria-label={`Navigate to ${link.name}`}
                                 style={{
-                                    color: '#121212', // Dark text for white background
+                                    color: '#121212',
                                     fontSize: '0.9rem',
                                     letterSpacing: '0.05em',
                                     textTransform: 'uppercase',
                                     position: 'relative',
-                                    fontWeight: 600
+                                    fontWeight: 600,
+                                    textDecoration: 'none',
+                                    cursor: 'pointer'
                                 }}
                                 className="nav-link"
                             >
                                 {link.name}
                             </a>
                         ))}
-                        <Link to="/reserve" style={{
+                        <Link to={contextPrefix ? `${contextPrefix}/reserve` : '/reserve'} style={{
                             padding: '0.75rem 1.5rem',
                             backgroundColor: 'var(--color-accent)', // Keeping red accent
                             color: '#FFFFFF',
                             fontWeight: 600,
                             borderRadius: 'var(--radius-sm)',
                             textTransform: 'uppercase',
-                            fontSize: '0.85rem'
+                            fontSize: '0.85rem',
+                            textDecoration: 'none'
                         }}>
                             Book Now
                         </Link>
@@ -95,7 +167,10 @@ const Navbar = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        style={{ display: 'none', color: '#121212' }} // Dark icon
+                        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="mobile-menu"
+                        style={{ display: 'none', color: '#121212' }}
                         className="mobile-toggle"
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
@@ -107,9 +182,13 @@ const Navbar = () => {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
+                        id="mobile-menu"
+                        role="navigation"
+                        aria-label="Mobile navigation"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
+                        onKeyDown={handleMobileMenuKeyDown}
                         style={{
                             position: 'fixed',
                             top: 0,
@@ -129,11 +208,16 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                                onKeyDown={(e) => handleKeyDown(e, link.href)}
+                                role="link"
+                                tabIndex={0}
+                                aria-label={`Navigate to ${link.name}`}
                                 style={{
                                     fontFamily: 'var(--font-heading)',
                                     fontSize: '2rem',
-                                    color: '#121212' // Dark text
+                                    color: '#121212', // Dark text
+                                    textDecoration: 'none'
                                 }}
                             >
                                 {link.name}

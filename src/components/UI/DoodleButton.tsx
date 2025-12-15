@@ -5,15 +5,27 @@ import { useState } from 'react';
 interface DoodleButtonProps {
     to: string;
     children: React.ReactNode;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
-const DoodleButton = ({ to, children }: DoodleButtonProps) => {
+const DoodleButton = ({ to, children, onMouseEnter, onMouseLeave }: DoodleButtonProps) => {
     const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        if (onMouseEnter) onMouseEnter();
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        if (onMouseLeave) onMouseLeave();
+    };
 
     return (
         <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{ position: 'relative', display: 'inline-block' }}
         >
             <Link

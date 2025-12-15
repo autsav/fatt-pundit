@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 interface HeroProps {
     location: string;
+    backgroundImage?: string;
 }
 
-const Hero = ({ location }: HeroProps) => {
+const Hero = ({ location, backgroundImage }: HeroProps) => {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
 
@@ -19,7 +20,7 @@ const Hero = ({ location }: HeroProps) => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/src/assets/images/hero_food.jpg)',
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${backgroundImage || '/src/assets/images/hero_food.jpg'})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     y,
