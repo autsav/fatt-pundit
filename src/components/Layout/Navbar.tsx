@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import logo from '../../assets/logos/logo.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -107,7 +108,7 @@ const Navbar = () => {
                     {/* Logo - Always goes to Global Home */}
                     <Link to="/" style={{ display: 'flex', alignItems: 'center' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <img
-                            src="/src/assets/logos/logo.png"
+                            src={logo}
                             alt="Fatt Pundit"
                             style={{ height: '60px', width: 'auto' }}
                         />

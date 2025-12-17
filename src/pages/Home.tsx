@@ -8,6 +8,7 @@ import momoStart from '../assets/images/momo_plate_start.png';
 import momoFinal from '../assets/images/momo_plate_final.png';
 import rightPlate from '../assets/images/right_plate.png';
 import cracklingFinal from '../assets/images/after-crackling.png';
+import tigerStamp from '../assets/logos/tiger_stamp.png';
 
 const Home = () => {
     const [isHoveringSoho, setIsHoveringSoho] = useState(false);
@@ -210,7 +211,7 @@ const Home = () => {
 
             {/* Tiger Stamp Logo */}
             <motion.img
-                src="/src/assets/logos/tiger_stamp.png"
+                src={tigerStamp}
                 alt="Fatt Pundit Tiger Stamp"
                 initial={{ opacity: 0, scale: 4, rotate: 15 }}
                 animate={{ opacity: 1, scale: 1, rotate: -2 }}

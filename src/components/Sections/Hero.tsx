@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import defaultHero from '../../assets/images/hero_food.jpg';
 
 interface HeroProps {
     location: string;
@@ -20,7 +21,7 @@ const Hero = ({ location, backgroundImage }: HeroProps) => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${backgroundImage || '/src/assets/images/hero_food.jpg'})`,
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${backgroundImage || defaultHero})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     y,

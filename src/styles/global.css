@@ -9,7 +9,7 @@
 
 body {
     background-color: var(--color-bg-primary);
-    background-image: url('/src/assets/images/texture.jpg');
+    background-image: url('../assets/images/texture.jpg');
     background-repeat: repeat;
     color: var(--color-text-primary);
     font-family: var(--font-body);
