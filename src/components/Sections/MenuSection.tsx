@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Filter, ChevronRight, Eye, X } from 'lucide-react';
+import { ChevronRight, Eye, X, Leaf } from 'lucide-react';
 
 // Import images
 import momo from '../../assets/images/momo.jpg';
@@ -116,6 +116,48 @@ const MENU_DATA: Menus = {
             items: [
                 { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: brownie },
                 { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: brownie },
+                { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "7.50", image: ladyKenny }
+            ]
+        }
+    ],
+    "VEGETARIAN MENU": [
+        {
+            category: "MOMO'S",
+            description: "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney.",
+            items: [
+                { name: "Mix Vegetable Momo", description: "Spinach, mushroom, courgette + tofu", price: "7.00", image: mixVegMomo }
+            ]
+        },
+        {
+            category: "VEG",
+            items: [
+                { name: "Crackling Spinach", description: "Sweet yoghurt, date & plum sauce, pomegranate", price: "10.20", image: cracklingSpinach },
+                { name: "Popcorn Cauliflower", description: "Purple & white, smoked, soya garlic dip", price: "10.20", image: popcornCauliflower },
+                { name: "Crispy Okra Salt 'n' Pepper", description: "Pink salt, chillies, burnt garlic", price: "10.20", image: okraSaltPepper },
+                { name: "Hakka Chilly Paneer Lettuce Cups", description: "Cottage cheese, shallots, soy sauce, white + black pepper", price: "13.25", image: paneerCups },
+                { name: "Sticky Sesame Vegetables", description: "Crispy veg fritters, sticky ginger glaze", price: "11.20", image: sticky }
+            ]
+        },
+        {
+            category: "BREAD, RICE & NOODLES",
+            items: [
+                { name: "Bing Bread", description: "Buttery, crisp and crunchy", price: "5.20", image: bingBread },
+                { name: "Burnt Ginger Rice", description: "", price: "5.65" },
+                { name: "Egg Szechuan Fried Rice", description: "", price: "6.65" },
+                { name: "Vegetable Hakka Noodles", description: "Bean sprouts, cabbage, green onion", price: "10.00", image: vegHakka }
+            ]
+        },
+        {
+            category: "SIDES",
+            items: [
+                { name: "Sweet Potato Fries", description: "Smoked paprika, black pepper, Szechuan mayo dip", price: "5.65", image: sweetPotato },
+                { name: "Stir Fry Broccoli", description: "With roasted almonds", price: "6.20", image: broccoli }
+            ]
+        },
+        {
+            category: "DESSERT",
+            items: [
+                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: brownie },
                 { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "7.50", image: ladyKenny }
             ]
         }
@@ -642,7 +684,7 @@ const MENU_DATA: Menus = {
 };
 
 const MENU_TYPES = [
-    "A LA CARTE", "DAIRY FREE MENU", "VEGAN MENU", "PESCATARIAN MENU", "SET MENU",
+    "A LA CARTE", "VEGETARIAN MENU", "VEGAN MENU", "DAIRY FREE MENU", "PESCATARIAN MENU", "SET MENU",
     "GLUTEN FREE", "SIDES + DESSERTS", "WINE LIST", "DRINKS MENU", "HALAL MENU",
     "PRE - THEATRE MENU", "VEGETARIAN PRE - THEATRE MENU"
 ];
@@ -653,13 +695,6 @@ const MenuSection = () => {
     const [hoveredImage, setHoveredImage] = useState<string | null>(null);
     // Removed mouse follower logic in favor of Lightbox
     // const mouseX = useMotionValue(0); ...
-
-    // Keyboard handler for lightbox
-    const handleLightboxKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            setHoveredImage(null);
-        }
-    };
 
     return (
         <section id="menu" style={{
@@ -735,12 +770,7 @@ const MenuSection = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setHoveredImage(null)}
-                        onKeyDown={handleLightboxKeyDown}
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label="Dish image preview"
-                        tabIndex={-1}
+                        onClick={() => setHoveredImage(null)} // Close on background click
                         style={{
                             position: 'fixed',
                             inset: 0,
@@ -773,7 +803,6 @@ const MenuSection = () => {
                             />
                             <button
                                 onClick={() => setHoveredImage(null)}
-                                aria-label="Close image preview"
                                 style={{
                                     position: 'absolute',
                                     top: -20,
@@ -814,33 +843,35 @@ const MenuSection = () => {
                             MENU
                         </h2>
 
-                        {/* Veg Toggle placed in sidebar */}
-                        <button
-                            onClick={() => setIsVegFilter(!isVegFilter)}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '0.8rem',
-                                background: isVegFilter ? 'var(--color-accent)' : 'rgba(255,255,255,0.05)',
-                                color: isVegFilter ? '#000' : '#fff',
-                                border: '1px solid var(--color-accent)',
-                                padding: '0.8rem 1.2rem',
-                                borderRadius: '8px',
-                                cursor: 'pointer',
-                                fontFamily: 'var(--font-heading)',
-                                fontSize: '0.9rem',
-                                marginBottom: '3rem',
-                                width: '100%',
-                                justifyContent: 'space-between',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                <Filter size={16} />
-                                {isVegFilter ? 'VEG ONLY' : 'ALL ITEMS'}
-                            </span>
-                            {isVegFilter && <motion.div layoutId="dot" style={{ width: 8, height: 8, borderRadius: '50%', background: '#000' }} />}
-                        </button>
+                        {/* Quick Vegetarian Filter - Prominent */}
+                        <div style={{ marginBottom: '2rem' }}>
+                            <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Quick Filter</p>
+                            <button
+                                onClick={() => setIsVegFilter(!isVegFilter)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.8rem',
+                                    background: isVegFilter ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)' : 'rgba(255,255,255,0.05)',
+                                    color: isVegFilter ? '#000' : '#fff',
+                                    border: isVegFilter ? '2px solid #22c55e' : '2px solid rgba(74, 222, 128, 0.3)',
+                                    padding: '1rem 1.5rem',
+                                    borderRadius: '12px',
+                                    cursor: 'pointer',
+                                    fontFamily: 'var(--font-heading)',
+                                    fontSize: '1rem',
+                                    fontWeight: 700,
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    transition: 'all 0.3s ease',
+                                    boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
+                                    transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
+                                }}
+                            >
+                                <Leaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
+                                <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
+                            </button>
+                        </div>
 
                         {/* Navigation Items */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -969,14 +1000,6 @@ const MenuSection = () => {
                                                                         e.stopPropagation();
                                                                         setHoveredImage(item.image || null);
                                                                     }}
-                                                                    onKeyDown={(e) => {
-                                                                        if (e.key === 'Enter' || e.key === ' ') {
-                                                                            e.preventDefault();
-                                                                            e.stopPropagation();
-                                                                            setHoveredImage(item.image || null);
-                                                                        }
-                                                                    }}
-                                                                    aria-label={`View image of ${item.name}`}
                                                                     style={{
                                                                         background: 'none',
                                                                         border: 'none',

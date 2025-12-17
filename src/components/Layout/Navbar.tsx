@@ -68,6 +68,10 @@ const Navbar = () => {
                 // Update URL to reflect the section
                 window.history.pushState(null, '', href);
             } else {
+                // If element not found, strict redirection logic
+                // If in a silo, we might want to go to the silo root first?
+                // But generally #menu implies local. If not found, previously we went to '/' + href.
+                // Now, if I am in /soho and click #menu (and it's not found?), should I go to /soho#menu?
                 e.preventDefault();
                 if (contextPrefix) {
                     navigate(`${contextPrefix}/${href}`);
@@ -82,21 +86,6 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         setIsMobileMenuOpen(false);
-    };
-
-    // Keyboard navigation handler
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, href: string) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleNavClick(e as any, href);
-        }
-    };
-
-    // Mobile menu keyboard handler
-    const handleMobileMenuKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            setIsMobileMenuOpen(false);
-        }
     };
 
     return (
@@ -131,10 +120,6 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => handleNavClick(e, link.href)}
-                                onKeyDown={(e) => handleKeyDown(e, link.href)}
-                                role="link"
-                                tabIndex={0}
-                                aria-label={`Navigate to ${link.name}`}
                                 style={{
                                     color: '#121212',
                                     fontSize: '0.9rem',
@@ -167,10 +152,7 @@ const Navbar = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                        aria-expanded={isMobileMenuOpen}
-                        aria-controls="mobile-menu"
-                        style={{ display: 'none', color: '#121212' }}
+                        style={{ display: 'none', color: '#121212' }} // Dark icon
                         className="mobile-toggle"
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
@@ -182,13 +164,9 @@ const Navbar = () => {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        id="mobile-menu"
-                        role="navigation"
-                        aria-label="Mobile navigation"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        onKeyDown={handleMobileMenuKeyDown}
                         style={{
                             position: 'fixed',
                             top: 0,
@@ -209,10 +187,6 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => handleNavClick(e, link.href)}
-                                onKeyDown={(e) => handleKeyDown(e, link.href)}
-                                role="link"
-                                tabIndex={0}
-                                aria-label={`Navigate to ${link.name}`}
                                 style={{
                                     fontFamily: 'var(--font-heading)',
                                     fontSize: '2rem',

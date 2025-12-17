@@ -99,17 +99,36 @@ const Reserve = () => {
 };
 
 const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: { name: string, image: string, address: string, rid: string, isActive: boolean, onToggle: () => void, delay: number }) => {
-    // Basic script injection for OpenTable
+    // Basic script injection for OpenTable with security
     useEffect(() => {
         if (isActive && rid && rid !== '0') {
+            // Security: Sanitize RID to prevent XSS
+            const sanitizedRid = rid.replace(/[^a-zA-Z0-9-_]/g, '');
+
+            if (sanitizedRid !== rid) {
+                console.error('Invalid RID detected - potential security issue');
+                return;
+            }
+
             const script = document.createElement('script');
-            script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=${rid}&domain=uk&type=standard&theme=standard&lang=en-GB&overlay=false&iframe=true`;
+            script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=${encodeURIComponent(sanitizedRid)}&domain=uk&type=standard&theme=standard&lang=en-GB&overlay=false&iframe=true`;
             script.async = true;
+
+            // Security: Add integrity and crossorigin attributes
+            script.crossOrigin = 'anonymous';
+
             const container = document.getElementById(`ot-container-${name}`);
             if (container) {
                 container.innerHTML = ''; // Clear previous
                 container.appendChild(script);
             }
+
+            // Cleanup function
+            return () => {
+                if (container && script.parentNode === container) {
+                    container.removeChild(script);
+                }
+            };
         }
     }, [isActive, rid, name]);
 

@@ -6,8 +6,6 @@ import MenuSection from '../components/Sections/MenuSection';
 import GallerySection from '../components/Sections/GallerySection';
 import TestimonialsSection from '../components/Sections/TestimonialsSection';
 import LocationInfoSection from '../components/Sections/LocationInfoSection';
-import SEOHead from '../components/SEO/SEOHead';
-import RestaurantSchema from '../components/SEO/RestaurantSchema';
 
 // Import Images
 import heroFood from '../assets/images/hero_food.jpg';
@@ -57,18 +55,6 @@ const Location = () => {
 
     return (
         <>
-            <SEOHead
-                title={`Fatt Pundit ${displayLocation} | Indo-Chinese Restaurant London`}
-                description={data.description}
-                canonical={`https://fattpundit.com/${location}`}
-            />
-            <RestaurantSchema
-                name={displayLocation}
-                location={location as 'soho' | 'covent-garden'}
-                address={data.address}
-                phone={data.phone}
-                email={data.email}
-            />
             <Navbar />
             <Hero location={displayLocation} backgroundImage={data.heroImage} />
 
