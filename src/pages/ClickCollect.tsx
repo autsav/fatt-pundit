@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, X, Plus, Minus, ChevronRight } from 'lucide-react';
+import { HiShoppingBag } from 'react-icons/hi';
+import { IoClose, IoAdd, IoRemove, IoChevronForward } from 'react-icons/io5';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import { MENU_ITEMS, CATEGORIES } from '../data/menuData';
@@ -87,7 +88,7 @@ const ClickCollect = () => {
                                             }}
                                         >
                                             {cat}
-                                            {activeCategory === cat && <ChevronRight size={16} />}
+                                            {activeCategory === cat && <IoChevronForward size={16} />}
                                         </button>
                                     </li>
                                 ))}
@@ -172,7 +173,7 @@ const ClickCollect = () => {
                                             onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--color-accent)'}
                                             onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#121212'}
                                         >
-                                            <Plus size={18} />
+                                            <IoAdd size={18} />
                                         </button>
                                     </div>
                                 </motion.div>
@@ -202,7 +203,7 @@ const ClickCollect = () => {
                         cursor: 'pointer'
                     }}
                 >
-                    <ShoppingBag size={24} />
+                    <HiShoppingBag size={24} />
                     {itemCount > 0 && (
                         <span style={{
                             position: 'absolute',
@@ -262,13 +263,13 @@ const ClickCollect = () => {
                             >
                                 <div style={{ padding: '1.5rem', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', margin: 0 }}>YOUR ORDER</h2>
-                                    <button onClick={() => setIsCartOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X /></button>
+                                    <button onClick={() => setIsCartOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><IoClose /></button>
                                 </div>
 
                                 <div style={{ flex: 1, overflowY: 'auto', padding: '1.5rem' }}>
                                     {cartItems.length === 0 ? (
                                         <div style={{ textAlign: 'center', color: '#999', marginTop: '3rem' }}>
-                                            <ShoppingBag size={48} style={{ opacity: 0.2, marginBottom: '1rem' }} />
+                                            <HiShoppingBag size={48} style={{ opacity: 0.2, marginBottom: '1rem' }} />
                                             <p>Your cart is empty.</p>
                                         </div>
                                     ) : (
@@ -286,7 +287,7 @@ const ClickCollect = () => {
                                                                 width: '24px', height: '24px', borderRadius: '50%', border: 'none', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
                                                             }}
                                                         >
-                                                            <Minus size={14} />
+                                                            <IoRemove size={14} />
                                                         </button>
                                                         <span style={{ fontSize: '0.9rem', fontWeight: 600, minWidth: '15px', textAlign: 'center' }}>{item.quantity}</span>
                                                         <button
@@ -295,7 +296,7 @@ const ClickCollect = () => {
                                                                 width: '24px', height: '24px', borderRadius: '50%', border: 'none', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
                                                             }}
                                                         >
-                                                            <Plus size={14} />
+                                                            <IoAdd size={14} />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -328,7 +329,7 @@ const ClickCollect = () => {
                                         }}
                                         onClick={() => alert('Checkout functionality coming soon (Stripe integration)!')}
                                     >
-                                        CHECKOUT <ChevronRight size={18} />
+                                        CHECKOUT <IoChevronForward size={18} />
                                     </button>
                                 </div>
                             </motion.div>

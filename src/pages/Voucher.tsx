@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
-import { Gift } from 'lucide-react';
+import { FaGift } from 'react-icons/fa';
 
 const Vouchers = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +47,7 @@ const Vouchers = () => {
                                 }}
                                 whileHover={{ scale: 1.05, rotate: 2 }}
                             >
-                                <Gift size={48} />
+                                <FaGift size={48} />
                                 <span style={{ marginLeft: '1rem', fontWeight: 'bold', fontSize: '1.2rem' }}>OPEN ME</span>
                             </motion.div>
                         )}

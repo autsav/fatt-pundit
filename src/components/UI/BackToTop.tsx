@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { IoArrowUp } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const BackToTop = () => {
@@ -52,7 +52,7 @@ const BackToTop = () => {
                     }}
                     whileHover={{ scale: 1.1, backgroundColor: 'var(--color-accent-hover)' }}
                 >
-                    <ArrowUp size={24} />
+                    <IoArrowUp size={24} />
                 </motion.button>
             )}
         </AnimatePresence>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, X } from 'lucide-react';
+import { FaStar } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 
 const MOCK_REVIEWS = [
     { name: "Sarah J.", rating: 5, text: "Absolutely incredible food. The momos are to die for!", date: "2 days ago" },
@@ -19,7 +20,7 @@ const RenderStars = ({ size = 14, rating = 4.5 }: { size?: number, rating?: numb
                 return (
                     <div key={i} style={{ position: 'relative', width: size, height: size }}>
                         {/* Background Star (Gray for empty/half, Gold for full) */}
-                        <Star
+                        <FaStar
                             size={size}
                             fill={isFull ? "#FBBC05" : "#E8EAED"}
                             stroke="none"
@@ -37,7 +38,7 @@ const RenderStars = ({ size = 14, rating = 4.5 }: { size?: number, rating?: numb
                                 overflow: 'hidden',
                                 zIndex: 1
                             }}>
-                                <Star
+                                <FaStar
                                     size={size}
                                     fill="#FBBC05"
                                     stroke="none"
@@ -156,7 +157,7 @@ const GoogleReviewBadge = () => {
                                     onClick={() => setIsOpen(false)}
                                     style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '5px' }}
                                 >
-                                    <X size={20} color="#5f6368" />
+                                    <IoClose size={20} color="#5f6368" />
                                 </button>
                             </div>
 

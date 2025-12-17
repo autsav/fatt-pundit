@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, MapPin } from 'lucide-react';
+import { FaInstagram, FaFacebook, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
     // Map URLs
@@ -46,10 +46,10 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         <div style={{ marginBottom: '1.5rem' }}>
                             <strong style={{ display: 'block', color: activeLocation === 'soho' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>SOHO</strong>
                             <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Soho+77+Berwick+Street" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>
-                                <MapPin size={16} color="var(--color-accent)" /> 77 Berwick Street, W1F 8TH
+                                <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 77 Berwick Street, W1F 8TH
                             </a>
                             <a href="mailto:info@fattpundit.co.uk" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>
-                                <Mail size={16} color="var(--color-accent)" /> info@fattpundit.co.uk
+                                <FaEnvelope size={16} color="var(--color-accent)" /> info@fattpundit.co.uk
                             </a>
                         </div>
 
@@ -57,7 +57,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         <div style={{ marginBottom: '1.5rem' }}>
                             <strong style={{ display: 'block', color: activeLocation === 'covent-garden' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>COVENT GARDEN</strong>
                             <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Covent+Garden+6+Maiden+Lane" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>
-                                <MapPin size={16} color="var(--color-accent)" /> 6 Maiden Lane, WC2E 7NA
+                                <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 6 Maiden Lane, WC2E 7NA
                             </a>
                         </div>
                     </div>
@@ -117,8 +117,8 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                 }}>
                     <p style={{ fontSize: '0.875rem', opacity: 0.6 }}>&copy; {new Date().getFullYear()} Fatt Pundit. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
-                        <a href="https://www.instagram.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><Instagram size={20} /></a>
-                        <a href="https://www.facebook.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><Facebook size={20} /></a>
+                        <a href="https://www.instagram.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><FaInstagram size={20} /></a>
+                        <a href="https://www.facebook.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><FaFacebook size={20} /></a>
                     </div>
                 </div>
             </div>

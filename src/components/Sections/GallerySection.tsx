@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { IoClose } from 'react-icons/io5';
 
 // Import images
 import img1 from '../../assets/images/1.jpg';
@@ -151,7 +151,7 @@ const GallerySection = () => {
                                     cursor: 'pointer'
                                 }}
                             >
-                                <X size={32} />
+                                <IoClose size={32} />
                             </button>
                             <img
                                 src={selectedImage}

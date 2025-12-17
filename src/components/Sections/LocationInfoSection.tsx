@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 
 interface LocationInfoProps {
     address: string;
@@ -53,7 +53,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                                <MapPin color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
+                                <FaMapMarkerAlt color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
                                 <div>
                                     <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>ADDRESS</h4>
                                     <a
@@ -70,7 +70,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                             </div>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <Mail color="var(--color-accent)" size={24} />
+                                <FaEnvelope color="var(--color-accent)" size={24} />
                                 <div>
                                     <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>EMAIL</h4>
                                     <a href={`mailto:${email}`} style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.3s' }}>
@@ -81,7 +81,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
 
                             {phone && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <Phone color="var(--color-accent)" size={24} />
+                                    <FaPhone color="var(--color-accent)" size={24} />
                                     <div>
                                         <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>PHONE</h4>
                                         <a href={`tel:${phone}`} style={{ color: '#aaa', textDecoration: 'none' }}>{phone}</a>
@@ -90,7 +90,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                             )}
 
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                                <Clock color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
+                                <FaClock color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
                                 <div>
                                     <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>OPENING HOURS</h4>
                                     <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.9rem' }}>

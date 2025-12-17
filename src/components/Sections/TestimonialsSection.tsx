@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { FaStar, FaQuoteLeft } from 'react-icons/fa';
 
 const TESTIMONIALS = [
     {
@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
                 opacity: 0.03,
                 pointerEvents: 'none'
             }}>
-                <Quote size={400} />
+                <FaQuoteLeft size={400} />
             </div>
 
             <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', marginBottom: '4rem', textAlign: 'center' }}>
@@ -113,7 +113,7 @@ const TestimonialsSection = () => {
                         >
                             <div style={{ display: 'flex', gap: '5px', marginBottom: '1rem', color: '#FFD700' }}>
                                 {[...Array(5)].map((_, i) => (
-                                    <Star
+                                    <FaStar
                                         key={i}
                                         size={16}
                                         fill={i < item.rating ? "#FFD700" : "none"}

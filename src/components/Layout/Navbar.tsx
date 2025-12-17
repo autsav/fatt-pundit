@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -155,7 +155,7 @@ const Navbar = () => {
                         style={{ display: 'none', color: '#121212' }} // Dark icon
                         className="mobile-toggle"
                     >
-                        {isMobileMenuOpen ? <X /> : <Menu />}
+                        {isMobileMenuOpen ? <HiX /> : <HiMenu />}
                     </button>
                 </div>
             </motion.nav>

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { IoArrowForward } from 'react-icons/io5';
 import heroInterior from '../assets/images/hero_interior.jpg';
 import wallshow from '../assets/images/wallshow.jpg';
 
@@ -157,7 +158,7 @@ const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: 
             <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-accent)' }}>{name}</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: '#ccc' }}>
-                    <MapPin size={18} color="var(--color-accent)" />
+                    <FaMapMarkerAlt size={18} color="var(--color-accent)" />
                     <span style={{ fontSize: '0.95rem' }}>{address}</span>
                 </div>
 
@@ -180,7 +181,7 @@ const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: 
                             boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
                         }}
                     >
-                        BOOK A TABLE <ArrowRight size={18} />
+                        BOOK A TABLE <IoArrowForward size={18} />
                     </button>
                 ) : (
                     <div

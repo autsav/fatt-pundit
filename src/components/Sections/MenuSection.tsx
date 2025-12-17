@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronRight, Eye, X, Leaf } from 'lucide-react';
+import { IoChevronForward, IoEye, IoClose, IoLeaf } from 'react-icons/io5';
 
 // Import images
 import momo from '../../assets/images/momo.jpg';
@@ -819,7 +819,7 @@ const MenuSection = () => {
                                     color: '#000'
                                 }}
                             >
-                                <X size={24} />
+                                <IoClose size={24} />
                             </button>
                         </motion.div>
                     </motion.div>
@@ -868,7 +868,7 @@ const MenuSection = () => {
                                     transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
                                 }}
                             >
-                                <Leaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
+                                <IoLeaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
                                 <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
                             </button>
                         </div>
@@ -902,7 +902,7 @@ const MenuSection = () => {
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                         >
-                                            <ChevronRight size={18} />
+                                            <IoChevronForward size={18} />
                                         </motion.div>
                                     )}
                                 </button>
@@ -1010,7 +1010,7 @@ const MenuSection = () => {
                                                                     }}
                                                                     title="View Dish"
                                                                 >
-                                                                    <Eye size={18} color="var(--color-accent)" />
+                                                                    <IoEye size={18} color="var(--color-accent)" />
                                                                 </button>
                                                             )}
                                                         </h5>
