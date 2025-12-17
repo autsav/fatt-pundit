@@ -7,6 +7,7 @@ import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import { MENU_ITEMS, CATEGORIES } from '../data/menuData';
 import { useCart } from '../context/CartContext';
+import menuBgTiger from '../assets/images/menu_bg_tiger.png';
 
 const ClickCollect = () => {
     const { location } = useParams();
@@ -47,7 +48,7 @@ const ClickCollect = () => {
                     color: '#fff',
                     padding: '4rem 2rem',
                     textAlign: 'center',
-                    backgroundImage: 'url(/src/assets/images/menu_bg_tiger.png)',
+                    backgroundImage: `url(${menuBgTiger})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     position: 'relative'
