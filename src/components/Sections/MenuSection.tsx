@@ -1000,7 +1000,8 @@ const MenuSection = () => {
                                             gap: '1rem',
                                             marginBottom: '1.5rem',
                                             borderBottom: '1px solid rgba(255,255,255,0.1)',
-                                            paddingBottom: '0.5rem'
+                                            paddingBottom: '0.5rem',
+                                            flexWrap: 'wrap' // Allow wrapping on small screens
                                         }}>
                                             <h4 style={{
                                                 fontFamily: 'var(--font-heading)',
@@ -1016,7 +1017,7 @@ const MenuSection = () => {
                                             )}
                                         </div>
 
-                                        <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+                                        <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
                                             {filteredItems.map((item, idx) => (
                                                 <div
                                                     key={idx}
@@ -1031,7 +1032,10 @@ const MenuSection = () => {
                                                             letterSpacing: '0.5px',
                                                             display: 'flex',
                                                             alignItems: 'center',
-                                                            gap: '0.5rem'
+                                                            gap: '0.5rem',
+                                                            flex: 1, // Ensure it takes available space
+                                                            paddingRight: '1rem', // Add spacing between name and price
+                                                            overflow: 'hidden', // Handle text overflow
                                                         }}>
                                                             {item.name}
                                                             {item.image && (
@@ -1046,7 +1050,8 @@ const MenuSection = () => {
                                                                         cursor: 'pointer',
                                                                         padding: 0,
                                                                         display: 'flex',
-                                                                        alignItems: 'center'
+                                                                        alignItems: 'center',
+                                                                        flexShrink: 0
                                                                     }}
                                                                     title="View Dish"
                                                                 >
@@ -1058,7 +1063,9 @@ const MenuSection = () => {
                                                             <span style={{
                                                                 color: 'var(--color-accent)',
                                                                 fontWeight: 'bold',
-                                                                fontFamily: 'var(--font-mono)'
+                                                                fontFamily: 'var(--font-mono)',
+                                                                flexShrink: 0, // Prevent price from being squashed
+                                                                whiteSpace: 'nowrap'
                                                             }}>
                                                                 £{item.price}
                                                             </span>
