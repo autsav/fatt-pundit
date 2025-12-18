@@ -11,9 +11,11 @@ import PageLoader from './components/UI/PageLoader';
 const Home = lazy(() => import('./pages/Home'));
 const Location = lazy(() => import('./pages/Location'));
 const Reserve = lazy(() => import('./pages/Reserve'));
-const Vouchers = lazy(() => import('./pages/Voucher'));
 const ClickCollect = lazy(() => import('./pages/ClickCollect'));
 const About = lazy(() => import('./pages/About'));
+const Vouchers = lazy(() => import('./pages/Voucher'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
 
 const router = createBrowserRouter([
   {
@@ -60,9 +62,11 @@ const router = createBrowserRouter([
               { path: "reserve", element: <Reserve /> },
               { path: "vouchers", element: <Vouchers /> },
               { path: "click-and-collect", element: <ClickCollect /> },
-              { path: "about", element: <About /> }
+              { path: "about", element: <About /> },
+              { path: "*", element: <NotFound /> }
             ]
-          }
+          },
+          { path: "*", element: <NotFound /> }
         ]
       }
     ]

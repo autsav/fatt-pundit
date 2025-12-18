@@ -1,62 +1,79 @@
 import { motion } from 'framer-motion';
-// Using the red logo as it's likely the primary brand text logo
-import logo from '../../assets/logos/fatt_pundit_red_logo.png';
+import aboutStamp from '../../assets/images/about_stamp.png';
 
 const AboutSection = () => {
     return (
         <section style={{
             padding: '6rem 2rem',
-            backgroundColor: '#121212', // Dark background matching site theme
+            backgroundColor: '#121212',
             color: '#fff',
-            textAlign: 'center',
             position: 'relative',
-            zIndex: 10
+            zIndex: 10,
+            overflow: 'hidden'
         }}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                {/* Visual Anchor - Logo */}
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                display: 'flex',
+                flexDirection: 'row', // Force row on desktop by default, will need generic responsive check or use window width
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4rem'
+            }}>
+                {/* Image Section (Beside) - First in markup, or visual order */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    style={{ marginBottom: '3rem' }}
+                    style={{
+                        flex: '1 1 400px',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}
                 >
                     <img
-                        src={logo}
-                        alt="Fatt Pundit Logo"
+                        src={aboutStamp}
+                        alt="Fatt Pundit Stamp"
                         style={{
-                            width: '250px',
+                            width: '100%',
+                            maxWidth: '400px',
                             height: 'auto',
-                            maxWidth: '100%',
-                            display: 'block',
-                            margin: '0 auto'
+                            objectFit: 'contain',
+                            filter: 'contrast(1.1) brightness(1.1)' // Enhance formatting
                         }}
                     />
                 </motion.div>
 
                 {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
+                    style={{
+                        flex: '1 1 500px',
+                        textAlign: 'left'
+                    }}
                 >
                     <h2 style={{
-                        color: 'var(--color-accent)', // Consistent brand color
+                        color: 'var(--color-accent)',
                         fontFamily: 'inherit',
-                        fontSize: '2rem',
-                        letterSpacing: '0.1em',
+                        fontSize: '3rem', // Larger title
+                        letterSpacing: '0.05em',
                         textTransform: 'uppercase',
-                        marginBottom: '2rem',
-                        fontWeight: 'bold'
+                        marginBottom: '1.5rem',
+                        fontWeight: 'bold',
+                        lineHeight: 1.1
                     }}>
-                        About Fatt Pundit
+                        About <br /> Fatt Pundit
                     </h2>
 
                     <p style={{
-                        fontSize: '1.125rem',
+                        fontSize: '1.1rem',
                         lineHeight: '1.8',
-                        color: '#e0e0e0',
+                        color: '#cccccc',
                         marginBottom: '1.5rem',
                         fontFamily: 'sans-serif'
                     }}>
@@ -64,9 +81,9 @@ const AboutSection = () => {
                     </p>
 
                     <p style={{
-                        fontSize: '1.125rem',
+                        fontSize: '1.1rem',
                         lineHeight: '1.8',
-                        color: '#e0e0e0',
+                        color: '#cccccc',
                         fontFamily: 'sans-serif'
                     }}>
                         Playfully named Fatt Pundit it’s a combination of the common Chinese surname ‘Fatt’ with the Indian word ‘Pundit’ (a scholar).

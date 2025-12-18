@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import sohoStorefront from '../../assets/images/soho_storefront.jpg'; // Soho vibe
 import coventStorefront from '../../assets/images/covent_garden_storefront.png'; // Covent Garden vibe
 import tigerStamp from '../../assets/logos/tiger_stamp.png';
+import '../../styles/components/LocationSplit.css';
 
 const FloatingParticles = () => {
     const [mounted, setMounted] = useState(false);
@@ -69,26 +70,12 @@ const LocationDuel = () => {
     const transitionConfig = { type: 'spring' as const, stiffness: 150, damping: 22, mass: 1.2 };
 
     return (
-        <section style={{
-            position: 'relative',
-            height: '100vh',
-            width: '100%',
-            display: 'flex',
-            overflow: 'hidden',
-            flexDirection: isMobile ? 'column' : 'row',
-            backgroundColor: '#000'
-        }}>
-
+        <section className="split-container">
             {/* SOHO SIDE */}
             <motion.div
-                className="relative h-full bg-charcoal"
+                className={`split-panel soho-panel ${activeSide === 'soho' ? 'active' : ''}`}
                 style={{
-                    position: 'relative',
-                    cursor: 'pointer',
-                    overflow: 'hidden',
-                    zIndex: activeSide === 'soho' ? 20 : 10, // Bring to front if needed
-                    borderRight: !isMobile ? '2px solid #d4af37' : 'none', // Brass divider line
-                    borderBottom: isMobile ? '2px solid #d4af37' : 'none'
+                    zIndex: activeSide === 'soho' ? 20 : 10,
                 }}
                 animate={isMobile ? {
                     height: activeSide === 'covent' ? '35%' : activeSide === 'soho' ? '65%' : '50%',
@@ -142,27 +129,17 @@ const LocationDuel = () => {
                     {/* Floating Embers/Spices */}
                     <FloatingParticles />
 
-                    {/* Dark Overlay Element (optional, if needed separately but we have filter above) */}
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', zIndex: 10 }}></div>
+                    {/* Dark Overlay Element */}
+                    <div className="dark-overlay"></div>
                     {/* Text Overlay */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        textAlign: 'center',
-                        width: '100%',
-                        zIndex: 30
-                    }}>
-                        <h2 style={{
-                            fontFamily: "inherit",
-                            fontWeight: 'bold',
-                            fontSize: isMobile ? '2.5rem' : '5vw',
-                            color: activeSide === 'soho' ? 'var(--color-accent)' : 'white',
-                            textShadow: activeSide === 'soho' ? '0 0 20px rgba(0,0,0,0.5)' : 'none',
-                            transition: 'color 0.5s',
-                            margin: 0
-                        }}>SOHO</h2>
+                    <div className="text-overlay">
+                        <h2
+                            className="location-title"
+                            style={{
+                                color: activeSide === 'soho' ? 'var(--color-accent)' : 'white',
+                                textShadow: activeSide === 'soho' ? '0 0 20px rgba(0,0,0,0.5)' : 'none',
+                            }}
+                        >SOHO</h2>
 
                         <AnimatePresence>
                             {activeSide === 'soho' && (
@@ -172,15 +149,11 @@ const LocationDuel = () => {
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    <p style={{
-                                        color: '#ddd',
-                                        marginTop: '1rem',
-                                        fontFamily: 'sans-serif',
-                                        letterSpacing: '0.2em',
-                                        fontSize: '0.9rem',
-                                        textTransform: 'uppercase'
-                                    }}>
+                                    <p className="motto-text" style={{ color: '#ddd' }}>
                                         FROM GUANGDONG TO CALCUTTA
+                                    </p>
+                                    <p className="address-text" style={{ color: '#bbb' }}>
+                                        77 Berwick Street, Soho
                                     </p>
                                     {isMobile && <button style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: 'white', color: 'black', border: 'none', borderRadius: '4px' }}>ENTER</button>}
                                 </motion.div>
@@ -192,17 +165,9 @@ const LocationDuel = () => {
 
             {/* CENTER LOGO */}
             <motion.div
+                className="center-logo"
                 style={{
-                    position: 'absolute',
-                    zIndex: 50,
-                    pointerEvents: 'none',
-                    backgroundColor: '#F5F5F3', // Off-white/Paper background
-                    borderRadius: '50%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                    width: isMobile ? '80px' : '120px', // Fixed width for container to ensure perfect circle
+                    width: isMobile ? '80px' : '120px',
                     height: isMobile ? '80px' : '120px',
                 }}
                 initial={{ x: "-50%", y: "-50%" }}
@@ -230,11 +195,8 @@ const LocationDuel = () => {
 
             {/* COVENT GARDEN SIDE */}
             <motion.div
-                className="relative h-full"
+                className={`split-panel covent-panel ${activeSide === 'covent' ? 'active' : ''}`}
                 style={{
-                    position: 'relative',
-                    cursor: 'pointer',
-                    overflow: 'hidden',
                     zIndex: activeSide === 'covent' ? 20 : 10
                 }}
                 animate={isMobile ? {
@@ -312,15 +274,11 @@ const LocationDuel = () => {
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    <p style={{
-                                        color: '#f0e68c',
-                                        marginTop: '1rem',
-                                        fontFamily: 'sans-serif',
-                                        letterSpacing: '0.2em',
-                                        fontSize: '0.9rem',
-                                        textTransform: 'uppercase'
-                                    }}>
+                                    <p className="motto-text" style={{ color: '#f0e68c' }}>
                                         FROM GUANGDONG TO CALCUTTA
+                                    </p>
+                                    <p className="address-text" style={{ color: '#e0d68a' }}>
+                                        6 Maiden Lane, Covent Garden
                                     </p>
                                     {isMobile && <button style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: '#d4af37', color: 'black', border: 'none', borderRadius: '4px' }}>ENTER</button>}
                                 </motion.div>

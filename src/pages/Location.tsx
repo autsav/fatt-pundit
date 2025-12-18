@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 import Hero from '../components/Sections/Hero';
 import MenuSection from '../components/Sections/MenuSection';
@@ -54,6 +55,10 @@ const Location = () => {
 
     return (
         <>
+            <SEO
+                title={`Fatt Pundit ${displayLocation} | Indo Chinese Restaurant London`}
+                description={data.description}
+            />
             <Hero location={displayLocation} backgroundImage={data.heroImage} />
 
             <LocationInfoSection

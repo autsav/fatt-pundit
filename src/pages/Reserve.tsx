@@ -7,9 +7,9 @@ import { IoArrowForward } from 'react-icons/io5';
 import heroInterior from '../assets/images/hero_interior.jpg';
 import wallshow from '../assets/images/wallshow.jpg';
 
-// OpenTable RIDs - REPLACE THESE WITH ACTUAL IDs
-const SOHO_RID = '0'; // Placeholder
-const COVENT_GARDEN_RID = '0'; // Placeholder
+// OpenTable URLs
+const SOHO_URL = 'https://www.opentable.co.uk/r/fatt-pundit-london';
+const COVENT_GARDEN_URL = 'https://www.opentable.co.uk/r/fatt-pundit-covent-garden-london';
 
 const Reserve = () => {
     const { location } = useParams();
@@ -66,9 +66,7 @@ const Reserve = () => {
                                 name="SOHO"
                                 image={heroInterior}
                                 address="77 Berwick Street, Soho, London W1F 8TH"
-                                rid={SOHO_RID}
-                                isActive={activeWidget === 'soho'}
-                                onToggle={() => setActiveWidget(activeWidget === 'soho' ? null : 'soho')}
+                                bookingUrl={SOHO_URL}
                                 delay={0.2}
                             />
                         )}
@@ -79,9 +77,7 @@ const Reserve = () => {
                                 name="COVENT GARDEN"
                                 image={wallshow}
                                 address="6 Maiden Lane, Covent Garden, London WC2E 7NA"
-                                rid={COVENT_GARDEN_RID}
-                                isActive={activeWidget === 'covent'}
-                                onToggle={() => setActiveWidget(activeWidget === 'covent' ? null : 'covent')}
+                                bookingUrl={COVENT_GARDEN_URL}
                                 delay={0.4}
                             />
                         )}
@@ -96,40 +92,7 @@ const Reserve = () => {
     );
 };
 
-const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: { name: string, image: string, address: string, rid: string, isActive: boolean, onToggle: () => void, delay: number }) => {
-    // Basic script injection for OpenTable with security
-    useEffect(() => {
-        if (isActive && rid && rid !== '0') {
-            // Security: Sanitize RID to prevent XSS
-            const sanitizedRid = rid.replace(/[^a-zA-Z0-9-_]/g, '');
-
-            if (sanitizedRid !== rid) {
-                console.error('Invalid RID detected - potential security issue');
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = `https://www.opentable.co.uk/widget/reservation/loader?rid=${encodeURIComponent(sanitizedRid)}&domain=uk&type=standard&theme=standard&lang=en-GB&overlay=false&iframe=true`;
-            script.async = true;
-
-            // Security: Add integrity and crossorigin attributes
-            script.crossOrigin = 'anonymous';
-
-            const container = document.getElementById(`ot-container-${name}`);
-            if (container) {
-                container.innerHTML = ''; // Clear previous
-                container.appendChild(script);
-            }
-
-            // Cleanup function
-            return () => {
-                if (container && script.parentNode === container) {
-                    container.removeChild(script);
-                }
-            };
-        }
-    }, [isActive, rid, name]);
-
+const LocationCard = ({ name, image, address, bookingUrl, delay }: { name: string, image: string, address: string, bookingUrl: string, delay: number }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -159,36 +122,27 @@ const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: 
                     <span style={{ fontSize: '0.95rem' }}>{address}</span>
                 </div>
 
-                {!isActive ? (
-                    <button
-                        onClick={onToggle}
-                        style={{
-                            marginTop: 'auto',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            padding: '1rem 2rem',
-                            backgroundColor: 'var(--color-accent)',
-                            color: 'black',
-                            fontWeight: 'bold',
-                            borderRadius: '50px',
-                            border: 'none',
-                            cursor: 'pointer',
-                            transition: 'transform 0.2s',
-                            boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
-                        }}
-                    >
-                        BOOK A TABLE <IoArrowForward size={18} />
-                    </button>
-                ) : (
-                    <div
-                        id={`ot-container-${name}`}
-                        style={{ width: '100%', minHeight: '400px', border: '1px solid #333', borderRadius: '8px', overflow: 'hidden', background: '#fff' }}
-                    >
-                        {/* Script will be injected here */}
-                        {(rid === '0' || !rid) && <p style={{ color: 'red', marginTop: '2rem' }}>Error: Restaurant ID (RID) missing.</p>}
-                    </div>
-                )}
+                <a
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                        marginTop: 'auto',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '1rem 2rem',
+                        backgroundColor: 'var(--color-accent)',
+                        color: 'black',
+                        fontWeight: 'bold',
+                        borderRadius: '50px',
+                        textDecoration: 'none',
+                        transition: 'transform 0.2s',
+                        boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
+                    }}
+                >
+                    BOOK ON OPENTABLE <IoArrowForward size={18} />
+                </a>
             </div>
         </motion.div>
     );
