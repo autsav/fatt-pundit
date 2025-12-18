@@ -17,12 +17,14 @@ const Navbar = () => {
 
     // Dynamic Navigation Links
     const navLinks = contextPrefix ? [
+        { name: 'About', href: `${contextPrefix}/about` },
         { name: 'Menu', href: '#menu' },
         { name: 'Gallery', href: '#gallery' },
         { name: 'Reserve', href: `${contextPrefix}/reserve` },
         { name: 'Vouchers', href: `${contextPrefix}/vouchers` },
         { name: 'Click & Collect', href: `${contextPrefix}/click-and-collect` },
     ] : [
+        { name: 'About', href: '/about' },
         { name: 'Vouchers', href: '/vouchers' },
         { name: 'Reserve', href: '/reserve' },
         { name: 'Click & Collect', href: '/click-and-collect' },

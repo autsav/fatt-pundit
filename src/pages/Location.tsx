@@ -65,7 +65,7 @@ const Location = () => {
                 description={data.description}
             />
 
-            <MenuSection />
+            <MenuSection location={location} />
             <GallerySection />
             <TestimonialsSection />
         </>

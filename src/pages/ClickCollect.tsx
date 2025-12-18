@@ -60,7 +60,7 @@ const ClickCollect = () => {
                 <div className="container" style={{ display: 'flex', gap: '2rem', padding: '2rem 1rem', maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
 
                     {/* Sidebar Navigation */}
-                    <div style={{ width: '250px', flexShrink: 0, display: window.innerWidth > 900 ? 'block' : 'none' }}>
+                    <div className="sidebar" style={{ width: '250px', flexShrink: 0 }}>
                         <div style={{ position: 'sticky', top: '100px' }}>
                             <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', fontSize: '1.5rem' }}>CATEGORIES</h3>
                             <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -119,6 +119,31 @@ const ClickCollect = () => {
 
                     {/* Main Menu Grid */}
                     <div style={{ flex: 1 }} id="menu">
+                        {/* Mobile Category Nav (Visible likely < 900px) */}
+                        <div className="mobile-nav" style={{ marginBottom: '1.5rem', overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '0.5rem' }}>
+                            <div style={{ display: 'inline-flex', gap: '0.8rem' }}>
+                                {CATEGORIES.map(cat => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => activeCategory !== cat && setActiveCategory(cat)}
+                                        style={{
+                                            padding: '0.6rem 1.2rem',
+                                            borderRadius: '20px',
+                                            border: 'none',
+                                            backgroundColor: activeCategory === cat ? 'var(--color-accent)' : '#fff',
+                                            color: activeCategory === cat ? '#fff' : '#333',
+                                            fontSize: '0.9rem',
+                                            fontWeight: 600,
+                                            boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: '#121212' }}>{activeCategory}</h2>
                             {selectedDiet && <span style={{ padding: '0.5rem 1rem', background: '#eee', borderRadius: '20px', fontSize: '0.85rem' }}>Filtered by: {selectedDiet}</span>}
@@ -339,4 +364,20 @@ const ClickCollect = () => {
     );
 };
 
+const styles = `
+  @media (min-width: 901px) {
+    .mobile-nav { display: none !important; }
+    .sidebar { display: block !important; }
+  }
+  @media (max-width: 900px) {
+    .mobile-nav { display: block !important; }
+    .sidebar { display: none !important; }
+  }
+`;
+
 export default ClickCollect;
+
+// Inject Styles
+const styleSheet = document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);

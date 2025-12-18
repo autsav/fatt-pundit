@@ -13,6 +13,7 @@ const Location = lazy(() => import('./pages/Location'));
 const Reserve = lazy(() => import('./pages/Reserve'));
 const Vouchers = lazy(() => import('./pages/Voucher'));
 const ClickCollect = lazy(() => import('./pages/ClickCollect'));
+const About = lazy(() => import('./pages/About'));
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
           { path: "reserve", element: <Reserve /> },
           { path: "vouchers", element: <Vouchers /> },
           { path: "click-and-collect", element: <ClickCollect /> },
+          { path: "about", element: <About /> },
 
           // Location Routes with Strict Validation & Canonicalization
           {
@@ -57,7 +59,8 @@ const router = createBrowserRouter([
               { index: true, element: <Location /> },
               { path: "reserve", element: <Reserve /> },
               { path: "vouchers", element: <Vouchers /> },
-              { path: "click-and-collect", element: <ClickCollect /> }
+              { path: "click-and-collect", element: <ClickCollect /> },
+              { path: "about", element: <About /> }
             ]
           }
         ]
