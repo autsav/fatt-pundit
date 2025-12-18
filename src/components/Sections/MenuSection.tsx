@@ -783,6 +783,20 @@ const MenuSection = () => {
                 .menu-item-card:hover {
                     background-color: rgba(255,255,255,0.05);
                 }
+                /* Mobile Grid Fix */
+                @media (max-width: 768px) {
+                    .menu-category-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .menu-content h3 {
+                        font-size: 2rem !important;
+                        margin-top: 1rem;
+                    }
+                    /* Ensure content clears sticky header */
+                    .menu-content {
+                        scroll-margin-top: 140px; 
+                    }
+                }
             `}</style>
 
 
@@ -999,7 +1013,7 @@ const MenuSection = () => {
                                             )}
                                         </div>
 
-                                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+                                        <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
                                             {filteredItems.map((item, idx) => (
                                                 <div
                                                     key={idx}
