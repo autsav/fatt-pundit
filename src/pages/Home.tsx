@@ -230,7 +230,6 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }} /* Adjusted delay */
                 style={{
-                    fontSize: '3rem',
                     marginBottom: '1rem',
                     color: 'var(--color-accent)',
                     fontFamily: 'var(--font-heading)'
@@ -242,7 +241,7 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.0, duration: 0.8 }} /* Adjusted delay */
-                style={{ fontSize: '1.2rem', marginBottom: '2rem', color: '#121212', fontFamily: 'var(--font-body)' }}
+                style={{ marginBottom: '2rem', color: '#121212', fontFamily: 'var(--font-body)' }}
             >
                 Where Chinese Craftsmanship Meets Indian Spices
             </motion.p>

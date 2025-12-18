@@ -46,7 +46,7 @@ const Reserve = () => {
                         transition={{ duration: 0.6 }}
                         style={{ textAlign: 'center', marginBottom: '4rem' }}
                     >
-                        <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--color-text-primary)' }}>
+                        <h1 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--color-text-primary)' }}>
                             {location ? `${location.replace(/-/g, ' ').toUpperCase()} RESERVATION` : 'RESERVE A TABLE'}
                         </h1>
                         <p style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
@@ -56,7 +56,7 @@ const Reserve = () => {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: location ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                        gridTemplateColumns: location ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
                         gap: '3rem',
                         justifyContent: 'center',
                         maxWidth: location ? '600px' : '1000px',
@@ -156,7 +156,7 @@ const LocationCard = ({ name, image, address, rid, isActive, onToggle, delay }: 
                 />
             </div>
             <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-accent)' }}>{name}</h3>
+                <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--color-accent)' }}>{name}</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: '#ccc' }}>
                     <FaMapMarkerAlt size={18} color="var(--color-accent)" />
                     <span style={{ fontSize: '0.95rem' }}>{address}</span>

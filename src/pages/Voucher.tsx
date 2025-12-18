@@ -21,7 +21,7 @@ const Vouchers = () => {
             }}>
 
                 <div className="container" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Give the Gift of Flavour</h1>
+                    <h1 style={{ marginBottom: '1rem' }}>Give the Gift of Flavour</h1>
                     <p style={{ color: 'var(--color-text-secondary)' }}>Perfect for any occasion.</p>
                 </div>
 

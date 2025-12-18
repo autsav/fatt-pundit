@@ -174,6 +174,10 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                         grid-template-columns: 1fr !important;
                         gap: 3rem !important;
                     }
+                    /* Target image container */
+                    .container > div > div:last-child > div {
+                        height: 300px !important;
+                    }
                 }
             `}</style>
         </section>

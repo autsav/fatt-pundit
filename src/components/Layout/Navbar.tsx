@@ -153,7 +153,7 @@ const Navbar = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        style={{ display: 'none', color: '#121212' }} // Dark icon
+                        style={{ display: 'none', color: isScrolled ? '#121212' : '#fff' }}
                         className="mobile-toggle"
                     >
                         {isMobileMenuOpen ? <HiX /> : <HiMenu />}
@@ -174,7 +174,8 @@ const Navbar = () => {
                             left: 0,
                             right: 0,
                             bottom: 0,
-                            backgroundColor: '#FFFFFF', // White background
+                            backgroundColor: 'var(--color-bg-primary)',
+                            backgroundImage: 'url("https://www.fattpundit.co.uk/wp-content/uploads/2021/04/texture.jpg")', // Subtle texture match
                             zIndex: 40,
                             display: 'flex',
                             flexDirection: 'column',
@@ -191,7 +192,7 @@ const Navbar = () => {
                                 style={{
                                     fontFamily: 'var(--font-heading)',
                                     fontSize: '2rem',
-                                    color: '#121212', // Dark text
+                                    color: 'var(--color-text-primary)',
                                     textDecoration: 'none'
                                 }}
                             >

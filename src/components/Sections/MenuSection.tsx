@@ -741,10 +741,28 @@ const MenuSection = () => {
                         border-bottom: 1px solid rgba(255,255,255,0.1);
                         padding-right: 0;
                         padding-bottom: 2rem;
+                    }
+                    /* Horizontal scroll for menu items on mobile */
+                    .menu-nav-items {
+                        flex-direction: row !important;
                         overflow-x: auto;
-                        display: flex;
-                        gap: 2rem;
-                        align-items: center;
+                        gap: 1.5rem !important;
+                        padding-bottom: 0.5rem;
+                        -webkit-overflow-scrolling: touch;
+                    }
+                    .menu-nav-items button {
+                        white-space: nowrap;
+                        background: rgba(255,255,255,0.05) !important;
+                        padding: 0.5rem 1rem !important;
+                        border-radius: 20px;
+                        border: 1px solid rgba(255,255,255,0.1) !important;
+                    }
+                    .menu-nav-items::-webkit-scrollbar {
+                        height: 4px;
+                    }
+                    .menu-nav-items::-webkit-scrollbar-thumb {
+                        background: var(--color-accent);
+                        border-radius: 4px;
                     }
                     /* Hide scrollbar on mobile */
                     .menu-sidebar::-webkit-scrollbar {
@@ -844,7 +862,7 @@ const MenuSection = () => {
                         </h2>
 
                         {/* Quick Vegetarian Filter - Prominent */}
-                        <div style={{ marginBottom: '2rem' }}>
+                        <div className="menu-filter" style={{ marginBottom: '2rem' }}>
                             <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Quick Filter</p>
                             <button
                                 onClick={() => setIsVegFilter(!isVegFilter)}
@@ -874,7 +892,7 @@ const MenuSection = () => {
                         </div>
 
                         {/* Navigation Items */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {MENU_TYPES.map((menu) => (
                                 <button
                                     key={menu}
