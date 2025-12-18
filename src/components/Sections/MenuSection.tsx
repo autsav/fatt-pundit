@@ -754,12 +754,13 @@ const MenuSection = () => {
                         flex-direction: row !important;
                         overflow-x: auto;
                         gap: 1rem !important;
-                        padding: 0.5rem 0.2rem;
+                        padding: 0.5rem 4px; /* Slight padding to avoid cutoff */
                         -webkit-overflow-scrolling: touch;
                         scrollbar-width: none; /* Firefox */
                         -ms-overflow-style: none; /* IE/Edge */
                         width: 100%;
                         white-space: nowrap;
+                        max-width: 100vw;
                     }
                     .menu-nav-items::-webkit-scrollbar {
                         display: none; /* Chrome/Safari/Webkit */
@@ -899,6 +900,8 @@ const MenuSection = () => {
                                     fontSize: '1rem',
                                     fontWeight: 700,
                                     width: '100%',
+                                    maxWidth: '100%',
+                                    boxSizing: 'border-box',
                                     justifyContent: 'center',
                                     transition: 'all 0.3s ease',
                                     boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
