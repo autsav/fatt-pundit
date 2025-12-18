@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiShoppingBag } from 'react-icons/hi';
 import { IoClose, IoAdd, IoRemove, IoChevronForward } from 'react-icons/io5';
-import Navbar from '../components/Layout/Navbar';
-import Footer from '../components/Layout/Footer';
 import { MENU_ITEMS, CATEGORIES } from '../data/menuData';
 import { useCart } from '../context/CartContext';
 import menuBgTiger from '../assets/images/menu_bg_tiger.png';
@@ -39,7 +37,6 @@ const ClickCollect = () => {
 
     return (
         <>
-            <Navbar />
             <div style={{ paddingTop: '5rem', minHeight: '100vh', backgroundColor: '#F9F9F9' }}>
 
                 {/* Hero Banner */}
@@ -338,7 +335,6 @@ const ClickCollect = () => {
                     )}
                 </AnimatePresence>
             </div>
-            <Footer activeLocation="soho" />
         </>
     );
 };

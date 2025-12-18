@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
-import Navbar from '../components/Layout/Navbar';
-import Footer from '../components/Layout/Footer';
+
 import Hero from '../components/Sections/Hero';
 import MenuSection from '../components/Sections/MenuSection';
 import GallerySection from '../components/Sections/GallerySection';
@@ -55,7 +54,6 @@ const Location = () => {
 
     return (
         <>
-            <Navbar />
             <Hero location={displayLocation} backgroundImage={data.heroImage} />
 
             <LocationInfoSection
@@ -70,7 +68,6 @@ const Location = () => {
             <MenuSection />
             <GallerySection />
             <TestimonialsSection />
-            <Footer activeLocation={location} />
         </>
     );
 };

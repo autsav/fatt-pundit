@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from '../components/Layout/Navbar';
-import Footer from '../components/Layout/Footer';
+
 import { FaGift } from 'react-icons/fa';
 
 const Vouchers = () => {
@@ -9,7 +8,6 @@ const Vouchers = () => {
 
     return (
         <>
-            <Navbar />
             <div style={{
                 minHeight: '100vh',
                 paddingTop: '8rem',
@@ -109,7 +107,6 @@ const Vouchers = () => {
                     />
                 )}
             </div>
-            <Footer />
         </>
     );
 };

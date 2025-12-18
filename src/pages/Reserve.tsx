@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Layout/Navbar';
-import Footer from '../components/Layout/Footer';
+
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoArrowForward } from 'react-icons/io5';
 import heroInterior from '../assets/images/hero_interior.jpg';
@@ -28,7 +27,6 @@ const Reserve = () => {
 
     return (
         <>
-            <Navbar />
             <section style={{
                 minHeight: '100vh',
                 paddingTop: '8rem',
@@ -94,7 +92,6 @@ const Reserve = () => {
                     </div>
                 </div>
             </section>
-            <Footer activeLocation={location} />
         </>
     );
 };
