@@ -733,40 +733,45 @@ const MenuSection = () => {
                         grid-template-columns: 1fr;
                         gap: 2rem;
                         padding: 2rem 1rem;
+                        width: 100vw; /* Ensure full width */
+                        box-sizing: border-box; /* Include padding in width */
+                        overflow-x: hidden; /* Prevent horizontal scroll on container */
                     }
                     .menu-sidebar {
-                        position: relative;
-                        top: 0;
+                        position: sticky;
+                        top: 80px;
+                        background: var(--color-bg-primary); /* Ensure background covers content behind */
+                        z-index: 10;
                         border-right: none;
                         border-bottom: 1px solid rgba(255,255,255,0.1);
                         padding-right: 0;
-                        padding-bottom: 2rem;
+                        padding-bottom: 1rem;
+                        margin-bottom: 2rem;
+                        width: 100%;
                     }
                     /* Horizontal scroll for menu items on mobile */
                     .menu-nav-items {
                         flex-direction: row !important;
                         overflow-x: auto;
-                        gap: 1.5rem !important;
-                        padding-bottom: 0.5rem;
+                        gap: 1rem !important;
+                        padding: 0.5rem 0.2rem;
                         -webkit-overflow-scrolling: touch;
+                        scrollbar-width: none; /* Firefox */
+                        -ms-overflow-style: none; /* IE/Edge */
+                        width: 100%;
+                        white-space: nowrap;
+                    }
+                    .menu-nav-items::-webkit-scrollbar {
+                        display: none; /* Chrome/Safari/Webkit */
                     }
                     .menu-nav-items button {
                         white-space: nowrap;
+                        flex-shrink: 0;
                         background: rgba(255,255,255,0.05) !important;
-                        padding: 0.5rem 1rem !important;
-                        border-radius: 20px;
+                        padding: 0.6rem 1.2rem !important;
+                        border-radius: 50px;
                         border: 1px solid rgba(255,255,255,0.1) !important;
-                    }
-                    .menu-nav-items::-webkit-scrollbar {
-                        height: 4px;
-                    }
-                    .menu-nav-items::-webkit-scrollbar-thumb {
-                        background: var(--color-accent);
-                        border-radius: 4px;
-                    }
-                    /* Hide scrollbar on mobile */
-                    .menu-sidebar::-webkit-scrollbar {
-                        display: none;
+                        font-size: 0.9rem !important;
                     }
                 }
                 .menu-item-card {
