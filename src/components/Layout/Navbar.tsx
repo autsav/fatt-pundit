@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import ThemeToggle from '../UI/ThemeToggle';
 import logo from '../../assets/logos/logo.png';
 
 const Navbar = () => {
@@ -150,6 +151,7 @@ const Navbar = () => {
                         }}>
                             Book Now
                         </Link>
+                        <ThemeToggle />
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -201,6 +203,9 @@ const Navbar = () => {
                                 {link.name}
                             </a>
                         ))}
+                        <div style={{ marginTop: '1rem' }}>
+                            <ThemeToggle />
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

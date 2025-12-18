@@ -39,3 +39,22 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.2);
 }
+
+[data-theme="light"] {
+  /* Bases */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F4F4F2;
+  /* Warm off-white */
+
+  /* Text */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+
+  /* Accents */
+  --color-accent: #C42634;
+  /* Slightly darker red for better contrast on white */
+  --color-accent-hover: #D53645;
+
+  /* Shadows */
+  --shadow-gold: 0 4px 15px rgba(196, 38, 52, 0.2);
+}
