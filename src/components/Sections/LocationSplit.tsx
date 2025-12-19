@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 // Import assets (Images for now, simulating video mood)
 import sohoStorefront from '../../assets/images/soho_storefront.jpg'; // Soho vibe
-import coventStorefront from '../../assets/images/covent_garden_storefront.png'; // Covent Garden vibe
+import coventStorefront from '../../assets/images/covent_garden_storefront_new.jpg'; // Covent Garden vibe
 import tigerStamp from '../../assets/logos/tiger_stamp.png';
 import '../../styles/components/LocationSplit.css';
 
