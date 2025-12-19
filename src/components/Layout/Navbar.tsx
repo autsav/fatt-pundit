@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { FaTree } from 'react-icons/fa'; // Christmas Tree Icon
 import logo from '../../assets/logos/logo.png';
+import sparkleTree from '../../assets/images/christmas_tree_sparkle.jpg';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -109,11 +109,14 @@ const Navbar = () => {
             >
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     {/* Logo - Always goes to Global Home */}
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        {/* Festive Tree Icon */}
-                        <div style={{ color: '#0f5132', fontSize: '1.5rem', filter: 'drop-shadow(0 0 2px #gold)' }}>
-                            <FaTree />
-                        </div>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        {/* Festive Tree Image */}
+                        <img
+                            src={sparkleTree}
+                            alt="Festive Tree"
+                            className="festive-tree"
+                            style={{ height: '70px', width: 'auto', objectFit: 'contain' }}
+                        />
                         <img
                             src={logo}
                             alt="Fatt Pundit"
@@ -250,6 +253,17 @@ const Navbar = () => {
           .nav-logo {
             filter: none;
             transition: filter 0.3s ease;
+          }
+
+          .festive-tree {
+            mix-blend-mode: multiply;
+            animation: treeSparkle 4s infinite alternate ease-in-out;
+            transform-origin: center bottom;
+          }
+          @keyframes treeSparkle {
+            0% { filter: brightness(1) contrast(1.1); transform: scale(1); }
+            50% { filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); transform: scale(1.02); }
+            100% { filter: brightness(1.3) contrast(1.3) drop-shadow(0 0 10px rgba(212, 175, 55, 0.7)); transform: scale(1.05); }
           }
       `}</style>
         </>
