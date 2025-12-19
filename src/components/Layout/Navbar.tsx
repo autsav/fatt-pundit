@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
-import ThemeToggle from '../UI/ThemeToggle';
 import logo from '../../assets/logos/logo.png';
 
 const Navbar = () => {
@@ -44,8 +43,8 @@ const Navbar = () => {
         hidden: { y: -100 },
         visible: {
             y: 0,
-            backgroundColor: isScrolled ? 'var(--color-bg-primary)' : 'transparent',
-            boxShadow: isScrolled ? 'var(--shadow-gold)' : 'none',
+            backgroundColor: '#ffffff', // Always white to match logo background
+            boxShadow: isScrolled ? '0 4px 6px -1px rgb(0 0 0 / 0.1)' : 'none',
             transition: { duration: 0.3 }
         }
     };
@@ -126,7 +125,7 @@ const Navbar = () => {
                                 href={link.href}
                                 onClick={(e) => handleNavClick(e, link.href)}
                                 style={{
-                                    color: '#121212',
+                                    color: '#1A1A1A', // Always dark text
                                     fontSize: '0.9rem',
                                     letterSpacing: '0.05em',
                                     textTransform: 'uppercase',
@@ -152,7 +151,6 @@ const Navbar = () => {
                         }}>
                             Book Now
                         </Link>
-                        <ThemeToggle />
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -160,7 +158,7 @@ const Navbar = () => {
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         style={{
                             display: 'none',
-                            color: isScrolled ? 'var(--color-text-primary)' : '#fff',
+                            color: '#1A1A1A', // Always dark text
                             fontSize: '2rem',
                             background: 'none',
                             border: 'none',
@@ -173,52 +171,56 @@ const Navbar = () => {
                         {isMobileMenuOpen ? <HiX /> : <HiMenu />}
                     </button>
                 </div>
-            </motion.nav>
+            </motion.nav >
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        style={{
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            backgroundColor: 'var(--color-bg-primary)',
-                            backgroundImage: 'url("https://www.fattpundit.co.uk/wp-content/uploads/2021/04/texture.jpg")', // Subtle texture match
-                            zIndex: 40,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            gap: '2rem'
-                        }}
-                    >
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => handleNavClick(e, link.href)}
-                                style={{
-                                    fontFamily: 'var(--font-heading)',
-                                    fontSize: '2rem',
-                                    color: 'var(--color-text-primary)',
-                                    textDecoration: 'none'
-                                }}
-                            >
-                                {link.name}
-                            </a>
-                        ))}
-                        <div style={{ marginTop: '1rem' }}>
-                            <ThemeToggle />
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                {
+                    isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            style={{
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: '#ffffff', // White background
+                                // backgroundImage: 'url("https://www.fattpundit.co.uk/wp-content/uploads/2021/04/texture.jpg")', // Using CSS var instead
+                                backgroundImage: 'none', // Remove dark pattern
+                                backgroundRepeat: 'repeat',
+                                zIndex: 40,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                gap: '2rem'
+                            }}
+                        >
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={(e) => handleNavClick(e, link.href)}
+                                    style={{
+                                        fontFamily: 'var(--font-heading)',
+                                        fontSize: '2rem',
+                                        color: '#1A1A1A', // Dark text
+                                        textDecoration: 'none'
+                                    }}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                            <div style={{ marginTop: '1rem' }}>
+                                {/* Theme toggle removed from mobile menu */}
+                            </div>
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence >
 
             <style>{`
         @media (min-width: 768px) {
@@ -231,13 +233,18 @@ const Navbar = () => {
           .nav-link:hover {
             color: var(--color-accent) !important;
           }
-          .nav-logo { height: 60px; }
+          .nav-logo { height: 85px; }
           
           /* Mobile Optimizations */
           @media (max-width: 767px) {
             .mobile-toggle { display: block !important; }
             nav { padding: 0.8rem 0 !important; } /* Reduce container padding */
-            .nav-logo { height: 40px !important; } /* Smaller logo */
+            .nav-logo { height: 55px !important; } /* Smaller logo */
+          }
+
+          .nav-logo {
+            filter: none;
+            transition: filter 0.3s ease;
           }
       `}</style>
         </>

@@ -27,6 +27,10 @@ import ladyKenny from '../assets/images/lady_kenny_mockup_1765787403122.png';
 import manchurian from '../assets/images/manchurian_chicken_mockup_1765787415945.png';
 import rabbitWontons from '../assets/images/rabbit_wontons_mockup_1765787437835.png';
 import broccoli from '../assets/images/stir_fry_broccoli_mockup_1765787458856.png';
+import crunchyPepperCrab from '../assets/images/crunchy_pepper_crab.jpg';
+import goatMomo from '../assets/images/goat_momo.png';
+import sizzlingBrownie from '../assets/images/sizzling_brownie.jpg';
+import hakkaChillyPaneer from '../assets/images/hakka_chilly_paneer.jpg';
 
 export type MenuItem = {
     name: string;
@@ -169,9 +173,9 @@ export const MENU_DATA_SOHO: Menus = {
             description: "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney.",
             items: [
                 { name: "Mix Vegetable Momo", description: "Spinach, mushroom, courgette + tofu", price: "7.00", image: mixVegMomo },
-                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: momo },
-                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: momo },
-                { name: "Kid Goat Momo", description: "Garam masala, cardamom, ginger & garlic", price: "8.50", image: momo }
+                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: goatMomo },
+                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: goatMomo },
+                { name: "Kid Goat Momo", description: "Garam masala, cardamom, ginger & garlic", price: "8.50", image: goatMomo }
             ]
         },
         {
@@ -180,7 +184,7 @@ export const MENU_DATA_SOHO: Menus = {
                 { name: "Crackling Spinach", description: "Sweet yoghurt, date & plum sauce, pomegranate", price: "10.20", image: cracklingSpinach },
                 { name: "Popcorn Cauliflower", description: "Purple & white, smoked, soya garlic dip", price: "10.20", image: popcornCauliflower },
                 { name: "Crispy Okra Salt 'n' Pepper", description: "Pink salt, chillies, burnt garlic", price: "10.20", image: okraSaltPepper },
-                { name: "Hakka Chilly Paneer Lettuce Cups", description: "Cottage cheese, shallots, soy sauce, white + black pepper", price: "13.25", image: paneerCups },
+                { name: "Hakka Chilly Paneer Lettuce Cups", description: "Cottage cheese, shallots, soy sauce, white + black pepper", price: "13.25", image: hakkaChillyPaneer },
                 { name: "Sticky Sesame Vegetables", description: "Crispy veg fritters, sticky ginger glaze", price: "11.20", image: sticky },
                 { name: "Bombay Chilli Mock Chicken (Vegan)", description: "Celery, Szechuan chilly, mixed peppers", price: "13.25", image: mockChick }
             ]
@@ -190,7 +194,7 @@ export const MENU_DATA_SOHO: Menus = {
             items: [
                 { name: "Malabar Monkfish Curry", description: "Grilled, saffron butter, fresh coconut", price: "15.75", image: monkfish },
                 { name: "Bombay Chilly Prawns", description: "Celery, Szechuan chilly, mixed peppers", price: "14.50", image: prawns },
-                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn", price: "14.50", image: crab }
+                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn", price: "14.50", image: crunchyPepperCrab }
             ]
         },
         {
@@ -225,8 +229,8 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: brownie },
-                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: brownie },
+                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: sizzlingBrownie },
+                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: sizzlingBrownie },
                 { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "7.50", image: ladyKenny }
             ]
         }
@@ -245,7 +249,7 @@ export const MENU_DATA_SOHO: Menus = {
                 { name: "Crackling Spinach", description: "Sweet yoghurt, date & plum sauce, pomegranate", price: "10.20", image: cracklingSpinach },
                 { name: "Popcorn Cauliflower", description: "Purple & white, smoked, soya garlic dip", price: "10.20", image: popcornCauliflower },
                 { name: "Crispy Okra Salt 'n' Pepper", description: "Pink salt, chillies, burnt garlic", price: "10.20", image: okraSaltPepper },
-                { name: "Hakka Chilly Paneer Lettuce Cups", description: "Cottage cheese, shallots, soy sauce, white + black pepper", price: "13.25", image: paneerCups },
+                { name: "Hakka Chilly Paneer Lettuce Cups", description: "Cottage cheese, shallots, soy sauce, white + black pepper", price: "13.25", image: hakkaChillyPaneer },
                 { name: "Sticky Sesame Vegetables", description: "Crispy veg fritters, sticky ginger glaze", price: "11.20", image: sticky }
             ]
         },
@@ -268,7 +272,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: brownie },
+                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate-covered honeycomb", price: "11.50", image: sizzlingBrownie },
                 { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "7.50", image: ladyKenny }
             ]
         }
@@ -278,10 +282,10 @@ export const MENU_DATA_SOHO: Menus = {
             category: "MOMO'S",
             description: "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney, with influences from Bhutan ,Nepal, Tibet and other parts of India.",
             items: [
-                { name: "Kid Goat Momo", description: "Garam masala, cardamom, ginger & garlic", price: "8.50", image: momo },
+                { name: "Kid Goat Momo", description: "Garam masala, cardamom, ginger & garlic", price: "8.50", image: goatMomo },
                 { name: "Mix Vegetable Momo", description: "Spinach, mushroom, courgette + tofu", price: "7.00", image: vegMomo },
-                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: momo },
-                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: momo }
+                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: goatMomo },
+                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: goatMomo }
             ]
         },
         {
@@ -297,7 +301,7 @@ export const MENU_DATA_SOHO: Menus = {
             category: "SEAFOOD",
             items: [
                 { name: "Bombay Chilly Prawns", description: "Celery, Szechuan chilly, mixed peppers", price: "14.50", image: prawns },
-                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "14.50", image: crab }
+                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "14.50", image: crunchyPepperCrab }
             ]
         },
         {
@@ -332,7 +336,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: brownie }
+                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: sizzlingBrownie }
             ]
         }
     ],
@@ -374,7 +378,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: brownie }
+                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: sizzlingBrownie }
             ]
         }
     ],
@@ -399,7 +403,7 @@ export const MENU_DATA_SOHO: Menus = {
             items: [
                 { name: "Malabar Monkfish Curry", description: "Grilled, saffron butter, fresh coconut", price: "", image: malabar },
                 { name: "Bombay Chilly Prawns", description: "Celery, Szechuan chilly, mixed peppers", price: "", image: prawns },
-                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "", image: crab }
+                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "", image: crunchyPepperCrab }
             ]
         },
         {
@@ -412,7 +416,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "", image: brownie }
+                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "", image: sizzlingBrownie }
             ]
         }
     ],
@@ -422,7 +426,7 @@ export const MENU_DATA_SOHO: Menus = {
             description: "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney with influences from Bhutan, Nepal, Tibet and other parts of India.",
             items: [
                 { name: "Mix Vegetable Momo", description: "Spinach, mushroom, courgette + tofu", price: "", image: vegMomo },
-                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "", image: momo }
+                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "", image: goatMomo }
             ]
         },
         {
@@ -456,7 +460,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "", image: brownie }
+                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "", image: sizzlingBrownie }
             ]
         }
     ],
@@ -524,7 +528,7 @@ export const MENU_DATA_SOHO: Menus = {
             category: "DESSERTS",
             items: [
                 { name: "Lady Kenny", description: "", price: "7.00" },
-                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "12.50", image: brownie }
+                { name: "Sizzling Brownie", description: "With vanilla ice cream", price: "12.50", image: sizzlingBrownie }
             ]
         }
     ],
@@ -535,9 +539,9 @@ export const MENU_DATA_SOHO: Menus = {
             category: "MOMO'S",
             description: "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney, with influences from Bhutan ,Nepal, Tibet and other parts of India.",
             items: [
-                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: momo },
-                { name: "Kid Goat Momo", description: "Garam Masala, cardamom, ginger + garlic", price: "8.50", image: momo },
-                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: momo },
+                { name: "Chicken Momo", description: "Soy, garlic, spring onions", price: "7.50", image: goatMomo },
+                { name: "Kid Goat Momo", description: "Garam Masala, cardamom, ginger + garlic", price: "8.50", image: goatMomo },
+                { name: "Beef Momo", description: "Leeks, red chilli, coriander", price: "8.00", image: goatMomo },
                 { name: "Mix Vegetable Momo", description: "Spinach, mushroom, courgette + tofu", price: "7.00", image: vegMomo }
             ]
         },
@@ -557,7 +561,7 @@ export const MENU_DATA_SOHO: Menus = {
             items: [
                 { name: "Malabar Monkfish Curry", description: "Grilled, saffron butter, fresh coconut", price: "15.75", image: malabar },
                 { name: "Bombay Chilly Prawns", description: "Celery, Szechuan chilly, mixed peppers", price: "14.50", image: prawns },
-                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "14.50", image: crab }
+                { name: "Crunchy Pepper Crab", description: "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn", price: "14.50", image: crunchyPepperCrab }
             ]
         },
         {
@@ -589,8 +593,8 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate covered honeycomb", price: "12.50", image: brownie },
-                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: brownie },
+                { name: "Snowflake Gelato Sizzling Brownie", description: "Vanilla with chocolate covered honeycomb", price: "12.50", image: sizzlingBrownie },
+                { name: "Vegan Sizzling Brownie", description: "With Madagascan vanilla ice cream (v)", price: "12.50", image: sizzlingBrownie },
                 { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "7.50" }
             ]
         }
@@ -604,8 +608,8 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "TO START (CHOOSE ONE)",
             items: [
-                { name: "Chicken Momo", description: "Soy, garlic, spring onion", price: "", image: momo },
-                { name: "Kid Goat Momo", description: "Gram Masala, cardamom, ginger & garlic", price: "", image: momo }
+                { name: "Chicken Momo", description: "Soy, garlic, spring onion", price: "", image: goatMomo },
+                { name: "Kid Goat Momo", description: "Gram Masala, cardamom, ginger & garlic", price: "", image: goatMomo }
             ]
         },
         {
@@ -638,7 +642,7 @@ export const MENU_DATA_SOHO: Menus = {
             category: "DESSERT",
             items: [
                 { name: "Lady Kenny", description: "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning", price: "" },
-                { name: "Snowflake Gelato Sizzling Brownie (to share)", description: "Vanilla with chocolate-covered honeycomb", price: "", image: brownie }
+                { name: "Snowflake Gelato Sizzling Brownie (to share)", description: "Vanilla with chocolate-covered honeycomb", price: "", image: sizzlingBrownie }
             ]
         }
     ],
@@ -682,7 +686,7 @@ export const MENU_DATA_SOHO: Menus = {
         {
             category: "DESSERT",
             items: [
-                { name: "Vegan Sizzling Brownie (to share)", description: "With Madagascan vanilla ice cream", price: "", image: brownie }
+                { name: "Vegan Sizzling Brownie (to share)", description: "With Madagascan vanilla ice cream", price: "", image: sizzlingBrownie }
             ]
         }
     ]

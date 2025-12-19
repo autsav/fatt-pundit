@@ -41,6 +41,7 @@
 
   /* Assets */
   --bg-pattern: url('../assets/images/texture.jpg');
+  --logo-filter: brightness(0) invert(1);
 }
 
 [data-theme="light"] {
@@ -63,4 +64,5 @@
 
   /* Assets */
   --bg-pattern: none;
+  --logo-filter: none;
 }

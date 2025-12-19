@@ -59,7 +59,11 @@ const Location = () => {
                 title={`Fatt Pundit ${displayLocation} | Indo Chinese Restaurant London`}
                 description={data.description}
             />
-            <Hero location={displayLocation} backgroundImage={data.heroImage} />
+            <Hero
+                location={displayLocation}
+                backgroundImage={data.heroImage}
+                reserveLink={location ? `/${location}/reserve` : '/reserve'}
+            />
 
             <LocationInfoSection
                 address={data.address}

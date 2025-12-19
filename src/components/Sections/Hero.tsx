@@ -5,9 +5,10 @@ import defaultHero from '../../assets/images/hero_food.jpg';
 interface HeroProps {
     location: string;
     backgroundImage?: string;
+    reserveLink?: string;
 }
 
-const Hero = ({ location, backgroundImage }: HeroProps) => {
+const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
 
@@ -66,10 +67,10 @@ const Hero = ({ location, backgroundImage }: HeroProps) => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     style={{ display: 'flex', gap: '1rem' }}
                 >
-                    <Link to="/reserve" style={{
+                    <Link to={reserveLink || "/reserve"} style={{
                         padding: '1rem 2.5rem',
                         backgroundColor: 'var(--color-accent)',
-                        color: 'var(--color-bg-primary)',
+                        color: '#FFFFFF',
                         fontWeight: 600,
                         textTransform: 'uppercase',
                         letterSpacing: '0.1rem',

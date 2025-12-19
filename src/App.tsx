@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         element: <MainLayout />,
         children: [
-          { path: "reserve", element: <Navigate to="/" replace /> },
+
           { path: "reserve", element: <Reserve /> },
           { path: "vouchers", element: <Vouchers /> },
           { path: "click-and-collect", element: <ClickCollect /> },
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
           // Location Routes with Strict Validation & Canonicalization
           {
             path: ":location",
-            loader: async ({ params }) => {
+            loader: async ({ request, params }) => {
               const locationParam = params.location;
               if (!locationParam) {
                 throw new Response("Location Not Found", { status: 404 });
@@ -50,9 +50,22 @@ const router = createBrowserRouter([
                 throw new Response("Location Not Found", { status: 404 });
               }
 
-              // Enforce lowercase URLs for consistency
+              // Enforce lowercase URLs for consistency, but preserve sub-routes (e.g. /reserve)
               if (locationParam !== normalized) {
-                return redirect('/' + normalized);
+                const url = new URL(request.url);
+                // Replace the location segment in the path
+                // This assumes the location is the second segment (after /) or similar.
+                // A safer way is to replace the specific matched segment or rebuild.
+                // Since we are in a child route, we know strict structure: /:location...
+
+                // Simple string replacement for the first occurrence might be risky if duplicated, 
+                // but location param is unique in context.
+                // Better: Reconstruct url.
+
+                // Current path: /Soho/reserve -> /soho/reserve
+                // url.pathname has the full path.
+                const newPath = url.pathname.replace(locationParam, normalized);
+                return redirect(newPath + url.search);
               }
 
               return null;
