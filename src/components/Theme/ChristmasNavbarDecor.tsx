@@ -1,4 +1,4 @@
-import './ChristmasNavbar.css';
+import './ChristmasDecor.css';
 
 const ChristmasNavbarDecor = () => {
     return (
