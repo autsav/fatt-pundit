@@ -104,6 +104,7 @@ const Navbar = () => {
                     left: 0,
                     right: 0,
                     zIndex: 50,
+                    padding: '1.5rem 0',
                 }}
             >
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
