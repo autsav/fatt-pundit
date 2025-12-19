@@ -54,7 +54,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-container {
                         grid-template-columns: 1fr;
                         gap: 2rem;
-                        padding: 2rem 1.5rem; /* Increased side padding */
+                        padding: 2rem 1rem;
                         padding-top: 80px; /* Safe area for fixed Navbar */
                         width: 100%; /* Fix 100vw causing scroll issues */
                         box-sizing: border-box; 
@@ -84,7 +84,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                         overflow-x: auto;
                         overflow-x: auto;
                         gap: 1rem !important;
-                        padding: 0.5rem 1rem; /* Ensure end items aren't cut off */
+                        padding: 0.5rem 4px; /* Slight padding to avoid cutoff */
                         -webkit-overflow-scrolling: touch;
                         scrollbar-width: none; /* Firefox */
                         -ms-overflow-style: none; /* IE/Edge */
