@@ -49,13 +49,11 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-container {
                         grid-template-columns: 1fr;
                         gap: 2rem;
-                        grid-template-columns: 1fr;
-                        gap: 2rem;
-                        padding: 2rem 1rem;
+                        padding: 2rem 2rem 2rem 1rem; /* Added extra right padding */
                         padding-top: 80px; /* Safe area for fixed Navbar */
-                        width: 100vw; /* Ensure full width */
-                        box-sizing: border-box; /* Include padding in width */
-                        overflow-x: hidden; /* Prevent horizontal scroll on container */
+                        width: 100%; /* Changed from 100vw to avoid scrollbar issues */
+                        box-sizing: border-box;
+                        overflow-x: hidden;
                     }
                     .menu-sidebar {
                         position: sticky;
