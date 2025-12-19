@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -15,14 +14,9 @@ const COVENT_GARDEN_URL = 'https://www.opentable.co.uk/r/fatt-pundit-covent-gard
 
 const Reserve = () => {
     const { location } = useParams();
-    const [activeWidget, setActiveWidget] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (location) {
-            if (location.includes('soho')) setActiveWidget('soho');
-            if (location.includes('covent')) setActiveWidget('covent');
-        }
-    }, [location]);
+    // Logic to determine active section if derived directly from location param
+
 
     const showSoho = !location || location.includes('soho');
     const showCovent = !location || location.includes('covent');
