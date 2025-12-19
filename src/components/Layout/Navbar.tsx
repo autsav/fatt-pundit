@@ -44,8 +44,8 @@ const Navbar = () => {
         hidden: { y: -100 },
         visible: {
             y: 0,
-            backgroundColor: '#FFFFFF',
-            boxShadow: isScrolled ? '0 2px 10px rgba(0,0,0,0.1)' : 'none',
+            backgroundColor: isScrolled ? 'var(--color-bg-primary)' : 'transparent',
+            boxShadow: isScrolled ? 'var(--shadow-gold)' : 'none',
             transition: { duration: 0.3 }
         }
     };
@@ -158,7 +158,16 @@ const Navbar = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        style={{ display: 'none', color: isScrolled ? '#121212' : '#fff' }}
+                        style={{
+                            display: 'none',
+                            color: isScrolled ? 'var(--color-text-primary)' : '#fff',
+                            fontSize: '2rem',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: '0.5rem',
+                            zIndex: 60
+                        }}
                         className="mobile-toggle"
                     >
                         {isMobileMenuOpen ? <HiX /> : <HiMenu />}
