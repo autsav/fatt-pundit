@@ -66,6 +66,13 @@ const MenuSection = ({ location }: { location?: string }) => {
                         margin-bottom: 2rem;
                         width: 100%;
                     }
+                    /* Hide large MENU title on mobile to save space */
+                    .menu-sidebar h2 {
+                        display: none;
+                    }
+                    .menu-filter {
+                        margin-bottom: 1rem !important; /* Reduce gap */
+                    }
                     /* Horizontal scroll for menu items on mobile */
                     .menu-nav-items {
                         flex-direction: row !important;
