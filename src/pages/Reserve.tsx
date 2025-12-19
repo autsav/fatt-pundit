@@ -7,6 +7,8 @@ import { IoArrowForward } from 'react-icons/io5';
 import heroInterior from '../assets/images/hero_interior.jpg';
 import wallshow from '../assets/images/wallshow.jpg';
 
+import '../styles/pages/Reserve.css';
+
 // OpenTable URLs
 const SOHO_URL = 'https://www.opentable.co.uk/r/fatt-pundit-london';
 const COVENT_GARDEN_URL = 'https://www.opentable.co.uk/r/fatt-pundit-covent-garden-london';
@@ -27,39 +29,23 @@ const Reserve = () => {
 
     return (
         <>
-            <section style={{
-                minHeight: '100vh',
-                paddingTop: '8rem',
-                paddingBottom: '4rem',
-                backgroundImage: 'radial-gradient(circle at top right, #1E1E1E, #121212)',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <div className="container" style={{ maxWidth: '1200px', width: '100%', padding: '0 2rem' }}>
+            <section className="reserve-section">
+                <div className="container reserve-container">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        style={{ textAlign: 'center', marginBottom: '4rem' }}
+                        className="reserve-header"
                     >
-                        <h1 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--color-text-primary)' }}>
+                        <h1 className="reserve-title">
                             {location ? `${location.replace(/-/g, ' ').toUpperCase()} RESERVATION` : 'RESERVE A TABLE'}
                         </h1>
-                        <p style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
+                        <p className="reserve-subtitle">
                             {location ? 'Book your table below.' : 'Choose your preferred location below.'}
                         </p>
                     </motion.div>
 
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: location ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '3rem',
-                        justifyContent: 'center',
-                        maxWidth: location ? '600px' : '1000px',
-                        margin: '0 auto'
-                    }}>
+                    <div className={`reserve-grid ${location ? 'single-col' : 'multi-col'}`}>
                         {/* Soho Card */}
                         {showSoho && (
                             <LocationCard
@@ -83,7 +69,7 @@ const Reserve = () => {
                         )}
                     </div>
 
-                    <div style={{ marginTop: '3rem', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
+                    <div className="reserve-footer-note">
                         <p>Note: Widget requires real Restaurant IDs (RIDs) to function.</p>
                     </div>
                 </div>
@@ -98,48 +84,27 @@ const LocationCard = ({ name, image, address, bookingUrl, delay }: { name: strin
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay }}
-            style={{
-                backgroundColor: 'var(--color-bg-secondary)',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                border: '1px solid rgba(255,255,255,0.05)',
-                display: 'flex',
-                flexDirection: 'column'
-            }}
+            className="location-card"
         >
-            <div style={{ height: '250px', overflow: 'hidden' }}>
+            <div className="location-card-image-wrapper">
                 <img
                     src={image}
                     alt={`${name} Interior`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="location-card-image"
                 />
             </div>
-            <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--color-accent)' }}>{name}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: '#ccc' }}>
+            <div className="location-card-content">
+                <h3 className="location-name">{name}</h3>
+                <div className="location-address">
                     <FaMapMarkerAlt size={18} color="var(--color-accent)" />
-                    <span style={{ fontSize: '0.95rem' }}>{address}</span>
+                    <span>{address}</span>
                 </div>
 
                 <a
                     href={bookingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                        marginTop: 'auto',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        padding: '1rem 2rem',
-                        backgroundColor: 'var(--color-accent)',
-                        color: 'black',
-                        fontWeight: 'bold',
-                        borderRadius: '50px',
-                        textDecoration: 'none',
-                        transition: 'transform 0.2s',
-                        boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
-                    }}
+                    className="reserve-btn"
                 >
                     BOOK ON OPENTABLE <IoArrowForward size={18} />
                 </a>

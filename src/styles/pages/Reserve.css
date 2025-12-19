@@ -1,0 +1,144 @@
+/* Reserve Page Styles */
+
+/* Main Section */
+.reserve-section {
+    min-height: 100vh;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background-image: radial-gradient(circle at top right, #1E1E1E, #121212);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reserve-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+/* Header Area */
+.reserve-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.reserve-title {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.reserve-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Location Grid */
+.reserve-grid {
+    display: grid;
+    /* Default grid columns overridden by React inline logic or we can use CSS grid-template-columns with a class modifier if we want pure CSS */
+    gap: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Location Card */
+.location-card {
+    background-color: var(--color-bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensure consistent height in grid */
+}
+
+.location-card-image-wrapper {
+    height: 250px;
+    overflow: hidden;
+}
+
+.location-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.location-card:hover .location-card-image {
+    transform: scale(1.05);
+    /* Added subtle hover effect for polish */
+}
+
+.location-card-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.location-name {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+}
+
+.location-address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+.location-address span {
+    font-size: 0.95rem;
+}
+
+.reserve-btn {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-accent);
+    color: black;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.reserve-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-accent-hover);
+}
+
+/* Footer Note */
+.reserve-footer-note {
+    margin-top: 3rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive Overrides (if handling grid columns in CSS) */
+/* Ideally we pass styling props or classes for 1-column layout if filtered */
+.reserve-grid.single-col {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+}
+
+.reserve-grid.multi-col {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1000px;
+}
