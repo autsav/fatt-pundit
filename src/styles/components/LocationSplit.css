@@ -86,7 +86,6 @@
 /* Motto */
 .motto-text {
     margin-top: 1rem;
-    font-family: sans-serif;
     letter-spacing: 0.2em;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -94,7 +93,6 @@
 
 .address-text {
     margin-top: 0.4rem;
-    font-family: sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
 }
