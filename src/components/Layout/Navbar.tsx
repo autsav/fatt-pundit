@@ -113,7 +113,8 @@ const Navbar = () => {
                         <img
                             src={logo}
                             alt="Fatt Pundit"
-                            style={{ height: '60px', width: 'auto' }}
+                            className="nav-logo"
+                            style={{ width: 'auto' }}
                         />
                     </Link>
 
@@ -218,9 +219,17 @@ const Navbar = () => {
         @media (max-width: 767px) {
           .mobile-toggle { display: block !important; }
         }
-        .nav-link:hover {
-          color: var(--color-accent) !important;
-        }
+          .nav-link:hover {
+            color: var(--color-accent) !important;
+          }
+          .nav-logo { height: 60px; }
+          
+          /* Mobile Optimizations */
+          @media (max-width: 767px) {
+            .mobile-toggle { display: block !important; }
+            nav { padding: 0.8rem 0 !important; } /* Reduce container padding */
+            .nav-logo { height: 40px !important; } /* Smaller logo */
+          }
       `}</style>
         </>
     );

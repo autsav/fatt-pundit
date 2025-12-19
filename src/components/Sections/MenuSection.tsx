@@ -49,16 +49,19 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-container {
                         grid-template-columns: 1fr;
                         gap: 2rem;
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
                         padding: 2rem 1rem;
+                        padding-top: 80px; /* Safe area for fixed Navbar */
                         width: 100vw; /* Ensure full width */
                         box-sizing: border-box; /* Include padding in width */
                         overflow-x: hidden; /* Prevent horizontal scroll on container */
                     }
                     .menu-sidebar {
                         position: sticky;
-                        top: 80px;
+                        top: 65px; /* Matches new compact mobile navbar height */
                         background: var(--color-bg-primary); /* Ensure background covers content behind */
-                        z-index: 10;
+                        z-index: 40; /* Below Navbar (50) but above content */
                         border-right: none;
                         border-bottom: 1px solid rgba(255,255,255,0.1);
                         padding-right: 0;
