@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
 import aboutStamp from '../../assets/images/about_stamp.png';
 
+import bgTexture from '../../assets/images/texture.jpg';
+
 const AboutSection = () => {
     return (
         <section style={{
             padding: '6rem 2rem',
-            backgroundColor: '#121212',
-            color: '#fff',
+            backgroundColor: '#F4F4F2', // Light paper-like background
+            backgroundImage: `url(${bgTexture})`,
+            backgroundBlendMode: 'multiply',
+            color: '#121212', // Dark text
             position: 'relative',
             zIndex: 10,
             overflow: 'hidden'
@@ -73,7 +77,7 @@ const AboutSection = () => {
                     <p style={{
                         fontSize: '1.1rem',
                         lineHeight: '1.8',
-                        color: '#cccccc',
+                        color: '#333333', // Dark text for readability on light bg
                         marginBottom: '1.5rem',
                         fontFamily: 'sans-serif'
                     }}>
@@ -83,7 +87,7 @@ const AboutSection = () => {
                     <p style={{
                         fontSize: '1.1rem',
                         lineHeight: '1.8',
-                        color: '#cccccc',
+                        color: '#333333',
                         fontFamily: 'sans-serif'
                     }}>
                         Playfully named Fatt Pundit it’s a combination of the common Chinese surname ‘Fatt’ with the Indian word ‘Pundit’ (a scholar).
