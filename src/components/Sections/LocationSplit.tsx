@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // Import assets (Images for now, simulating video mood)
 import sohoStorefront from '../../assets/images/soho_storefront.jpg'; // Soho vibe
 import coventStorefront from '../../assets/images/covent_garden_storefront_new.jpg'; // Covent Garden vibe
-import centerMomo from '../../assets/images/center_momo.jpg';
+import tigerStamp from '../../assets/logos/tiger_stamp.png';
 import '../../styles/components/LocationSplit.css';
 
 const FloatingParticles = () => {
@@ -183,14 +183,14 @@ const LocationDuel = () => {
                 transition={transitionConfig}
             >
                 <img
-                    src={centerMomo}
+                    src={tigerStamp}
                     alt="Fatt Pundit Logo"
                     className="logo-img"
                     style={{
-                        width: '100%', // Full fit
-                        height: '100%',
-                        objectFit: 'cover', // It's a photo now
-                        // Removed filters as it's a full color photo
+                        width: '85%',
+                        height: 'auto',
+                        mixBlendMode: 'multiply',
+                        filter: 'contrast(1.2)'
                     }}
                 />
             </motion.div>
