@@ -252,3 +252,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// Re-triggering deployment: fixed logo clarity and routing
