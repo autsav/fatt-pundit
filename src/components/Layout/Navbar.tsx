@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaTree } from 'react-icons/fa'; // Christmas Tree Icon
 import logo from '../../assets/logos/logo.png';
-import ChristmasNavbarDecor from '../Theme/ChristmasNavbarDecor';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -105,12 +104,8 @@ const Navbar = () => {
                     left: 0,
                     right: 0,
                     zIndex: 50,
-                    padding: '1.5rem 0',
                 }}
             >
-                {/* Christmas Lights */}
-                <ChristmasNavbarDecor />
-
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     {/* Logo - Always goes to Global Home */}
                     <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
