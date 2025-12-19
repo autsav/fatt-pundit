@@ -136,7 +136,7 @@ const LocationDuel = () => {
                         <h2
                             className="location-title"
                             style={{
-                                color: activeSide === 'soho' ? 'var(--color-accent)' : 'white',
+                                color: activeSide === 'soho' ? 'var(--color-accent)' : 'var(--color-text-primary)',
                                 textShadow: activeSide === 'soho' ? '0 0 20px rgba(0,0,0,0.5)' : 'none',
                             }}
                         >SOHO</h2>
@@ -149,10 +149,11 @@ const LocationDuel = () => {
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    <p className="motto-text" style={{ color: '#ddd' }}>
+
+                                    <p className="motto-text" style={{ color: 'var(--color-text-secondary)' }}>
                                         FROM GUANGDONG TO CALCUTTA
                                     </p>
-                                    <p className="address-text" style={{ color: '#bbb' }}>
+                                    <p className="address-text" style={{ color: 'var(--color-text-secondary)' }}>
                                         77 Berwick Street, Soho
                                     </p>
                                     {isMobile && <button style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: 'white', color: 'black', border: 'none', borderRadius: '4px' }}>ENTER</button>}
@@ -261,7 +262,7 @@ const LocationDuel = () => {
                             fontFamily: "inherit",
                             fontWeight: 'bold',
                             fontSize: isMobile ? '2.5rem' : '5vw',
-                            color: activeSide === 'covent' ? 'var(--color-accent)' : 'white',
+                            color: activeSide === 'covent' ? 'var(--color-accent)' : 'var(--color-text-primary)',
                             textShadow: activeSide === 'covent' ? '0 0 20px rgba(0,0,0,0.5)' : 'none',
                             transition: 'color 0.5s',
                             margin: 0
@@ -275,10 +276,10 @@ const LocationDuel = () => {
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    <p className="motto-text" style={{ color: '#f0e68c' }}>
+                                    <p className="motto-text" style={{ color: 'var(--color-text-secondary)' }}>
                                         FROM GUANGDONG TO CALCUTTA
                                     </p>
-                                    <p className="address-text" style={{ color: '#e0d68a' }}>
+                                    <p className="address-text" style={{ color: 'var(--color-text-secondary)' }}>
                                         6 Maiden Lane, Covent Garden
                                     </p>
                                     {isMobile && <button style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: '#d4af37', color: 'black', border: 'none', borderRadius: '4px' }}>ENTER</button>}
