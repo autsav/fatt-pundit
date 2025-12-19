@@ -41,7 +41,7 @@ const AboutSection = () => {
                             maxWidth: '400px',
                             height: 'auto',
                             objectFit: 'contain',
-                            filter: 'contrast(1.1) brightness(1.1)' // Enhance formatting
+
                         }}
                     />
                 </motion.div>
