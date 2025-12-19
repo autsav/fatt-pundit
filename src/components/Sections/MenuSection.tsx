@@ -49,11 +49,15 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-container {
                         grid-template-columns: 1fr;
                         gap: 2rem;
-                        padding: 2rem 2rem 2rem 1rem; /* Added extra right padding */
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                    .menu-container {
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                        padding: 2rem 1.5rem; /* Increased side padding */
                         padding-top: 80px; /* Safe area for fixed Navbar */
-                        width: 100%; /* Changed from 100vw to avoid scrollbar issues */
-                        box-sizing: border-box;
-                        overflow-x: hidden;
+                        width: 100%; /* Fix 100vw causing scroll issues */
+                        box-sizing: border-box; 
                     }
                     .menu-sidebar {
                         position: sticky;
@@ -78,8 +82,9 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-nav-items {
                         flex-direction: row !important;
                         overflow-x: auto;
+                        overflow-x: auto;
                         gap: 1rem !important;
-                        padding: 0.5rem 4px; /* Slight padding to avoid cutoff */
+                        padding: 0.5rem 1rem; /* Ensure end items aren't cut off */
                         -webkit-overflow-scrolling: touch;
                         scrollbar-width: none; /* Firefox */
                         -ms-overflow-style: none; /* IE/Edge */
