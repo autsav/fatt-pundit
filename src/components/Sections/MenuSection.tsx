@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { IoChevronForward, IoEye, IoClose, IoLeaf } from 'react-icons/io5';
+import { IoChevronForward, IoClose, IoLeaf } from 'react-icons/io5';
 
 import menuBgTiger from '../../assets/images/menu_bg_tiger.png';
 import { MENU_DATA_SOHO, MENU_DATA_COVENT, MENU_TYPES } from '../../data/menus';
@@ -103,7 +103,12 @@ const MenuSection = ({ location }: { location?: string }) => {
                     padding: 1rem;
                     border-radius: 8px;
                     transition: background-color 0.3s ease;
+                    transition: background-color 0.3s ease;
                     cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    gap: 1rem;
                 }
                 .menu-item-card:hover {
                     background-color: rgba(255,255,255,0.05);
@@ -348,61 +353,61 @@ const MenuSection = ({ location }: { location?: string }) => {
                                                     className="menu-item-card"
                                                 // Removed onMouseEnter for row
                                                 >
-                                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                                                        <h5 style={{
-                                                            fontFamily: 'var(--font-heading)',
-                                                            fontSize: '1.2rem',
-                                                            color: '#fff',
-                                                            letterSpacing: '0.5px',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            gap: '0.5rem',
-                                                            flex: 1, // Ensure it takes available space
-                                                            paddingRight: '1rem', // Add spacing between name and price
-                                                            overflow: 'hidden', // Handle text overflow
-                                                        }}>
-                                                            {item.name}
-                                                            {item.image && (
-                                                                <button
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        setHoveredImage(item.image || null);
-                                                                    }}
-                                                                    style={{
-                                                                        background: 'none',
-                                                                        border: 'none',
-                                                                        cursor: 'pointer',
-                                                                        padding: 0,
-                                                                        display: 'flex',
-                                                                        alignItems: 'center',
-                                                                        flexShrink: 0
-                                                                    }}
-                                                                    title="View Dish"
-                                                                >
-                                                                    <IoEye size={18} color="var(--color-accent)" />
-                                                                </button>
-                                                            )}
-                                                        </h5>
-                                                        {item.price && (
-                                                            <span style={{
-                                                                color: 'var(--color-accent)',
-                                                                fontWeight: 'bold',
-                                                                fontFamily: 'var(--font-mono)',
-                                                                flexShrink: 0, // Prevent price from being squashed
-                                                                whiteSpace: 'nowrap'
+                                                    <div style={{ flex: 1 }}> {/* Content Container */}
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                                                            <h5 style={{
+                                                                fontFamily: 'var(--font-heading)',
+                                                                fontSize: '1.2rem',
+                                                                color: '#fff',
+                                                                letterSpacing: '0.5px',
+                                                                margin: 0
                                                             }}>
-                                                                £{item.price}
-                                                            </span>
-                                                        )}
+                                                                {item.name}
+                                                            </h5>
+                                                            {item.price && (
+                                                                <span style={{
+                                                                    color: 'var(--color-accent)',
+                                                                    fontWeight: 'bold',
+                                                                    fontFamily: 'var(--font-mono)',
+                                                                    flexShrink: 0,
+                                                                    whiteSpace: 'nowrap',
+                                                                    marginLeft: '1rem'
+                                                                }}>
+                                                                    £{item.price}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <p style={{
+                                                            color: '#aaa',
+                                                            fontSize: '0.95rem',
+                                                            lineHeight: '1.5',
+                                                            fontFamily: 'var(--font-body)',
+                                                            margin: 0
+                                                        }}>
+                                                            {item.description}
+                                                        </p>
                                                     </div>
-                                                    <p style={{
-                                                        color: '#aaa',
-                                                        fontSize: '0.95rem',
-                                                        lineHeight: '1.5',
-                                                        fontFamily: 'var(--font-body)'
-                                                    }}>
-                                                        {item.description}
-                                                    </p>
+
+                                                    {/* Thumbnail Image */}
+                                                    {item.image && (
+                                                        <img
+                                                            src={item.image}
+                                                            alt={item.name}
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setHoveredImage(item.image || null);
+                                                            }}
+                                                            style={{
+                                                                width: '100px',
+                                                                height: '100px',
+                                                                objectFit: 'cover',
+                                                                borderRadius: '8px',
+                                                                cursor: 'pointer',
+                                                                border: '1px solid rgba(255,255,255,0.1)',
+                                                                flexShrink: 0 // Prevent squishing
+                                                            }}
+                                                        />
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>
