@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { FaTree } from 'react-icons/fa'; // Christmas Tree Icon
 import logo from '../../assets/logos/logo.png';
+import ChristmasNavbarDecor from '../Theme/ChristmasNavbarDecor';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -106,9 +108,16 @@ const Navbar = () => {
                     padding: '1.5rem 0',
                 }}
             >
+                {/* Christmas Lights */}
+                <ChristmasNavbarDecor />
+
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     {/* Logo - Always goes to Global Home */}
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        {/* Festive Tree Icon */}
+                        <div style={{ color: '#0f5132', fontSize: '1.5rem', filter: 'drop-shadow(0 0 2px #gold)' }}>
+                            <FaTree />
+                        </div>
                         <img
                             src={logo}
                             alt="Fatt Pundit"
