@@ -3,7 +3,6 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import logo from '../../assets/logos/logo.png';
-import sparkleTree from '../../assets/images/christmas_tree_sparkle.jpg';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -109,27 +108,7 @@ const Navbar = () => {
             >
                 <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     {/* Logo - Always goes to Global Home */}
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        {/* Festive Tree Image */}
-                        <div
-                            className="festive-tree"
-                            style={{
-                                width: '60px',
-                                height: '70px',
-                                backgroundColor: '#B8860B', // Dark Goldenrod for contrast on white
-                                maskImage: `url(${sparkleTree})`,
-                                WebkitMaskImage: `url(${sparkleTree})`,
-                                maskSize: 'contain',
-                                WebkitMaskSize: 'contain',
-                                maskRepeat: 'no-repeat',
-                                WebkitMaskRepeat: 'no-repeat',
-                                maskPosition: 'center',
-                                WebkitMaskPosition: 'center',
-                                maskMode: 'luminance',
-                                WebkitMaskComposite: 'luminance', // Fallback attempt for WebKit
-                            }}
-                            title="Festive Tree"
-                        />
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <img
                             src={logo}
                             alt="Fatt Pundit"
@@ -266,17 +245,6 @@ const Navbar = () => {
           .nav-logo {
             filter: none;
             transition: filter 0.3s ease;
-          }
-
-          .festive-tree {
-            /* Masking handles the shape, animation handles the glow */
-            animation: treeSparkle 4s infinite alternate ease-in-out;
-            transform-origin: center bottom;
-          }
-          @keyframes treeSparkle {
-            0% { filter: brightness(1) drop-shadow(0 0 0px transparent); transform: scale(1); }
-            50% { filter: brightness(1.2) drop-shadow(0 0 4px rgba(218, 165, 32, 0.6)); transform: scale(1.02); }
-            100% { filter: brightness(1.4) drop-shadow(0 0 8px rgba(218, 165, 32, 0.8)); transform: scale(1.05); }
           }
       `}</style>
         </>
