@@ -111,11 +111,24 @@ const Navbar = () => {
                     {/* Logo - Always goes to Global Home */}
                     <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', textDecoration: 'none' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         {/* Festive Tree Image */}
-                        <img
-                            src={sparkleTree}
-                            alt="Festive Tree"
+                        <div
                             className="festive-tree"
-                            style={{ height: '70px', width: 'auto', objectFit: 'contain' }}
+                            style={{
+                                width: '60px',
+                                height: '70px',
+                                backgroundColor: '#B8860B', // Dark Goldenrod for contrast on white
+                                maskImage: `url(${sparkleTree})`,
+                                WebkitMaskImage: `url(${sparkleTree})`,
+                                maskSize: 'contain',
+                                WebkitMaskSize: 'contain',
+                                maskRepeat: 'no-repeat',
+                                WebkitMaskRepeat: 'no-repeat',
+                                maskPosition: 'center',
+                                WebkitMaskPosition: 'center',
+                                maskMode: 'luminance',
+                                WebkitMaskComposite: 'luminance', // Fallback attempt for WebKit
+                            }}
+                            title="Festive Tree"
                         />
                         <img
                             src={logo}
@@ -256,14 +269,14 @@ const Navbar = () => {
           }
 
           .festive-tree {
-            mix-blend-mode: multiply;
+            /* Masking handles the shape, animation handles the glow */
             animation: treeSparkle 4s infinite alternate ease-in-out;
             transform-origin: center bottom;
           }
           @keyframes treeSparkle {
-            0% { filter: brightness(1) contrast(1.1); transform: scale(1); }
-            50% { filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); transform: scale(1.02); }
-            100% { filter: brightness(1.3) contrast(1.3) drop-shadow(0 0 10px rgba(212, 175, 55, 0.7)); transform: scale(1.05); }
+            0% { filter: brightness(1) drop-shadow(0 0 0px transparent); transform: scale(1); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 4px rgba(218, 165, 32, 0.6)); transform: scale(1.02); }
+            100% { filter: brightness(1.4) drop-shadow(0 0 8px rgba(218, 165, 32, 0.8)); transform: scale(1.05); }
           }
       `}</style>
         </>
