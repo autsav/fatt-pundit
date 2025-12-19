@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // Import assets (Images for now, simulating video mood)
 import sohoStorefront from '../../assets/images/soho_storefront.jpg'; // Soho vibe
 import coventStorefront from '../../assets/images/covent_garden_storefront_new.jpg'; // Covent Garden vibe
-import tigerStamp from '../../assets/logos/tiger_stamp.png';
+import centerMomo from '../../assets/images/center_momo.jpg';
 import '../../styles/components/LocationSplit.css';
 
 const FloatingParticles = () => {
@@ -167,8 +167,8 @@ const LocationDuel = () => {
             <motion.div
                 className="center-logo"
                 style={{
-                    width: isMobile ? '70px' : '100px', // Smaller size as requested
-                    height: isMobile ? '70px' : '100px',
+                    width: isMobile ? '90px' : '130px', // Increased by ~30%
+                    height: isMobile ? '90px' : '130px',
                 }}
                 initial={{ x: "-50%", y: "-50%" }}
                 animate={{
@@ -182,13 +182,14 @@ const LocationDuel = () => {
                 transition={transitionConfig}
             >
                 <img
-                    src={tigerStamp}
+                    src={centerMomo}
                     alt="Fatt Pundit Logo"
+                    className="logo-img"
                     style={{
-                        width: '85%', // Slightly smaller to fit in circle with padding feel
-                        height: 'auto',
-                        mixBlendMode: 'multiply', // Makes the stamp look printed on the paper
-                        filter: 'contrast(1.2)' // Enhanced visibility
+                        width: '100%', // Full fit
+                        height: '100%',
+                        objectFit: 'cover', // It's a photo now
+                        // Removed filters as it's a full color photo
                     }}
                 />
             </motion.div>
@@ -288,7 +289,7 @@ const LocationDuel = () => {
                 </div>
             </motion.div>
 
-        </section>
+        </section >
     );
 };
 
