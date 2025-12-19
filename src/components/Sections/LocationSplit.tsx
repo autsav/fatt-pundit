@@ -167,8 +167,8 @@ const LocationDuel = () => {
             <motion.div
                 className="center-logo"
                 style={{
-                    width: isMobile ? '80px' : '120px',
-                    height: isMobile ? '80px' : '120px',
+                    width: isMobile ? '70px' : '100px', // Smaller size as requested
+                    height: isMobile ? '70px' : '100px',
                 }}
                 initial={{ x: "-50%", y: "-50%" }}
                 animate={{
