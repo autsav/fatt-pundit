@@ -22,7 +22,7 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: `radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 100%), url(${backgroundImage || defaultHero})`, // Light overlay as requested (10%)
+                    backgroundImage: `url(${backgroundImage || defaultHero})`, // No overlay (0%)
                     filter: 'contrast(1.15) saturate(1.1) brightness(0.9)', // Color Grading
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
