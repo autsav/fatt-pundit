@@ -22,6 +22,7 @@ const LOCATION_DATA: Record<string, {
     image: string;
     heroImage: string;
     description: string;
+    openingHours: React.ReactNode;
 }> = {
     'soho': {
         address: '77 Berwick Street, Soho, London W1F 8TH',
@@ -30,7 +31,17 @@ const LOCATION_DATA: Record<string, {
         mapUrl: 'https://goo.gl/maps/xyz',
         image: heroInterior,
         heroImage: heroFood,
-        description: 'The original Fatt Pundit in the heart of Soho. Experience the buzz of Berwick Street combined with the spicy aromas of Tangra.'
+        description: 'The original Fatt Pundit in the heart of Soho. Experience the buzz of Berwick Street combined with the spicy aromas of Tangra.',
+        openingHours: (
+            <>
+                Mon & Tue: 12pm - 2:30pm, 5pm - 10:30pm<br />
+                Wednesday (Christmas Eve): 12pm - 2:30pm, 5pm - 10:30pm<br />
+                Thursday (Christmas Day): 12pm - 2:30pm, 5pm - 10:30pm<br />
+                Friday (Boxing Day): 12pm - 2:30pm, 5pm - 10:30pm<br />
+                Saturday: 12pm - 10:30pm<br />
+                Sunday: Closed
+            </>
+        )
     },
     'covent-garden': {
         address: '6 Maiden Lane, Covent Garden, London WC2E 7NA',
@@ -39,7 +50,14 @@ const LOCATION_DATA: Record<string, {
         mapUrl: 'https://goo.gl/maps/abc',
         image: wallshow,
         heroImage: menuBgTiger, // Using the new PNG via import below
-        description: 'Located in the historic Covent Garden, our second location offers a spacious dining experience with the same bold Indo-Chinese flavours.'
+        description: 'Located in the historic Covent Garden, our second location offers a spacious dining experience with the same bold Indo-Chinese flavours.',
+        openingHours: (
+            <>
+                Mon - Thu: 12:00pm - 10:00pm<br />
+                Fri - Sat: 12:00pm - 10:30pm<br />
+                Sun: 12:00pm - 9:30pm
+            </>
+        )
     }
 };
 
@@ -73,6 +91,7 @@ const Location = () => {
                 image={data.image}
                 description={data.description}
                 enableTexture={location === 'soho'}
+                openingHours={data.openingHours}
             />
 
             <MenuSection location={location} />

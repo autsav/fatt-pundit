@@ -10,9 +10,10 @@ interface LocationInfoProps {
     image: string;
     description: string;
     enableTexture?: boolean;
+    openingHours?: React.ReactNode;
 }
 
-const LocationInfoSection = ({ address, email, phone, mapUrl, image, description, enableTexture = false }: LocationInfoProps) => {
+const LocationInfoSection = ({ address, email, phone, mapUrl, image, description, enableTexture = false, openingHours }: LocationInfoProps) => {
     // Dynamic styles for texture visibility
     const textShadow = enableTexture ? '0 2px 4px rgba(0,0,0,0.8)' : 'none';
     const descColor = enableTexture ? '#F0F0F0' : '#ccc';
@@ -109,11 +110,15 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                                 <FaClock color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
                                 <div>
                                     <h4 style={{ color: labelColor, marginBottom: '0.2rem', textShadow: textShadow }}>OPENING HOURS</h4>
-                                    <p style={{ color: linkColor, lineHeight: '1.5', fontSize: '0.9rem', textShadow: textShadow }}>
-                                        Mon - Thu: 12:00pm - 10:00pm<br />
-                                        Fri - Sat: 12:00pm - 10:30pm<br />
-                                        Sun: 12:00pm - 9:30pm
-                                    </p>
+                                    <div style={{ color: linkColor, lineHeight: '1.5', fontSize: '0.9rem', textShadow: textShadow }}>
+                                        {openingHours || (
+                                            <>
+                                                Mon - Thu: 12:00pm - 10:00pm<br />
+                                                Fri - Sat: 12:00pm - 10:30pm<br />
+                                                Sun: 12:00pm - 9:30pm
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
