@@ -133,314 +133,207 @@ const MenuSection = ({ location }: { location?: string }) => {
                 .menu-item-card:hover {
                     background-color: rgba(255,255,255,0.05);
                 }
+                /* Navigation Button Styles */
+                .menu-nav-btn {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-family: var(--font-heading);
+                    font-size: 1.2rem;
+                    color: #888;
+                    text-align: left;
+                    padding: 0.8rem 1rem;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    border-radius: 8px;
+                    opacity: 0.6;
+                }
+                .menu-nav-btn:hover {
+                    color: #fff !important;
+                    background: rgba(255,255,255,0.05);
+                    padding-left: 1.5rem; /* Slide effect */
+                    opacity: 1;
+                }
+                .menu-nav-btn.active {
+                    color: var(--color-accent) !important;
+                    opacity: 1 !important;
+                    background: rgba(255,255,255,0.02);
+                }
+
                 /* Mobile Grid Fix */
                 @media (max-width: 768px) {
-                    .menu-category-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                    .menu-content h3 {
-                        font-size: 2rem !important;
-                        margin-top: 1rem;
-                    }
-                    /* Ensure content clears sticky header */
-                    .menu-content {
-                        scroll-margin-top: 140px; 
-                    }
-                }
-            `}</style>
+  // ... (rest of media query)
 
-
-            {/* Lightbox Overlay */}
-            <AnimatePresence>
-                {hoveredImage && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setHoveredImage(null)} // Close on background click
-                        style={{
-                            position: 'fixed',
-                            inset: 0,
-                            zIndex: 9999,
-                            backgroundColor: 'rgba(0,0,0,0.85)',
-                            backdropFilter: 'blur(5px)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            onClick={(e) => e.stopPropagation()} // Prevent close when clicking image
-                            style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh' }}
-                        >
-                            <img
-                                src={hoveredImage}
-                                alt="Dish Preview"
-                                style={{
-                                    maxWidth: '100%',
-                                    maxHeight: '80vh',
-                                    borderRadius: '12px',
-                                    boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                                    border: '2px solid var(--color-accent)'
-                                }}
-                            />
-                            <button
-                                onClick={() => setHoveredImage(null)}
-                                style={{
-                                    position: 'absolute',
-                                    top: -20,
-                                    right: -20,
-                                    background: '#fff',
-                                    borderRadius: '50%',
-                                    border: 'none',
-                                    width: 40,
-                                    height: 40,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    cursor: 'pointer',
-                                    color: '#000'
-                                }}
-                            >
-                                <IoClose size={24} />
-                            </button>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            <div className="menu-container">
-                {/* LEFT SIDEBAR: Navigation & Filter */}
-                <div className="menu-sidebar">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 style={{
-                            fontFamily: 'var(--font-heading)',
-                            fontSize: '2rem',
-                            marginBottom: '2rem',
-                            color: 'var(--color-accent)'
-                        }}>
-                            MENU
-                        </h2>
-
-                        {/* Quick Vegetarian Filter - Prominent */}
-                        <div className="menu-filter" style={{ marginBottom: '2rem' }}>
-                            <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Quick Filter</p>
-                            <button
-                                onClick={() => setIsVegFilter(!isVegFilter)}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.8rem',
-                                    background: isVegFilter ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)' : 'rgba(255,255,255,0.05)',
-                                    color: isVegFilter ? '#000' : '#fff',
-                                    border: isVegFilter ? '2px solid #22c55e' : '2px solid rgba(74, 222, 128, 0.3)',
-                                    padding: '1rem 1.5rem',
-                                    borderRadius: '12px',
-                                    cursor: 'pointer',
-                                    fontFamily: 'var(--font-heading)',
-                                    fontSize: '1rem',
-                                    fontWeight: 700,
-                                    width: '100%',
-                                    maxWidth: '100%',
-                                    boxSizing: 'border-box',
-                                    justifyContent: 'center',
-                                    transition: 'all 0.3s ease',
-                                    boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
-                                    transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
-                                }}
-                            >
-                                <IoLeaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
-                                <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
-                            </button>
-                        </div>
+// ...
 
                         {/* Navigation Items */}
-                        <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             {MENU_TYPES.map((menu) => (
                                 <button
                                     key={menu}
                                     onClick={() => setActiveMenu(menu)}
-                                    style={{
-                                        background: 'none',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        fontFamily: 'var(--font-heading)',
-                                        fontSize: '1.2rem',
-                                        color: activeMenu === menu ? 'var(--color-accent)' : '#666',
-                                        textAlign: 'left',
-                                        padding: '0.5rem 0',
-                                        transition: 'all 0.3s ease',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        opacity: activeMenu === menu ? 1 : 0.6
-                                    }}
+                                    className={`menu-nav-btn ${activeMenu === menu ? 'active' : ''}`}
                                 >
-                                    {menu}
-                                    {activeMenu === menu && (
-                                        <motion.div
-                                            layoutId="active-arrow"
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                        >
-                                            <IoChevronForward size={18} />
-                                        </motion.div>
-                                    )}
-                                </button>
-                            ))}
-                        </div>
+                {menu}
+                {activeMenu === menu && (
+                    <motion.div
+                        layoutId="active-arrow"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                    >
+                        <IoChevronForward size={18} />
                     </motion.div>
-                </div>
+                )}
+            </button>
+                            ))}
+        </div>
+                    </motion.div >
+                </div >
 
-                {/* RIGHT PANEL: Content */}
-                <div className="menu-content">
-                    <AnimatePresence mode='wait'>
-                        <motion.div
-                            key={activeMenu}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.4 }}
-                        >
-                            <h3 style={{
-                                fontFamily: 'var(--font-heading)',
-                                fontSize: '3rem',
-                                marginBottom: '2rem',
-                                color: '#fff',
-                                textTransform: 'uppercase',
-                                letterSpacing: '2px'
+    {/* RIGHT PANEL: Content */ }
+    < div className = "menu-content" >
+        <AnimatePresence mode='wait'>
+            <motion.div
+                key={activeMenu}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+            >
+                <h3 style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '3rem',
+                    marginBottom: '2rem',
+                    color: '#fff',
+                    textTransform: 'uppercase',
+                    letterSpacing: '2px'
+                }}>
+                    {activeMenu}
+                </h3>
+
+                {activeMenuData[activeMenu] ? activeMenuData[activeMenu].map((section, index) => {
+                    // Filter items if Veg Filter is active
+                    const filteredItems = isVegFilter
+                        ? section.items.filter(item => {
+                            const nonVegKeywords = ["Chicken", "Beef", "Goat", "Lamb", "Duck", "Venison", "Rabbit", "Ribeye", "Prawn", "Crab", "Monkfish", "Fish", "Squid"];
+                            // "Mock Chicken" exception handled by looking for "Mock Chicken" specifically
+                            if (item.name.includes("Mock Chicken")) return true;
+
+                            const containsKeyword = (text: string, keywords: string[]) => {
+                                return keywords.some(keyword => text.toLowerCase().includes(keyword.toLowerCase()));
+                            };
+
+                            if (containsKeyword(item.name, nonVegKeywords)) return false;
+                            if (item.description && containsKeyword(item.description, nonVegKeywords)) return false;
+                            return true;
+                        })
+                        : section.items;
+
+                    if (filteredItems.length === 0) return null;
+
+                    return (
+                        <div key={index} style={{ marginBottom: '3rem' }}>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'baseline',
+                                gap: '1rem',
+                                marginBottom: '1.5rem',
+                                borderBottom: '1px solid rgba(255,255,255,0.1)',
+                                paddingBottom: '0.5rem',
+                                flexWrap: 'wrap' // Allow wrapping on small screens
                             }}>
-                                {activeMenu}
-                            </h3>
+                                <h4 style={{
+                                    fontFamily: 'var(--font-heading)',
+                                    fontSize: '1.5rem',
+                                    color: 'var(--color-accent)'
+                                }}>
+                                    {section.category}
+                                </h4>
+                                {section.description && (
+                                    <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
+                                        {section.description}
+                                    </span>
+                                )}
+                            </div>
 
-                            {activeMenuData[activeMenu] ? activeMenuData[activeMenu].map((section, index) => {
-                                // Filter items if Veg Filter is active
-                                const filteredItems = isVegFilter
-                                    ? section.items.filter(item => {
-                                        const nonVegKeywords = ["Chicken", "Beef", "Goat", "Lamb", "Duck", "Venison", "Rabbit", "Ribeye", "Prawn", "Crab", "Monkfish", "Fish", "Squid"];
-                                        // "Mock Chicken" exception handled by looking for "Mock Chicken" specifically
-                                        if (item.name.includes("Mock Chicken")) return true;
-
-                                        const containsKeyword = (text: string, keywords: string[]) => {
-                                            return keywords.some(keyword => text.toLowerCase().includes(keyword.toLowerCase()));
-                                        };
-
-                                        if (containsKeyword(item.name, nonVegKeywords)) return false;
-                                        if (item.description && containsKeyword(item.description, nonVegKeywords)) return false;
-                                        return true;
-                                    })
-                                    : section.items;
-
-                                if (filteredItems.length === 0) return null;
-
-                                return (
-                                    <div key={index} style={{ marginBottom: '3rem' }}>
-                                        <div style={{
-                                            display: 'flex',
-                                            alignItems: 'baseline',
-                                            gap: '1rem',
-                                            marginBottom: '1.5rem',
-                                            borderBottom: '1px solid rgba(255,255,255,0.1)',
-                                            paddingBottom: '0.5rem',
-                                            flexWrap: 'wrap' // Allow wrapping on small screens
-                                        }}>
-                                            <h4 style={{
-                                                fontFamily: 'var(--font-heading)',
-                                                fontSize: '1.5rem',
-                                                color: 'var(--color-accent)'
+                            <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
+                                {filteredItems.map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="menu-item-card"
+                                    // Removed onMouseEnter for row
+                                    >
+                                        <div style={{ flex: 1 }}> {/* Content Container */}
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                                                <h5 style={{
+                                                    fontFamily: 'var(--font-heading)',
+                                                    fontSize: '1.2rem',
+                                                    color: '#fff',
+                                                    letterSpacing: '0.5px',
+                                                    margin: 0
+                                                }}>
+                                                    {item.name}
+                                                </h5>
+                                                {item.price && (
+                                                    <span style={{
+                                                        color: 'var(--color-accent)',
+                                                        fontWeight: 'bold',
+                                                        fontFamily: 'var(--font-mono)',
+                                                        flexShrink: 0,
+                                                        whiteSpace: 'nowrap',
+                                                        marginLeft: '1rem'
+                                                    }}>
+                                                        £{item.price}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <p style={{
+                                                color: '#aaa',
+                                                fontSize: '0.95rem',
+                                                lineHeight: '1.5',
+                                                fontFamily: 'var(--font-body)',
+                                                margin: 0
                                             }}>
-                                                {section.category}
-                                            </h4>
-                                            {section.description && (
-                                                <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
-                                                    {section.description}
-                                                </span>
-                                            )}
+                                                {item.description}
+                                            </p>
                                         </div>
 
-                                        <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
-                                            {filteredItems.map((item, idx) => (
-                                                <div
-                                                    key={idx}
-                                                    className="menu-item-card"
-                                                // Removed onMouseEnter for row
-                                                >
-                                                    <div style={{ flex: 1 }}> {/* Content Container */}
-                                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                                                            <h5 style={{
-                                                                fontFamily: 'var(--font-heading)',
-                                                                fontSize: '1.2rem',
-                                                                color: '#fff',
-                                                                letterSpacing: '0.5px',
-                                                                margin: 0
-                                                            }}>
-                                                                {item.name}
-                                                            </h5>
-                                                            {item.price && (
-                                                                <span style={{
-                                                                    color: 'var(--color-accent)',
-                                                                    fontWeight: 'bold',
-                                                                    fontFamily: 'var(--font-mono)',
-                                                                    flexShrink: 0,
-                                                                    whiteSpace: 'nowrap',
-                                                                    marginLeft: '1rem'
-                                                                }}>
-                                                                    £{item.price}
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                        <p style={{
-                                                            color: '#aaa',
-                                                            fontSize: '0.95rem',
-                                                            lineHeight: '1.5',
-                                                            fontFamily: 'var(--font-body)',
-                                                            margin: 0
-                                                        }}>
-                                                            {item.description}
-                                                        </p>
-                                                    </div>
-
-                                                    {/* Thumbnail Image */}
-                                                    {item.image && (
-                                                        <img
-                                                            src={item.image}
-                                                            alt={item.name}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                setHoveredImage(item.image || null);
-                                                            }}
-                                                            style={{
-                                                                width: '100px',
-                                                                height: '100px',
-                                                                objectFit: 'cover',
-                                                                borderRadius: '8px',
-                                                                cursor: 'pointer',
-                                                                border: '1px solid rgba(255,255,255,0.1)',
-                                                                flexShrink: 0 // Prevent squishing
-                                                            }}
-                                                        />
-                                                    )}
-                                                </div>
-                                            ))}
-                                        </div>
+                                        {/* Thumbnail Image */}
+                                        {item.image && (
+                                            <img
+                                                src={item.image}
+                                                alt={item.name}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setHoveredImage(item.image || null);
+                                                }}
+                                                style={{
+                                                    width: '100px',
+                                                    height: '100px',
+                                                    objectFit: 'cover',
+                                                    borderRadius: '8px',
+                                                    cursor: 'pointer',
+                                                    border: '1px solid rgba(255,255,255,0.1)',
+                                                    flexShrink: 0 // Prevent squishing
+                                                }}
+                                            />
+                                        )}
                                     </div>
-                                );
-                            }) : (
-                                <p>Menu items coming soon...</p>
-                            )}
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
-            </div>
-        </section>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                }) : (
+                    <p>Menu items coming soon...</p>
+                )}
+            </motion.div>
+        </AnimatePresence>
+                </div >
+            </div >
+        </section >
     );
 };
 

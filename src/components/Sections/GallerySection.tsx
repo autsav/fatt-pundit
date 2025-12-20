@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'fra
 import { IoClose } from 'react-icons/io5';
 
 // Import images
-import galleryBg from '../../assets/images/gallery_bg.jpg';
+import bgTexture from '../../assets/images/texture.jpg';
 import img1 from '../../assets/images/1.jpg';
 import brownie from '../../assets/images/brownie.jpg';
 import crab from '../../assets/images/crab65.jpg';
@@ -58,11 +58,10 @@ const GallerySection = () => {
             ref={containerRef}
             style={{
                 padding: '4rem 1rem',
-                backgroundColor: '#151313', // Dark base
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)), url(${galleryBg})`, // Dark overlay + Image
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundAttachment: 'fixed', // Creates the requested depth effect
+                backgroundColor: '#F4F4F2', // Light paper-like (Match About Us)
+                backgroundImage: `url(${bgTexture})`, // Match About Us
+                backgroundBlendMode: 'multiply', // Match About Us
+                // removed backgroundAttachment: 'fixed' to match About Us simple paper feel
                 overflow: 'hidden',
                 minHeight: '150vh' // Ensure enough scroll space
             }}
