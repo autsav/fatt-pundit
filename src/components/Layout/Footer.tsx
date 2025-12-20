@@ -30,21 +30,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                     gap: '3rem',
                     marginBottom: '2rem' // Reduced margin
                 }}>
-                    {/* Column 1: Interactive Map (Moved to Left) */}
-                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '160px', border: '2px solid var(--color-accent)' }}>
-                        <iframe
-                            src={currentMapSrc}
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Fatt Pundit Map"
-                        ></iframe>
-                    </div>
-
-                    {/* Column 2: Reservations (Moved to Left) */}
+                    {/* Column 1: Reservations (Moved to FIRST Position) */}
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <h4 style={{ color: '#FFFFFF', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
                         <p style={{ marginBottom: '1rem', color: '#E0E0E0', fontSize: '0.9rem' }}>
@@ -72,6 +58,20 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         >
                             BOOK A TABLE
                         </a>
+                    </div>
+
+                    {/* Column 2: Interactive Map (Moved to SECOND Position) */}
+                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '160px', border: '2px solid var(--color-accent)' }}>
+                        <iframe
+                            src={currentMapSrc}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Fatt Pundit Map"
+                        ></iframe>
                     </div>
 
                     {/* Column 3: Opening Hours (Moved to Right) */}
