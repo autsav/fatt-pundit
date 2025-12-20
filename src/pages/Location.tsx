@@ -12,7 +12,6 @@ import heroFood from '../assets/images/hero_food.jpg';
 import menuBgTiger from '../assets/images/menu_bg_tiger.png';
 import heroInterior from '../assets/images/hero_interior.jpg';
 import wallshow from '../assets/images/wallshow.jpg';
-import sohoHeroNew from '../assets/images/soho_hero_new.jpg';
 
 // Data Definition
 const LOCATION_DATA: Record<string, {
@@ -30,7 +29,7 @@ const LOCATION_DATA: Record<string, {
         phone: '+44 20 7287 7900',
         mapUrl: 'https://goo.gl/maps/xyz',
         image: heroInterior,
-        heroImage: sohoHeroNew,
+        heroImage: heroFood,
         description: 'The original Fatt Pundit in the heart of Soho. Experience the buzz of Berwick Street combined with the spicy aromas of Tangra.'
     },
     'covent-garden': {

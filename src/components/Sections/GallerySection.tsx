@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'fra
 import { IoClose } from 'react-icons/io5';
 
 // Import images
+import galleryBg from '../../assets/images/gallery_bg.jpg';
 import img1 from '../../assets/images/1.jpg';
 import brownie from '../../assets/images/brownie.jpg';
 import crab from '../../assets/images/crab65.jpg';
@@ -58,7 +59,7 @@ const GallerySection = () => {
             style={{
                 padding: '4rem 1rem',
                 backgroundColor: '#151313', // Dark base
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(${wallshow})`, // Dark overlay + Image
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(${galleryBg})`, // Dark overlay + Image
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundAttachment: 'fixed', // Creates the requested depth effect
