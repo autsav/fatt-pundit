@@ -5,7 +5,7 @@
     min-height: 100vh;
     padding-top: 6rem;
     padding-bottom: 4rem;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/images/reserve_bg_enhanced.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url('../../assets/images/reserve_bg_enhanced.png');
     background-size: cover;
     background-position: center;
     display: flex;
