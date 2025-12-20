@@ -72,8 +72,12 @@ const MenuSection = ({ location }: { location?: string }) => {
                         width: 100%;
                     }
                     /* Hide large MENU title on mobile to save space */
+                    /* Ensure MENU title is visible but scaled down on mobile */
                     .menu-sidebar h2 {
-                        display: none;
+                        display: block !important;
+                        font-size: 1.5rem !important;
+                        margin-bottom: 1rem !important;
+                        text-align: center;
                     }
                     .menu-filter {
                         margin-bottom: 1rem !important; /* Reduce gap */
@@ -99,10 +103,14 @@ const MenuSection = ({ location }: { location?: string }) => {
                         white-space: nowrap;
                         flex-shrink: 0;
                         background: rgba(255,255,255,0.05) !important;
-                        padding: 0.6rem 1.2rem !important;
+                        padding: 0.8rem 1.5rem !important; /* Increased touch target */
+                        min-height: 48px; /* A11y: Standard minimum touch target */
                         border-radius: 50px;
                         border: 1px solid rgba(255,255,255,0.1) !important;
-                        font-size: 0.9rem !important;
+                        font-size: 1rem !important; /* Slightly larger text for readability */
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
                 }
                 .menu-item-card {
