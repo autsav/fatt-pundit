@@ -22,7 +22,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
         <section style={{
             padding: '6rem 0',
             backgroundColor: '#202020',
-            backgroundImage: enableTexture ? `linear-gradient(rgba(32,32,32,0.05), rgba(32,32,32,0.05)), url(${sohoVisitBg})` : 'none',
+            backgroundImage: enableTexture ? `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoVisitBg})` : 'none',
             backgroundSize: enableTexture ? 'cover' : 'auto',
             backgroundPosition: 'center',
             color: enableTexture ? '#FFFFFF' : '#e0e0e0',
