@@ -43,9 +43,14 @@ const AboutSection = () => {
                         alt="Fatt Pundit Stamp"
                         style={{
                             width: '100%',
-                            maxWidth: '450px', // Slightly larger max width
+                            maxWidth: '450px',
                             height: 'auto',
                             objectFit: 'contain',
+                            backgroundColor: '#F4F4F2', // Restore original background color "paper" look
+                            padding: '15px', // White border/spacing
+                            boxShadow: '0 5px 15px rgba(0,0,0,0.5)', // Lift off the wall
+                            borderRadius: '2px', // Slight rounding
+                            transform: 'rotate(-2deg)' // Slight jaunty angle for sticker effect
                         }}
                     />
                 </motion.div>
