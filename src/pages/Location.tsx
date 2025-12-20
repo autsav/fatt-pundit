@@ -34,10 +34,7 @@ const LOCATION_DATA: Record<string, {
         description: 'The original Fatt Pundit in the heart of Soho. Experience the buzz of Berwick Street combined with the spicy aromas of Tangra.',
         openingHours: (
             <>
-                Mon & Tue: 12pm - 2:30pm, 5pm - 10:30pm<br />
-                Wednesday (Christmas Eve): 12pm - 2:30pm, 5pm - 10:30pm<br />
-                Thursday (Christmas Day): 12pm - 2:30pm, 5pm - 10:30pm<br />
-                Friday (Boxing Day): 12pm - 2:30pm, 5pm - 10:30pm<br />
+                Mon - Fri: 12pm - 2:30pm, 5pm - 10:30pm<br />
                 Saturday: 12pm - 10:30pm<br />
                 Sunday: Closed
             </>
