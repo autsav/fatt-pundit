@@ -53,9 +53,9 @@ const LOCATION_DATA: Record<string, {
         description: 'Located in the historic Covent Garden, our second location offers a spacious dining experience with the same bold Indo-Chinese flavours.',
         openingHours: (
             <>
-                Mon - Thu: 12:00pm - 10:00pm<br />
-                Fri - Sat: 12:00pm - 10:30pm<br />
-                Sun: 12:00pm - 9:30pm
+                Monday: Closed<br />
+                Tue - Thu: 12pm - 2:15pm, 4:45pm - 10:15pm<br />
+                Fri - Sun: 12pm - 10:15pm
             </>
         )
     }
