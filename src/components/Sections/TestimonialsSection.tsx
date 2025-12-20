@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { FaStar, FaQuoteLeft } from 'react-icons/fa';
+import testimonialsBg from '../../assets/images/testimonials_bg.jpg';
 
 const TESTIMONIALS = [
     {
@@ -45,6 +46,10 @@ const TestimonialsSection = () => {
             style={{
                 padding: '6rem 0',
                 backgroundColor: '#1a1a1a',
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${testimonialsBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
                 overflow: 'hidden',
                 position: 'relative'
             }}
