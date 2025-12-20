@@ -5,7 +5,6 @@ import sohoUtilityBg from '../assets/images/soho_utility_bg.jpg';
 
 const Vouchers = () => {
     const [isOpen, setIsOpen] = useState(false);
-
     return (
         <>
             <div style={{
@@ -21,7 +20,7 @@ const Vouchers = () => {
             }}>
 
                 <div className="container" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 style={{ marginBottom: '1rem', textShadow: '0 2px 10px rgba(0,0,0,0.8)', color: '#fff' }}>Give the Gift of Flavour</h1>
+                    <h1 style={{ marginBottom: '1rem', textShadow: '0 2px 10px rgba(0,0,0,0.8)', color: 'var(--color-accent)' }}>Give the Gift of Flavour</h1>
                     <p style={{ color: '#eee', textShadow: '0 2px 5px rgba(0,0,0,0.8)' }}>Perfect for any occasion.</p>
                 </div>
 

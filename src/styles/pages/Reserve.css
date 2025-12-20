@@ -29,7 +29,7 @@
 .reserve-title {
     font-family: var(--font-heading);
     margin-bottom: 0.5rem;
-    color: #FFFFFF;
+    color: var(--color-accent);
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
