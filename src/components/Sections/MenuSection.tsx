@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { IoChevronForward, IoClose, IoLeaf } from 'react-icons/io5';
 
 import menuBgTiger from '../../assets/images/menu_bg_tiger.png';
+import sohoMenuBg from '../../assets/images/soho_menu_bg.jpg';
 import { MENU_DATA_SOHO, MENU_DATA_COVENT, MENU_TYPES } from '../../data/menus';
 
 const MenuSection = ({ location }: { location?: string }) => {
@@ -10,15 +11,17 @@ const MenuSection = ({ location }: { location?: string }) => {
     const [activeMenu, setActiveMenu] = useState("A LA CARTE");
     const [isVegFilter, setIsVegFilter] = useState(false);
     const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-    // Removed mouse follower logic in favor of Lightbox
-    // const mouseX = useMotionValue(0); ...
+
+    // Background Logic
+    const currentBg = location === 'soho' ? sohoMenuBg : menuBgTiger;
+    const overlayOpacity = location === 'soho' ? 0.85 : 0.9; // Slightly clearer for Soho image if desired
 
     return (
         <section id="menu" style={{
             backgroundColor: 'var(--color-bg-primary)',
             color: 'var(--color-text-primary)',
             // High opacity overlay to make the image "lightly visible" in background
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${menuBgTiger})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,${overlayOpacity}), rgba(0,0,0,${overlayOpacity})), url(${currentBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
