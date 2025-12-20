@@ -3,7 +3,7 @@
 /* Main Section */
 .reserve-section {
     min-height: 100vh;
-    padding-top: 8rem;
+    padding-top: 6rem;
     padding-bottom: 4rem;
     background-image: radial-gradient(circle at top right, #1E1E1E, #121212);
     display: flex;
@@ -21,12 +21,12 @@
 /* Header Area */
 .reserve-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .reserve-title {
     font-family: var(--font-heading);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--color-text-primary);
 }
 
