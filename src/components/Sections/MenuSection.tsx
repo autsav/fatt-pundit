@@ -65,7 +65,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-sidebar {
                         position: sticky;
                         top: 110px; /* Increased from 65px to safe clear mobile/tablet navbar */
-                        background: var(--color-bg-primary); /* Ensure background covers content behind */
+                        background: #151313; /* Force dark background to match section theme */
                         z-index: 40; /* Below Navbar (50) but above content */
                         border-right: none;
                         border-bottom: 1px solid rgba(255,255,255,0.1);
