@@ -1,6 +1,6 @@
 import { FaInstagram, FaFacebook, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import sohoTexture from '../../assets/images/soho_texture.png';
-import sohoFooterBg from '../../assets/images/soho_footer_new.jpg';
+import sohoFooterBg from '../../assets/images/soho_footer_bg_final.jpg';
 
 const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
     // Map URLs
