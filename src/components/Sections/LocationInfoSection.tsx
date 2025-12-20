@@ -14,8 +14,8 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
     return (
         <section style={{
             padding: '6rem 0',
-            backgroundColor: 'var(--color-bg-primary)',
-            color: 'var(--color-text-primary)',
+            backgroundColor: '#202020', // Soft dark background for "cinematic" feel
+            color: '#e0e0e0',
             position: 'relative',
             overflow: 'hidden'
         }}>
