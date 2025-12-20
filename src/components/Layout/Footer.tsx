@@ -13,7 +13,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
     return (
         <footer style={{
             backgroundColor: '#202020', // Soft Charcoal fallback
-            backgroundImage: `linear-gradient(rgba(32,32,32,0.85), rgba(32,32,32,0.85)), url(${sohoTexture})`, // Texture with overlay
+            backgroundImage: `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`, // Texture with overlay
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             padding: '5rem 0 3rem', // Increased padding for vertical rhythm
