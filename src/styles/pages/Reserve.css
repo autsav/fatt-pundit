@@ -3,7 +3,7 @@
 /* Main Section */
 .reserve-section {
     min-height: 100vh;
-    padding-top: 6rem;
+    padding-top: 10rem;
     padding-bottom: 4rem;
     background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url('../../assets/images/reserve_bg_enhanced.png');
     background-size: cover;
@@ -29,14 +29,16 @@
 .reserve-title {
     font-family: var(--font-heading);
     margin-bottom: 0.5rem;
-    color: var(--color-text-primary);
+    color: #FFFFFF;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .reserve-subtitle {
     font-size: 1.2rem;
-    color: var(--color-text-secondary);
+    color: #F0F0F0;
     max-width: 600px;
     margin: 0 auto;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 /* Location Grid */
