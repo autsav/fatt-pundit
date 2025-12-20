@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
-import sohoTexture from '../../assets/images/soho_texture.png';
+import sohoVisitBg from '../../assets/images/soho_visit_bg.jpg';
 
 interface LocationInfoProps {
     address: string;
@@ -22,7 +22,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
         <section style={{
             padding: '6rem 0',
             backgroundColor: '#202020',
-            backgroundImage: enableTexture ? `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoTexture})` : 'none',
+            backgroundImage: enableTexture ? `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoVisitBg})` : 'none',
             backgroundSize: enableTexture ? 'cover' : 'auto',
             backgroundPosition: 'center',
             color: enableTexture ? '#FFFFFF' : '#e0e0e0',
