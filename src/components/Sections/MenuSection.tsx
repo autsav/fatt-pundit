@@ -64,14 +64,14 @@ const MenuSection = ({ location }: { location?: string }) => {
                     }
                     .menu-sidebar {
                         position: sticky;
-                        top: 110px; /* Increased from 65px to safe clear mobile/tablet navbar */
+                        top: 85px; /* Tighter fit to Navbar */
                         background: #151313; /* Force dark background to match section theme */
                         z-index: 40; /* Below Navbar (50) but above content */
                         border-right: none;
                         border-bottom: 1px solid rgba(255,255,255,0.1);
                         padding-right: 0;
-                        padding-bottom: 1rem;
-                        margin-bottom: 2rem;
+                        padding-bottom: 0.5rem; /* Reduced padding */
+                        margin-bottom: 1rem; /* Compact margin */
                         width: 100%;
                     }
                     /* Hide large MENU title on mobile to save space */
@@ -83,7 +83,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                         text-align: center;
                     }
                     .menu-filter {
-                        margin-bottom: 1rem !important; /* Reduce gap */
+                        margin-bottom: 0.5rem !important; /* Tighter gap */
                     }
                     /* Horizontal scroll for menu items on mobile */
                     .menu-nav-items {
