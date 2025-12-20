@@ -26,13 +26,56 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
             <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gridTemplateColumns: 'repeat(4, 1fr)', // Force 4 columns for desktop (responsive will wrap)
                     gap: '3rem',
                     marginBottom: '2rem' // Reduced margin
                 }}>
-                    {/* Brand & Hours */}
-                    <div>
+                    {/* Column 1: Interactive Map (Moved to Left) */}
+                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '160px', border: '2px solid var(--color-accent)' }}>
+                        <iframe
+                            src={currentMapSrc}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Fatt Pundit Map"
+                        ></iframe>
+                    </div>
 
+                    {/* Column 2: Reservations (Moved to Left) */}
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <h4 style={{ color: '#FFFFFF', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
+                        <p style={{ marginBottom: '1rem', color: '#E0E0E0', fontSize: '0.9rem' }}>
+                            Book your table online for the best experience.
+                        </p>
+                        <a
+                            href="https://www.fattpundit.co.uk/reservations/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: 'inline-block',
+                                padding: '0.75rem 1.5rem',
+                                backgroundColor: 'var(--color-accent)',
+                                color: '#fff',
+                                textDecoration: 'none',
+                                borderRadius: '4px',
+                                fontSize: '0.9rem',
+                                fontWeight: 'bold',
+                                transition: 'background-color 0.3s',
+                                fontFamily: 'var(--font-heading)',
+                                textAlign: 'center'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--color-accent-hover)'}
+                            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--color-accent)'}
+                        >
+                            BOOK A TABLE
+                        </a>
+                    </div>
+
+                    {/* Column 3: Opening Hours (Moved to Right) */}
+                    <div>
                         <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-heading)', fontSize: '0.95rem', letterSpacing: '0.1em' }}>OPENING HOURS</h5>
                         <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#E0E0E0', fontFamily: 'var(--font-heading)' }}>
                             <span style={{ display: 'block', marginBottom: '0.2rem' }}>Mon – Thu: 12:00pm – 10:00pm</span>
@@ -41,7 +84,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         </p>
                     </div>
 
-                    {/* Locations & Map */}
+                    {/* Column 4: Locations (Moved to Right) */}
                     <div>
                         <h4 style={{ color: '#ffffff', marginBottom: '1.5rem', fontFamily: 'var(--font-heading)', fontSize: '1.2rem', letterSpacing: '0.05em' }}>LOCATIONS</h4>
 
@@ -63,49 +106,6 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                                 <FaMapMarkerAlt size={16} color="var(--color-accent)" style={{ flexShrink: 0 }} /> 6 Maiden Lane, WC2E 7NA
                             </a>
                         </div>
-                    </div>
-
-                    {/* Interactive Map (Dark Theme CSS) */}
-                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '160px', border: '2px solid var(--color-accent)' }}>
-                        <iframe
-                            src={currentMapSrc}
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Fatt Pundit Map"
-                        ></iframe>
-                    </div>
-
-                    {/* Reservations */}
-                    <div>
-                        <h4 style={{ color: '#FFFFFF', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
-                        <p style={{ marginBottom: '1rem', color: '#E0E0E0', fontSize: '0.9rem' }}>
-                            Book your table online for the best experience.
-                        </p>
-                        <a
-                            href="https://www.fattpundit.co.uk/reservations/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                display: 'inline-block',
-                                padding: '0.75rem 1.5rem',
-                                backgroundColor: 'var(--color-accent)',
-                                color: '#fff',
-                                textDecoration: 'none',
-                                borderRadius: '4px',
-                                fontSize: '0.9rem',
-                                fontWeight: 'bold',
-                                transition: 'background-color 0.3s',
-                                fontFamily: 'var(--font-heading)'
-                            }}
-                            onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--color-accent-hover)'}
-                            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--color-accent)'}
-                        >
-                            BOOK A TABLE
-                        </a>
                     </div>
                 </div>
 
