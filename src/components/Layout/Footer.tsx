@@ -15,7 +15,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
         <footer style={{
             backgroundColor: '#202020', // Soft Charcoal fallback
             backgroundImage: activeLocation === 'soho'
-                ? `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${sohoFooterBg})`
+                ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${sohoFooterBg})`
                 : `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`,
             backgroundSize: activeLocation === 'soho' ? '100% auto' : 'cover',
             backgroundPosition: activeLocation === 'soho' ? 'top' : 'center',
