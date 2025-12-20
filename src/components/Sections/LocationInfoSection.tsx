@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
-import sohoVisitBg from '../../assets/images/soho_visit_bg.jpg';
+import sohoVisitBg from '../../assets/images/soho_utility_bg.jpg';
 
 interface LocationInfoProps {
     address: string;
@@ -13,21 +13,21 @@ interface LocationInfoProps {
 }
 
 const LocationInfoSection = ({ address, email, phone, mapUrl, image, description, enableTexture = false }: LocationInfoProps) => {
-    // Dynamic styles for texture visibility - SOHO (Texture) is now Dark Text on Light Background
-    const textShadow = enableTexture ? '0 1px 1px rgba(255,255,255,0.8)' : 'none';
-    const descColor = enableTexture ? '#333' : '#ccc';
-    const linkColor = enableTexture ? '#111' : '#aaa';
-    const labelColor = enableTexture ? '#000' : '#fff';
+    // Dynamic styles for texture visibility
+    const textShadow = enableTexture ? '0 2px 4px rgba(0,0,0,0.8)' : 'none';
+    const descColor = enableTexture ? '#F0F0F0' : '#ccc';
+    const linkColor = enableTexture ? '#FFFFFF' : '#aaa';
+    const labelColor = enableTexture ? '#FFFFFF' : '#fff';
 
     return (
         <section style={{
             padding: '6rem 0',
             backgroundColor: '#202020',
             // Light overlay for Soho to show cement texture clearly
-            backgroundImage: enableTexture ? `linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(${sohoVisitBg})` : 'none',
+            backgroundImage: enableTexture ? `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${sohoVisitBg})` : 'none',
             backgroundSize: enableTexture ? 'cover' : 'auto',
             backgroundPosition: 'center',
-            color: enableTexture ? '#111' : '#e0e0e0', // Dark text for Soho
+            color: enableTexture ? '#FFFFFF' : '#e0e0e0',
             position: 'relative',
             overflow: 'hidden'
         }}>
