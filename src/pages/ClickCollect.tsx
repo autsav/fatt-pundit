@@ -45,7 +45,7 @@ const ClickCollect = () => {
                 <div style={{
                     backgroundColor: '#121212',
                     color: '#fff',
-                    padding: '4rem 2rem',
+                    padding: '10rem 2rem 6rem 2rem',
                     textAlign: 'center',
                     backgroundImage: `url(${isSoho ? sohoUtilityBg : menuBgTiger})`,
                     backgroundSize: 'cover',
@@ -361,7 +361,7 @@ const ClickCollect = () => {
                         </>
                     )}
                 </AnimatePresence>
-            </div>
+            </div >
         </>
     );
 };
