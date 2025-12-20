@@ -72,6 +72,7 @@ const Location = () => {
                 mapUrl={`https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+${displayLocation}`} // Dynamic search link
                 image={data.image}
                 description={data.description}
+                enableTexture={location === 'soho'}
             />
 
             <MenuSection location={location} />

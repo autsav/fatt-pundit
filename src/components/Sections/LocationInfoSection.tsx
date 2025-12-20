@@ -9,17 +9,23 @@ interface LocationInfoProps {
     mapUrl: string;
     image: string;
     description: string;
+    enableTexture?: boolean;
 }
 
-const LocationInfoSection = ({ address, email, phone, mapUrl, image, description }: LocationInfoProps) => {
+const LocationInfoSection = ({ address, email, phone, mapUrl, image, description, enableTexture = false }: LocationInfoProps) => {
+    // Dynamic styles for texture visibility
+    const textShadow = enableTexture ? '0 2px 4px rgba(0,0,0,0.8)' : 'none';
+    const descColor = enableTexture ? '#F0F0F0' : '#ccc';
+    const linkColor = enableTexture ? '#FFFFFF' : '#aaa';
+
     return (
         <section style={{
             padding: '6rem 0',
             backgroundColor: '#202020',
-            backgroundImage: `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoTexture})`, // Texture with moderate overlay for visibility
-            backgroundSize: 'cover',
+            backgroundImage: enableTexture ? `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoTexture})` : 'none',
+            backgroundSize: enableTexture ? 'cover' : 'auto',
             backgroundPosition: 'center',
-            color: '#e0e0e0',
+            color: enableTexture ? '#FFFFFF' : '#e0e0e0',
             position: 'relative',
             overflow: 'hidden'
         }}>
@@ -41,7 +47,8 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                             fontFamily: 'var(--font-heading)',
                             fontSize: '2.5rem',
                             color: 'var(--color-accent)',
-                            marginBottom: '1.5rem'
+                            marginBottom: '1.5rem',
+                            textShadow: textShadow
                         }}>
                             VISIT US
                         </h2>
@@ -49,24 +56,25 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                             fontSize: '1.1rem',
                             lineHeight: '1.8',
                             marginBottom: '2rem',
-                            color: '#ccc',
-                            fontFamily: 'var(--font-body)'
+                            color: descColor,
+                            fontFamily: 'var(--font-body)',
+                            textShadow: textShadow
                         }}>
                             {description}
                         </p>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                                <FaMapMarkerAlt color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
+                                <FaMapMarkerAlt color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem', filter: enableTexture ? 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' : 'none' }} />
                                 <div>
-                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>ADDRESS</h4>
+                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem', textShadow: textShadow }}>ADDRESS</h4>
                                     <a
                                         href={mapUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        style={{ color: '#aaa', lineHeight: '1.5', textDecoration: 'none', transition: 'color 0.3s' }}
+                                        style={{ color: linkColor, lineHeight: '1.5', textDecoration: 'none', transition: 'color 0.3s', textShadow: textShadow }}
                                         onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
-                                        onMouseOut={(e) => e.currentTarget.style.color = '#aaa'}
+                                        onMouseOut={(e) => e.currentTarget.style.color = linkColor}
                                     >
                                         {address}
                                     </a>
@@ -74,10 +82,12 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                             </div>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <FaEnvelope color="var(--color-accent)" size={24} />
+                                <FaEnvelope color="var(--color-accent)" size={24} style={{ filter: enableTexture ? 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' : 'none' }} />
                                 <div>
-                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>EMAIL</h4>
-                                    <a href={`mailto:${email}`} style={{ color: '#aaa', textDecoration: 'none', transition: 'color 0.3s' }}>
+                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem', textShadow: textShadow }}>EMAIL</h4>
+                                    <a href={`mailto:${email}`} style={{ color: linkColor, textDecoration: 'none', transition: 'color 0.3s', textShadow: textShadow }}
+                                        onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
+                                        onMouseOut={(e) => e.currentTarget.style.color = linkColor}>
                                         {email}
                                     </a>
                                 </div>
@@ -85,19 +95,19 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
 
                             {phone && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <FaPhone color="var(--color-accent)" size={24} />
+                                    <FaPhone color="var(--color-accent)" size={24} style={{ filter: enableTexture ? 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' : 'none' }} />
                                     <div>
-                                        <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>PHONE</h4>
-                                        <a href={`tel:${phone}`} style={{ color: '#aaa', textDecoration: 'none' }}>{phone}</a>
+                                        <h4 style={{ color: '#fff', marginBottom: '0.2rem', textShadow: textShadow }}>PHONE</h4>
+                                        <a href={`tel:${phone}`} style={{ color: linkColor, textDecoration: 'none', textShadow: textShadow }}>{phone}</a>
                                     </div>
                                 </div>
                             )}
 
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                                <FaClock color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem' }} />
+                                <FaClock color="var(--color-accent)" size={24} style={{ marginTop: '0.2rem', filter: enableTexture ? 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' : 'none' }} />
                                 <div>
-                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem' }}>OPENING HOURS</h4>
-                                    <p style={{ color: '#aaa', lineHeight: '1.5', fontSize: '0.9rem' }}>
+                                    <h4 style={{ color: '#fff', marginBottom: '0.2rem', textShadow: textShadow }}>OPENING HOURS</h4>
+                                    <p style={{ color: linkColor, lineHeight: '1.5', fontSize: '0.9rem', textShadow: textShadow }}>
                                         Mon - Thu: 12:00pm - 10:00pm<br />
                                         Fri - Sat: 12:00pm - 10:30pm<br />
                                         Sun: 12:00pm - 9:30pm
@@ -118,7 +128,8 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
                                 textDecoration: 'none',
                                 borderRadius: '4px',
                                 fontWeight: 'bold',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease',
+                                boxShadow: enableTexture ? '0 4px 10px rgba(0,0,0,0.5)' : 'none'
                             }}
                             onMouseOver={(e) => {
                                 e.currentTarget.style.backgroundColor = 'var(--color-accent)';
