@@ -59,7 +59,7 @@ const GallerySection = () => {
             style={{
                 padding: '4rem 1rem',
                 backgroundColor: '#151313', // Dark base
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(${galleryBg})`, // Dark overlay + Image
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)), url(${galleryBg})`, // Dark overlay + Image
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundAttachment: 'fixed', // Creates the requested depth effect
