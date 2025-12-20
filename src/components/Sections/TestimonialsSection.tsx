@@ -36,8 +36,8 @@ const TestimonialsSection = () => {
         offset: ["start end", "end start"]
     });
 
-    // Parallax effect: moves naturally left/right as you scroll down
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+    // Parallax effect removed to fix alignment
+    // const x = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
     return (
         <section
@@ -78,8 +78,8 @@ const TestimonialsSection = () => {
                 <p style={{ color: '#888', fontFamily: 'var(--font-body)' }}>What the critics are saying.</p>
             </div>
 
-            {/* Parallax Wrapper for Effect */}
-            <motion.div style={{ x, width: '100%' }}>
+            {/* Parallax Wrapper for Effect - Removed Parallax X */}
+            <motion.div style={{ width: '100%' }}>
                 {/* Scrolling Cards Container */}
                 <div
                     className="thin-scrollbar"
@@ -88,7 +88,7 @@ const TestimonialsSection = () => {
                         overflowX: 'auto',
                         display: 'flex',
                         gap: '2rem',
-                        padding: '0 1rem 2rem 1rem', // Matched padding to container
+                        padding: '0 2rem 2rem 2rem', // Increased stable padding
                         scrollSnapType: 'x mandatory'
                     }}
                 >

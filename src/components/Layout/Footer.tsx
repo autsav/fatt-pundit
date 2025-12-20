@@ -78,8 +78,8 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
 
                     {/* Reservations */}
                     <div>
-                        <h4 style={{ color: 'var(--color-text-primary)', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
-                        <p style={{ marginBottom: '1rem', color: '#888', fontSize: '0.9rem' }}>
+                        <h4 style={{ color: '#FFFFFF', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
+                        <p style={{ marginBottom: '1rem', color: '#E0E0E0', fontSize: '0.9rem' }}>
                             Book your table online for the best experience.
                         </p>
                         <a
