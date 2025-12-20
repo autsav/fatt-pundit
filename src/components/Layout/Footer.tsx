@@ -30,11 +30,11 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         </h3>
                         <p style={{ lineHeight: '1.6', marginBottom: '1.5rem' }}>Where Chinese Craftsmanship Meets Indian Spices.<br />Momos from the Himalayas.</p>
 
-                        <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>OPENING HOURS</h5>
-                        <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#ccc' }}>
-                            <strong>Mon - Thu:</strong> 12:00pm - 10:00pm<br />
-                            <strong>Fri - Sat:</strong> 12:00pm - 10:30pm<br />
-                            <strong>Sun:</strong> 12:00pm - 9:30pm
+                        <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '0.8rem', fontFamily: 'var(--font-heading)', fontSize: '0.9rem', letterSpacing: '0.05rem' }}>OPENING HOURS</h5>
+                        <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#ccc', fontFamily: 'var(--font-heading)' }}>
+                            <span style={{ display: 'block' }}>Mon – Thu: 12:00pm – 10:00pm</span>
+                            <span style={{ display: 'block' }}>Fri – Sat: 12:00pm – 10:30pm</span>
+                            <span style={{ display: 'block' }}>Sun: 12:00pm – 9:30pm</span>
                         </p>
                     </div>
 
