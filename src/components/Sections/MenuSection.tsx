@@ -14,7 +14,7 @@ const MenuSection = ({ location }: { location?: string }) => {
 
     // Background Logic
     const currentBg = location === 'soho' ? sohoMenuBg : menuBgTiger;
-    const overlayOpacity = location === 'soho' ? 0.85 : 0.9; // Slightly clearer for Soho image if desired
+    const overlayOpacity = location === 'soho' ? 0.7 : 0.9; // Reduced opacity for Soho to show background
 
     return (
         <section id="menu" style={{
