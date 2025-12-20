@@ -14,13 +14,17 @@
   --font-heading: 'Special Elite', cursive;
   --font-body: 'Special Elite', cursive;
 
-  /* Spacing */
+  /* Spacing - Inspired by Apple's breathable layout */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-  --spacing-2xl: 8rem;
+  --spacing-md: 1.5rem;
+  /* Increased from 1rem for better component breathing */
+  --spacing-lg: 3rem;
+  /* Increased from 2rem */
+  --spacing-xl: 6rem;
+  /* Increased from 4rem - Main Section Gap */
+  --spacing-2xl: 10rem;
+  /* Increased from 8rem - Hero/Major Transition Gap */
 
   /* Border Radius */
   --radius-sm: 0.25rem;

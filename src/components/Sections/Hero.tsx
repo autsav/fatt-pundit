@@ -53,7 +53,7 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     transition={{ duration: 0.8 }}
                     style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
-                        marginBottom: '2rem',
+                        marginBottom: 'var(--spacing-lg)',
                         textShadow: '0 4px 20px rgba(0,0,0,0.5)'
                     }}
                 >
@@ -65,28 +65,31 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    style={{ display: 'flex', gap: '1rem' }}
+                    style={{ display: 'flex', gap: 'var(--spacing-lg)', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}
                 >
                     <Link to={reserveLink || "/reserve"} style={{
-                        padding: '1rem 2.5rem',
+                        padding: '1.2rem 3rem',
                         backgroundColor: 'var(--color-accent)',
                         color: '#FFFFFF',
                         fontWeight: 600,
                         textTransform: 'uppercase',
                         letterSpacing: '0.1rem',
-                        borderRadius: 'var(--radius-sm)'
+                        borderRadius: 'var(--radius-full)',
+                        fontSize: '0.9rem'
                     }}>
                         Reserve a Table
                     </Link>
                     <a href="#menu" style={{
-                        padding: '1rem 2.5rem',
-                        border: '1px solid white',
+                        padding: '1.2rem 3rem',
+                        border: '1px solid rgba(255,255,255,0.8)',
                         color: 'white',
                         fontWeight: 600,
                         textTransform: 'uppercase',
                         letterSpacing: '0.1rem',
-                        borderRadius: 'var(--radius-sm)',
-                        backdropFilter: 'blur(5px)'
+                        borderRadius: 'var(--radius-full)',
+                        fontSize: '0.9rem',
+                        backdropFilter: 'blur(10px)',
+                        background: 'rgba(0,0,0,0.2)'
                     }}>
                         View Menu
                     </a>
