@@ -6,10 +6,12 @@ import { IoClose, IoAdd, IoRemove, IoChevronForward } from 'react-icons/io5';
 import { MENU_ITEMS, CATEGORIES } from '../data/menuData';
 import { useCart } from '../context/CartContext';
 import menuBgTiger from '../assets/images/menu_bg_tiger.png';
+import sohoUtilityBg from '../assets/images/soho_utility_bg.jpg';
 
 const ClickCollect = () => {
     const { location } = useParams();
     const displayLocation = location ? location.replace(/-/g, ' ').toUpperCase() : 'SOHO';
+    const isSoho = !location || location.includes('soho');
 
     const {
         cartItems,
@@ -45,12 +47,12 @@ const ClickCollect = () => {
                     color: '#fff',
                     padding: '4rem 2rem',
                     textAlign: 'center',
-                    backgroundImage: `url(${menuBgTiger})`,
+                    backgroundImage: `url(${isSoho ? sohoUtilityBg : menuBgTiger})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     position: 'relative'
                 }}>
-                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.6)' }}></div>
+                    <div style={{ position: 'absolute', inset: 0, background: isSoho ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.6)' }}></div>
                     <div style={{ position: 'relative', zIndex: 1 }}>
                         <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '1rem', color: 'var(--color-accent)' }}>{displayLocation} CLICK & COLLECT</h1>
                         <p style={{ fontSize: '1.2rem', opacity: 0.9 }}>Order online and pickup from our {displayLocation.toLowerCase()} location.</p>

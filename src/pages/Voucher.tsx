@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 import { FaGift } from 'react-icons/fa';
+import sohoUtilityBg from '../assets/images/soho_utility_bg.jpg';
 
 const Vouchers = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +15,14 @@ const Vouchers = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundImage: 'radial-gradient(circle at center, #1E1E1E, #121212)',
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${sohoUtilityBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
             }}>
 
                 <div className="container" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 style={{ marginBottom: '1rem' }}>Give the Gift of Flavour</h1>
-                    <p style={{ color: 'var(--color-text-secondary)' }}>Perfect for any occasion.</p>
+                    <h1 style={{ marginBottom: '1rem', textShadow: '0 2px 10px rgba(0,0,0,0.8)', color: '#fff' }}>Give the Gift of Flavour</h1>
+                    <p style={{ color: '#eee', textShadow: '0 2px 5px rgba(0,0,0,0.8)' }}>Perfect for any occasion.</p>
                 </div>
 
                 <div style={{ position: 'relative', width: '300px', height: '200px', cursor: 'pointer' }} onClick={() => setIsOpen(true)}>
