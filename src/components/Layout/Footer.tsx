@@ -31,7 +31,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         <p style={{ lineHeight: '1.6', marginBottom: '1.5rem' }}>Where Chinese Craftsmanship Meets Indian Spices.<br />Momos from the Himalayas.</p>
 
                         <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '0.8rem', fontFamily: 'var(--font-heading)', fontSize: '0.9rem', letterSpacing: '0.05rem' }}>OPENING HOURS</h5>
-                        <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#ccc', fontFamily: 'var(--font-heading)' }}>
+                        <p style={{ fontSize: '1rem', lineHeight: '1.8', color: 'rgba(0,0,0,0.7)', fontFamily: 'var(--font-heading)' }}>
                             <span style={{ display: 'block' }}>Mon – Thu: 12:00pm – 10:00pm</span>
                             <span style={{ display: 'block' }}>Fri – Sat: 12:00pm – 10:30pm</span>
                             <span style={{ display: 'block' }}>Sun: 12:00pm – 9:30pm</span>
@@ -44,7 +44,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
 
                         {/* Soho */}
                         <div style={{ marginBottom: '1.5rem' }}>
-                            <strong style={{ display: 'block', color: activeLocation === 'soho' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>SOHO</strong>
+                            <strong style={{ display: 'block', color: activeLocation === 'soho' ? 'var(--color-accent)' : 'rgba(0,0,0,0.7)', marginBottom: '0.25rem', transition: 'color 0.3s' }}>SOHO</strong>
                             <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Soho+77+Berwick+Street" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>
                                 <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 77 Berwick Street, W1F 8TH
                             </a>
@@ -55,7 +55,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
 
                         {/* Covent Garden */}
                         <div style={{ marginBottom: '1.5rem' }}>
-                            <strong style={{ display: 'block', color: activeLocation === 'covent-garden' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>COVENT GARDEN</strong>
+                            <strong style={{ display: 'block', color: activeLocation === 'covent-garden' ? 'var(--color-accent)' : 'rgba(0,0,0,0.7)', marginBottom: '0.25rem', transition: 'color 0.3s' }}>COVENT GARDEN</strong>
                             <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Covent+Garden+6+Maiden+Lane" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>
                                 <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 6 Maiden Lane, WC2E 7NA
                             </a>
