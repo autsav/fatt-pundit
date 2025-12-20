@@ -37,10 +37,18 @@ const MenuSection = ({ location }: { location?: string }) => {
                 }
                 .menu-sidebar {
                     position: sticky;
-                    top: 150px; /* Increased from 120px to clear Navbar (approx 120px height) */
-                    height: fit-content;
+                    top: 140px; /* Optimal clearance for fixed Navbar */
+                    align-self: start; /* Ensures sticky works correctly in Grid */
+                    height: auto;
+                    max-height: calc(100vh - 150px); /* Allow internal scroll if screen is short */
+                    overflow-y: auto; /* Enable scroll */
                     padding-right: 2rem;
                     border-right: 1px solid rgba(255,255,255,0.1);
+                    scrollbar-width: none; /* Firefox hide scrollbar */
+                    -ms-overflow-style: none; /* IE/Edge hide scrollbar */
+                }
+                .menu-sidebar::-webkit-scrollbar {
+                    display: none; /* Chrome/Safari hide scrollbar */
                 }
                 .menu-content {
                     min-height: 80vh;
