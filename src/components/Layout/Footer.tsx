@@ -1,5 +1,6 @@
 import { FaInstagram, FaFacebook, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import sohoTexture from '../../assets/images/soho_texture.png';
+import sohoFooterBg from '../../assets/images/soho_footer_bg.jpg';
 
 const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
     // Map URLs
@@ -13,7 +14,9 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
     return (
         <footer style={{
             backgroundColor: '#202020', // Soft Charcoal fallback
-            backgroundImage: `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`, // Texture with overlay
+            backgroundImage: activeLocation === 'soho'
+                ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${sohoFooterBg})`
+                : `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             padding: '5rem 0 3rem', // Increased padding for vertical rhythm
