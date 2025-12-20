@@ -31,7 +31,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                     marginBottom: '2rem' // Reduced margin
                 }}>
                     {/* Column 1: Reservations (Moved to FIRST Position) */}
-                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
                         <h4 style={{ color: '#FFFFFF', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>RESERVATIONS</h4>
                         <p style={{ marginBottom: '1rem', color: '#E0E0E0', fontSize: '0.9rem' }}>
                             Book your table online for the best experience.
