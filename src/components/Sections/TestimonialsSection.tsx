@@ -82,13 +82,13 @@ const TestimonialsSection = () => {
             <motion.div style={{ x, width: '100%' }}>
                 {/* Scrolling Cards Container */}
                 <div
-                    className="no-scrollbar"
+                    className="thin-scrollbar"
                     style={{
                         width: '100%',
                         overflowX: 'auto',
                         display: 'flex',
                         gap: '2rem',
-                        padding: '0 2rem 2rem 2rem',
+                        padding: '0 1rem 2rem 1rem', // Matched padding to container
                         scrollSnapType: 'x mandatory'
                     }}
                 >

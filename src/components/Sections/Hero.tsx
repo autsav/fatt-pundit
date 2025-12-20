@@ -22,7 +22,8 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${backgroundImage || defaultHero})`,
+                    backgroundImage: `radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%), url(${backgroundImage || defaultHero})`, // Cinematic Vignette
+                    filter: 'contrast(1.15) saturate(1.1) brightness(0.9)', // Color Grading
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     y,
