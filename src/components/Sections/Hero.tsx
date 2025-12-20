@@ -42,7 +42,7 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                         letterSpacing: '0.2rem',
                         textTransform: 'uppercase',
                         marginBottom: '1rem',
-                        color: 'var(--color-accent)'
+                        color: '#FFFFFF'
                     }}
                 >
                     Welcome to
@@ -55,12 +55,12 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         marginBottom: 'var(--spacing-lg)',
-                        color: '#FFFFFF', // Force white for visibility against dark bg
-                        textShadow: '0 4px 30px rgba(0,0,0,0.8)' // Stronger shadow for lift
+                        color: 'var(--color-accent)', // Swapped to Red/Accent
+                        textShadow: '0 4px 30px rgba(0,0,0,0.8)'
                     }}
                 >
                     FATT PUNDIT<br />
-                    <span style={{ fontSize: '0.5em', fontStyle: 'italic', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>{location}</span>
+                    <span style={{ fontSize: '0.5em', fontStyle: 'italic', fontWeight: 400, color: '#FFFFFF' }}>{location}</span>
                 </motion.h1>
 
                 <motion.div
