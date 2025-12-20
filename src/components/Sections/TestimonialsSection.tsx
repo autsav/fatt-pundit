@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { FaStar, FaQuoteLeft } from 'react-icons/fa';
 import testimonialsBg from '../../assets/images/testimonials_bg.jpg';
@@ -32,10 +32,6 @@ const TESTIMONIALS = [
 
 const TestimonialsSection = () => {
     const sectionRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"]
-    });
 
     // Parallax effect removed to fix alignment
     // const x = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);

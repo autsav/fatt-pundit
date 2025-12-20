@@ -21,7 +21,7 @@ const Reserve = () => {
 
     const showSoho = !location || location.includes('soho');
     const showCovent = !location || location.includes('covent');
-    const isSoho = showSoho && !showCovent; // Strict check if only Soho is active? Or if mixed? RootLayout default logic usually implies if explicit Soho.
+    // const isSoho = showSoho && !showCovent; // Strict check if only Soho is active? Or if mixed? RootLayout default logic usually implies if explicit Soho.
     // Actually `showSoho` is true if no location (default).
     // Let's use `showSoho` as the flag for the background since default is Soho.
 
