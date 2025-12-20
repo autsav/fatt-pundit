@@ -11,10 +11,10 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
 
     return (
         <footer style={{
-            backgroundColor: '#151313', // Force Dark Background
-            padding: '4rem 0 2rem',
-            color: '#cccccc', // Light text for dark bg
-            borderTop: '1px solid rgba(255,255,255,0.1)'
+            backgroundColor: '#202020', // Soft Charcoal: "Less Dark" than pure black, premium feel
+            padding: '5rem 0 3rem', // Increased padding for vertical rhythm
+            color: '#E0E0E0', // High legibility off-white
+            borderTop: '1px solid rgba(255,255,255,0.08)'
         }}>
             <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <div style={{
@@ -30,34 +30,34 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                         </h3>
                         <p style={{ lineHeight: '1.6', marginBottom: '1.5rem' }}>Where Chinese Craftsmanship Meets Indian Spices.<br />Momos from the Himalayas.</p>
 
-                        <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '0.8rem', fontFamily: 'var(--font-heading)', fontSize: '0.9rem', letterSpacing: '0.05rem' }}>OPENING HOURS</h5>
-                        <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#ccc', fontFamily: 'var(--font-heading)' }}>
-                            <span style={{ display: 'block' }}>Mon – Thu: 12:00pm – 10:00pm</span>
-                            <span style={{ display: 'block' }}>Fri – Sat: 12:00pm – 10:30pm</span>
+                        <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-heading)', fontSize: '0.95rem', letterSpacing: '0.1em' }}>OPENING HOURS</h5>
+                        <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#E0E0E0', fontFamily: 'var(--font-heading)' }}>
+                            <span style={{ display: 'block', marginBottom: '0.2rem' }}>Mon – Thu: 12:00pm – 10:00pm</span>
+                            <span style={{ display: 'block', marginBottom: '0.2rem' }}>Fri – Sat: 12:00pm – 10:30pm</span>
                             <span style={{ display: 'block' }}>Sun: 12:00pm – 9:30pm</span>
                         </p>
                     </div>
 
                     {/* Locations & Map */}
                     <div>
-                        <h4 style={{ color: '#ffffff', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>LOCATIONS</h4>
+                        <h4 style={{ color: '#ffffff', marginBottom: '1.5rem', fontFamily: 'var(--font-heading)', fontSize: '1.2rem', letterSpacing: '0.05em' }}>LOCATIONS</h4>
 
                         {/* Soho */}
-                        <div style={{ marginBottom: '1.5rem' }}>
-                            <strong style={{ display: 'block', color: activeLocation === 'soho' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>SOHO</strong>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Soho+77+Berwick+Street" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: '#ccc', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#ccc'}>
-                                <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 77 Berwick Street, W1F 8TH
+                        <div style={{ marginBottom: '2rem' }}>
+                            <strong style={{ display: 'block', color: activeLocation === 'soho' ? 'var(--color-accent)' : '#FFFFFF', marginBottom: '0.5rem', fontSize: '1.1rem', transition: 'color 0.3s' }}>SOHO</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Soho+77+Berwick+Street" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem', color: '#D0D0D0', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.95rem' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#D0D0D0'}>
+                                <FaMapMarkerAlt size={16} color="var(--color-accent)" style={{ flexShrink: 0 }} /> 77 Berwick Street, W1F 8TH
                             </a>
-                            <a href="mailto:info@fattpundit.co.uk" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ccc', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#ccc'}>
-                                <FaEnvelope size={16} color="var(--color-accent)" /> info@fattpundit.co.uk
+                            <a href="mailto:info@fattpundit.co.uk" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#D0D0D0', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.95rem' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#D0D0D0'}>
+                                <FaEnvelope size={16} color="var(--color-accent)" style={{ flexShrink: 0 }} /> info@fattpundit.co.uk
                             </a>
                         </div>
 
                         {/* Covent Garden */}
                         <div style={{ marginBottom: '1.5rem' }}>
-                            <strong style={{ display: 'block', color: activeLocation === 'covent-garden' ? 'var(--color-accent)' : '#fff', marginBottom: '0.25rem', transition: 'color 0.3s' }}>COVENT GARDEN</strong>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Covent+Garden+6+Maiden+Lane" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', color: '#ccc', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#ccc'}>
-                                <FaMapMarkerAlt size={16} color="var(--color-accent)" /> 6 Maiden Lane, WC2E 7NA
+                            <strong style={{ display: 'block', color: activeLocation === 'covent-garden' ? 'var(--color-accent)' : '#FFFFFF', marginBottom: '0.5rem', fontSize: '1.1rem', transition: 'color 0.3s' }}>COVENT GARDEN</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fatt+Pundit+Covent+Garden+6+Maiden+Lane" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem', color: '#D0D0D0', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.95rem' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#D0D0D0'}>
+                                <FaMapMarkerAlt size={16} color="var(--color-accent)" style={{ flexShrink: 0 }} /> 6 Maiden Lane, WC2E 7NA
                             </a>
                         </div>
                     </div>
@@ -115,10 +115,10 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                     flexWrap: 'wrap',
                     gap: '1rem'
                 }}>
-                    <p style={{ fontSize: '0.875rem', opacity: 0.6 }}>&copy; {new Date().getFullYear()} Fatt Pundit. All rights reserved.</p>
+                    <p style={{ fontSize: '0.875rem', color: '#D0D0D0' }}>&copy; {new Date().getFullYear()} Fatt Pundit. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
-                        <a href="https://www.instagram.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><FaInstagram size={20} /></a>
-                        <a href="https://www.facebook.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-primary)', transition: 'color 0.3s' }}><FaFacebook size={20} /></a>
+                        <a href="https://www.instagram.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#FFFFFF'}><FaInstagram size={24} /></a>
+                        <a href="https://www.facebook.com/fattpundit" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', transition: 'color 0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseOut={(e) => e.currentTarget.style.color = '#FFFFFF'}><FaFacebook size={24} /></a>
                     </div>
                 </div>
             </div>
