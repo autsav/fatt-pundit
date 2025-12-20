@@ -32,10 +32,6 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                 }}>
                     {/* Brand & Hours */}
                     <div>
-                        <h3 style={{ fontFamily: 'var(--font-heading)', color: '#ffffff', fontSize: '1.5rem', marginBottom: '1rem' }}>
-                            FATT PUNDIT
-                        </h3>
-                        <p style={{ lineHeight: '1.6', marginBottom: '1.5rem' }}>Where Chinese Craftsmanship Meets Indian Spices.<br />Momos from the Himalayas.</p>
 
                         <h5 style={{ color: 'var(--color-accent)', fontWeight: 'bold', marginBottom: '1rem', fontFamily: 'var(--font-heading)', fontSize: '0.95rem', letterSpacing: '0.1em' }}>OPENING HOURS</h5>
                         <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#E0E0E0', fontFamily: 'var(--font-heading)' }}>
