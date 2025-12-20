@@ -37,7 +37,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                 }
                 .menu-sidebar {
                     position: sticky;
-                    top: 120px;
+                    top: 150px; /* Increased from 120px to clear Navbar (approx 120px height) */
                     height: fit-content;
                     padding-right: 2rem;
                     border-right: 1px solid rgba(255,255,255,0.1);
@@ -49,11 +49,6 @@ const MenuSection = ({ location }: { location?: string }) => {
                     .menu-container {
                         grid-template-columns: 1fr;
                         gap: 2rem;
-                        grid-template-columns: 1fr;
-                        gap: 2rem;
-                    .menu-container {
-                        grid-template-columns: 1fr;
-                        gap: 2rem;
                         padding: 2rem 1rem;
                         padding-top: 80px; /* Safe area for fixed Navbar */
                         width: 100%; /* Fix 100vw causing scroll issues */
@@ -61,7 +56,7 @@ const MenuSection = ({ location }: { location?: string }) => {
                     }
                     .menu-sidebar {
                         position: sticky;
-                        top: 65px; /* Matches new compact mobile navbar height */
+                        top: 110px; /* Increased from 65px to safe clear mobile/tablet navbar */
                         background: var(--color-bg-primary); /* Ensure background covers content behind */
                         z-index: 40; /* Below Navbar (50) but above content */
                         border-right: none;
