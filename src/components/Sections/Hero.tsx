@@ -54,11 +54,12 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
                     style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         marginBottom: 'var(--spacing-lg)',
-                        textShadow: '0 4px 20px rgba(0,0,0,0.5)'
+                        color: '#FFFFFF', // Force white for visibility against dark bg
+                        textShadow: '0 4px 30px rgba(0,0,0,0.8)' // Stronger shadow for lift
                     }}
                 >
                     FATT PUNDIT<br />
-                    <span style={{ fontSize: '0.5em', fontStyle: 'italic', fontWeight: 400 }}>{location}</span>
+                    <span style={{ fontSize: '0.5em', fontStyle: 'italic', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>{location}</span>
                 </motion.h1>
 
                 <motion.div
