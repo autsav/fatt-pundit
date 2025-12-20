@@ -83,31 +83,33 @@ button {
 }
 
 /* Utility: Thin Dark Scrollbar for component-level scrolling */
-/* Utility: Thin Red Line Scrollbar (Modern) */
+/* Utility: Pencil-Thin Red Scrollbar */
 .thin-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-accent) rgba(255, 255, 255, 0.05);
+    scrollbar-color: var(--color-accent) transparent;
 }
 
 .thin-scrollbar::-webkit-scrollbar {
-    height: 3px;
-    /* Ultra thin modern line */
-    width: 3px;
+    height: 1.5px;
+    /* Pencil thin line */
+    width: 1.5px;
 }
 
 .thin-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
+    /* Invisible track */
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb {
     background-color: var(--color-accent);
-    border-radius: 4px;
+    border-radius: 0;
+    /* Sharp line */
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-accent);
-    /* Keep accent on hover */
-    filter: brightness(1.2);
+    height: 3px;
+    /* Slightly thicker on interaction if needed, but keeping style */
 }
 
 .container {
