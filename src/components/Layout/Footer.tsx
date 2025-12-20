@@ -19,7 +19,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                 : `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`,
             backgroundSize: activeLocation === 'soho' ? '100% auto' : 'cover',
             backgroundPosition: activeLocation === 'soho' ? 'top' : 'center',
-            padding: '5rem 0 3rem', // Increased padding for vertical rhythm
+            padding: '3rem 0 1.5rem', // Reduced padding
             color: '#E0E0E0', // High legibility off-white
             borderTop: '1px solid rgba(255,255,255,0.08)'
         }}>
@@ -27,8 +27,8 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: '4rem',
-                    marginBottom: '4rem'
+                    gap: '3rem',
+                    marginBottom: '2rem' // Reduced margin
                 }}>
                     {/* Brand & Hours */}
                     <div>
@@ -66,7 +66,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                     </div>
 
                     {/* Interactive Map (Dark Theme CSS) */}
-                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '200px', border: '2px solid var(--color-accent)' }}>
+                    <div style={{ borderRadius: '8px', overflow: 'hidden', height: '160px', border: '2px solid var(--color-accent)' }}>
                         <iframe
                             src={currentMapSrc}
                             width="100%"
@@ -111,7 +111,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
 
                 <div style={{
                     borderTop: '1px solid rgba(255,255,255,0.1)',
-                    paddingTop: '2rem',
+                    paddingTop: '1.5rem',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
