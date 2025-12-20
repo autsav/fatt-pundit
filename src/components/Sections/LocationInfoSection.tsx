@@ -16,7 +16,7 @@ const LocationInfoSection = ({ address, email, phone, mapUrl, image, description
         <section style={{
             padding: '6rem 0',
             backgroundColor: '#202020',
-            backgroundImage: `linear-gradient(rgba(32,32,32,0.9), rgba(32,32,32,0.9)), url(${sohoTexture})`, // Texture with heavy overlay for readability
+            backgroundImage: `linear-gradient(rgba(32,32,32,0.7), rgba(32,32,32,0.7)), url(${sohoTexture})`, // Texture with moderate overlay for visibility
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             color: '#e0e0e0',
