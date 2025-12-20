@@ -62,7 +62,7 @@ const GallerySection = ({ location }: { location?: string }) => {
             style={{
                 padding: '4rem 1rem',
                 backgroundColor: isSoho ? '#151313' : '#F4F4F2',
-                backgroundImage: isSoho ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${sohoTexture})` : `url(${bgTexture})`,
+                backgroundImage: isSoho ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${sohoTexture})` : `url(${bgTexture})`,
                 backgroundBlendMode: isSoho ? 'normal' : 'multiply',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
