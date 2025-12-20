@@ -5,6 +5,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoArrowForward } from 'react-icons/io5';
 import heroInterior from '../assets/images/hero_interior.jpg';
 import wallshow from '../assets/images/wallshow.jpg';
+import sohoUtilityBg from '../assets/images/soho_utility_bg.jpg';
 
 import '../styles/pages/Reserve.css';
 
@@ -20,10 +21,17 @@ const Reserve = () => {
 
     const showSoho = !location || location.includes('soho');
     const showCovent = !location || location.includes('covent');
+    const isSoho = showSoho && !showCovent; // Strict check if only Soho is active? Or if mixed? RootLayout default logic usually implies if explicit Soho.
+    // Actually `showSoho` is true if no location (default).
+    // Let's use `showSoho` as the flag for the background since default is Soho.
 
     return (
         <>
-            <section className="reserve-section">
+            <section className="reserve-section" style={showSoho ? {
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${sohoUtilityBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            } : {}}>
                 <div className="container reserve-container">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
