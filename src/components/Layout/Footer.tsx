@@ -17,7 +17,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
             backgroundImage: activeLocation === 'soho'
                 ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${sohoFooterBg})`
                 : `linear-gradient(rgba(32,32,32,0.65), rgba(32,32,32,0.65)), url(${sohoTexture})`,
-            backgroundSize: 'cover',
+            backgroundSize: activeLocation === 'soho' ? '100% 100%' : 'cover',
             backgroundPosition: 'center',
             padding: '5rem 0 3rem', // Increased padding for vertical rhythm
             color: '#E0E0E0', // High legibility off-white
@@ -129,7 +129,7 @@ const Footer = ({ activeLocation = 'soho' }: { activeLocation?: string }) => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 };
 
