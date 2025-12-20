@@ -80,7 +80,7 @@ const AboutSection = () => {
                         lineHeight: '1.8',
                         color: '#333333',
                         marginBottom: 'var(--spacing-md)',
-                        fontFamily: 'system-ui, -apple-system, sans-serif' // Clean typography
+                        fontFamily: 'var(--font-heading)' // Brand consistent font
                     }}>
                         Originating from Kolkata, this unique cuisine was invented when the Hakka people migrated to India from the Chinese province of Canton, bringing with them their culinary treasures. Incorporating traditional Chinese cooking techniques with the spices of India to create something both new yet familiar, Indo Chinese is now an integral part of Indian cuisine.
                     </p>
@@ -89,7 +89,7 @@ const AboutSection = () => {
                         fontSize: '1.2rem',
                         lineHeight: '1.8',
                         color: '#333333',
-                        fontFamily: 'system-ui, -apple-system, sans-serif'
+                        fontFamily: 'var(--font-heading)' // Brand consistent font
                     }}>
                         Playfully named Fatt Pundit it’s a combination of the common Chinese surname ‘Fatt’ with the Indian word ‘Pundit’ (a scholar).
                     </p>
