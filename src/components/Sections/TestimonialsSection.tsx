@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
             style={{
                 padding: '6rem 0',
                 backgroundColor: '#1a1a1a',
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${testimonialsBg})`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${testimonialsBg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundAttachment: 'fixed',
