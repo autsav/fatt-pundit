@@ -96,7 +96,6 @@ const GallerySection = () => {
                     <Column images={col4} y={y4} onSelect={setSelectedImage} />
                 </div>
 
-                /* Mobile Responsive Grid Override */
                 <style>{`
                     @media (max-width: 900px) {
                         #gallery > div > div {
