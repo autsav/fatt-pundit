@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 import aboutStamp from '../../assets/images/about_stamp.png';
-
-import bgTexture from '../../assets/images/texture.jpg';
+import sohoUtilityBg from '../../assets/images/soho_utility_bg.jpg';
 
 const AboutSection = () => {
     return (
         <section style={{
             padding: 'var(--spacing-2xl) var(--spacing-md)', // Generous top/bottom padding
-            backgroundColor: '#F4F4F2', // Light paper-like background
-            backgroundImage: `url(${bgTexture})`,
-            backgroundBlendMode: 'multiply',
-            color: '#121212', // Dark text
+            backgroundColor: '#202020',
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${sohoUtilityBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            color: '#FFFFFF', // Light text
             position: 'relative',
             zIndex: 10,
             overflow: 'hidden'
@@ -70,7 +70,8 @@ const AboutSection = () => {
                         textTransform: 'uppercase',
                         marginBottom: 'var(--spacing-lg)', // Increased breathing room
                         fontWeight: 'bold',
-                        lineHeight: 1.1
+                        lineHeight: 1.1,
+                        textShadow: '0 2px 4px rgba(0,0,0,0.8)'
                     }}>
                         About <br /> Fatt Pundit
                     </h2>
@@ -78,9 +79,10 @@ const AboutSection = () => {
                     <p style={{
                         fontSize: '1.2rem', // Slightly larger body text
                         lineHeight: '1.8',
-                        color: '#333333',
+                        color: '#F0F0F0',
                         marginBottom: 'var(--spacing-md)',
-                        fontFamily: 'var(--font-heading)' // Brand consistent font
+                        fontFamily: 'var(--font-heading)', // Brand consistent font
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8)'
                     }}>
                         Originating from Kolkata, this unique cuisine was invented when the Hakka people migrated to India from the Chinese province of Canton, bringing with them their culinary treasures. Incorporating traditional Chinese cooking techniques with the spices of India to create something both new yet familiar, Indo Chinese is now an integral part of Indian cuisine.
                     </p>
@@ -88,8 +90,9 @@ const AboutSection = () => {
                     <p style={{
                         fontSize: '1.2rem',
                         lineHeight: '1.8',
-                        color: '#333333',
-                        fontFamily: 'var(--font-heading)' // Brand consistent font
+                        color: '#F0F0F0',
+                        fontFamily: 'var(--font-heading)', // Brand consistent font
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8)'
                     }}>
                         Playfully named Fatt Pundit it’s a combination of the common Chinese surname ‘Fatt’ with the Indian word ‘Pundit’ (a scholar).
                     </p>
