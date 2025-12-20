@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'fra
 import { IoClose } from 'react-icons/io5';
 
 // Import images
+import sohoTexture from '../../assets/images/soho_texture.png';
 import bgTexture from '../../assets/images/texture.jpg';
 import img1 from '../../assets/images/1.jpg';
 import brownie from '../../assets/images/brownie.jpg';
@@ -29,7 +30,7 @@ const images = [
     prawns, rabbit, sticky, tea, vegHakka, vegMomo, wallshow
 ];
 
-const GallerySection = () => {
+const GallerySection = ({ location }: { location?: string }) => {
     const containerRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -52,18 +53,22 @@ const GallerySection = () => {
     const col3 = images.slice(10, 14);
     const col4 = images.slice(14, 18);
 
+    const isSoho = location === 'soho';
+
     return (
         <section
             id="gallery"
             ref={containerRef}
             style={{
                 padding: '4rem 1rem',
-                backgroundColor: '#F4F4F2', // Light paper-like (Match About Us)
-                backgroundImage: `url(${bgTexture})`, // Match About Us
-                backgroundBlendMode: 'multiply', // Match About Us
-                // removed backgroundAttachment: 'fixed' to match About Us simple paper feel
+                backgroundColor: isSoho ? '#151313' : '#F4F4F2',
+                backgroundImage: isSoho ? `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${sohoTexture})` : `url(${bgTexture})`,
+                backgroundBlendMode: isSoho ? 'normal' : 'multiply',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: isSoho ? 'fixed' : 'scroll', // Keep clean look for light paper, fixed for dark texture
                 overflow: 'hidden',
-                minHeight: '150vh' // Ensure enough scroll space
+                minHeight: '150vh'
             }}
         >
             <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

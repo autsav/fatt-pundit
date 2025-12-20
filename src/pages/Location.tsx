@@ -76,7 +76,7 @@ const Location = () => {
             />
 
             <MenuSection location={location} />
-            <GallerySection />
+            <GallerySection location={location} />
             <TestimonialsSection />
         </>
     );
