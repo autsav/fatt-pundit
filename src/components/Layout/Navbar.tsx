@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import logo from '../../assets/logos/logo.png';
 
 const Navbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -31,13 +32,21 @@ const Navbar = () => {
         { name: 'Click & Collect', href: '/click-and-collect' },
     ];
 
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const navbarVariants = {
         hidden: { y: -100 },
         visible: {
             y: 0,
             backgroundColor: '#ffffff', // Always white to match logo background
-            boxShadow: 'none', // Removed shadow
-            borderBottom: '2px solid var(--color-accent)', // Single red line
+            boxShadow: isScrolled ? '0 4px 6px -1px rgb(0 0 0 / 0.1)' : 'none',
             transition: { duration: 0.3 }
         }
     };

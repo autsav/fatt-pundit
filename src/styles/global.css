@@ -74,41 +74,40 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-accent);
+    background: var(--color-bg-secondary);
     border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent-hover);
+    background: var(--color-accent);
 }
 
 /* Utility: Thin Dark Scrollbar for component-level scrolling */
+/* Utility: Thin Red Line Scrollbar (Modern) */
 .thin-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #444 #202020;
+    scrollbar-color: var(--color-accent) rgba(255, 255, 255, 0.05);
 }
 
 .thin-scrollbar::-webkit-scrollbar {
-    height: 6px;
-    /* Horizontal Scrollbar Height */
-    width: 6px;
+    height: 3px;
+    /* Ultra thin modern line */
+    width: 3px;
 }
 
 .thin-scrollbar::-webkit-scrollbar-track {
-    background: #202020;
-    /* Dark Track matching footer/bg */
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb {
     background-color: var(--color-accent);
-    /* Branded thumb or use #444 for subtle */
-    background-color: #444;
     border-radius: 4px;
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-accent);
+    /* Keep accent on hover */
+    filter: brightness(1.2);
 }
 
 .container {
