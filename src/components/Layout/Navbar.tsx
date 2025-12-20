@@ -17,6 +17,7 @@ const Navbar = () => {
 
     // Dynamic Navigation Links
     const navLinks = contextPrefix ? [
+        { name: 'Home', href: contextPrefix },
         { name: 'About', href: `${contextPrefix}/about` },
         { name: 'Menu', href: '#menu' },
         { name: 'Gallery', href: '#gallery' },
@@ -24,6 +25,7 @@ const Navbar = () => {
         { name: 'Vouchers', href: `${contextPrefix}/vouchers` },
         { name: 'Click & Collect', href: `${contextPrefix}/click-and-collect` },
     ] : [
+        { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Vouchers', href: '/vouchers' },
         { name: 'Reserve', href: '/reserve' },
