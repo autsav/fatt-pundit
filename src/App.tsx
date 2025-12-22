@@ -1,23 +1,53 @@
-import { createBrowserRouter, RouterProvider, redirect } from 'react-router-dom';
-import { lazy } from 'react';
-import RootLayout from './layouts/RootLayout';
-import MainLayout from './layouts/MainLayout';
-import ErrorPage from './pages/ErrorPage';
-import { CartProvider } from './context/CartContext';
-import { isValidLocation } from './constants/locations';
-import PageLoader from './components/UI/PageLoader';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  redirect,
+  Navigate,
+} from "react-router-dom";
+import { lazy } from "react";
+import RootLayout from "./layouts/RootLayout";
+import MainLayout from "./layouts/MainLayout";
+import ErrorPage from "./pages/ErrorPage";
+import { CartProvider } from "./context/CartContext";
+import { isValidLocation } from "./constants/locations";
+import PageLoader from "./components/UI/PageLoader";
 
 // Lazy Load Pages
-const Home = lazy(() => import('./pages/Home'));
-const Location = lazy(() => import('./pages/Location'));
-const Reserve = lazy(() => import('./pages/Reserve'));
-const ClickCollect = lazy(() => import('./pages/ClickCollect'));
-const About = lazy(() => import('./pages/About'));
-const Vouchers = lazy(() => import('./pages/Voucher'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+const Home = lazy(() => import("./pages/Home"));
+const Location = lazy(() => import("./pages/Location"));
+const Reserve = lazy(() => import("./pages/Reserve"));
+const ClickCollect = lazy(() => import("./pages/ClickCollect"));
+const About = lazy(() => import("./pages/About"));
+const Vouchers = lazy(() => import("./pages/Voucher"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Admin Pages
+const AdminLayout = lazy(() => import("./layouts/AdminLayout"));
+const Login = lazy(() => import("./pages/admin/Login"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const MenuManager = lazy(() => import("./pages/admin/MenuManager"));
+const SettingsManager = lazy(() => import("./pages/admin/SettingsManager"));
+const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
 
 const router = createBrowserRouter([
+  // Admin Routes
+  {
+    path: "/admin",
+    children: [
+      { path: "login", element: <Login /> },
+      {
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <Navigate to="dashboard" /> },
+          { path: "dashboard", element: <Dashboard /> },
+          { path: "menu", element: <MenuManager /> },
+          { path: "settings", element: <SettingsManager /> },
+          { path: "media", element: <MediaLibrary /> },
+        ],
+      },
+    ],
+  },
+
   {
     path: "/",
     element: <RootLayout />,
@@ -25,12 +55,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         element: <MainLayout />,
         children: [
-
           { path: "reserve", element: <Reserve /> },
           { path: "vouchers", element: <Vouchers /> },
           { path: "click-and-collect", element: <ClickCollect /> },
@@ -58,7 +87,7 @@ const router = createBrowserRouter([
                 // A safer way is to replace the specific matched segment or rebuild.
                 // Since we are in a child route, we know strict structure: /:location...
 
-                // Simple string replacement for the first occurrence might be risky if duplicated, 
+                // Simple string replacement for the first occurrence might be risky if duplicated,
                 // but location param is unique in context.
                 // Better: Reconstruct url.
 
@@ -76,14 +105,14 @@ const router = createBrowserRouter([
               { path: "vouchers", element: <Vouchers /> },
               { path: "click-and-collect", element: <ClickCollect /> },
               { path: "about", element: <About /> },
-              { path: "*", element: <NotFound /> }
-            ]
+              { path: "*", element: <NotFound /> },
+            ],
           },
-          { path: "*", element: <NotFound /> }
-        ]
-      }
-    ]
-  }
+          { path: "*", element: <NotFound /> },
+        ],
+      },
+    ],
+  },
 ]);
 
 function App() {

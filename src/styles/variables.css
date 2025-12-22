@@ -3,16 +3,16 @@
   --color-bg-primary: #151313;
   --color-bg-secondary: #0a0a0a;
   /* Darker for contrast */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #C7C7C7;
-  --color-accent: #D53645;
-  --color-accent-hover: #FF3A4E;
-  --color-error: #EF4444;
-  --color-success: #10B981;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #c7c7c7;
+  --color-accent: #d53645;
+  --color-accent-hover: #ff3a4e;
+  --color-error: #ef4444;
+  --color-success: #10b981;
 
   /* Typography */
-  --font-heading: 'Special Elite', cursive;
-  --font-body: 'Special Elite', cursive;
+  --font-heading: "Special Elite", cursive;
+  --font-body: "Special Elite", cursive;
 
   /* Spacing - Inspired by Apple's breathable layout */
   --spacing-xs: 0.25rem;
@@ -40,28 +40,29 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.2);
 
   /* Assets */
-  --bg-pattern: url('../assets/images/texture.jpg');
+  --bg-pattern: url("../assets/images/texture.jpg");
   --logo-filter: brightness(0) invert(1);
 }
 
 [data-theme="light"] {
   /* Bases */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F4F4F2;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f4f4f2;
   /* Warm off-white */
 
   /* Text */
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #5A5A5A;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5a5a5a;
 
   /* Accents */
-  --color-accent: #C42634;
+  --color-accent: #c42634;
   /* Slightly darker red for better contrast on white */
-  --color-accent-hover: #D53645;
+  --color-accent-hover: #d53645;
 
   /* Shadows */
   --shadow-gold: 0 4px 15px rgba(196, 38, 52, 0.2);
