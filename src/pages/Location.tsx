@@ -105,8 +105,8 @@ const Location = () => {
         openingHours={data.openingHours}
       />
 
-      <MenuSection location={location} />
-      <GallerySection location={location} />
+      <MenuSection />
+      <GallerySection />
       <TestimonialsSection />
     </>
   );

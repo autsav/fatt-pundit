@@ -9,7 +9,7 @@ import menuBgTiger from "../../assets/images/menu_bg_tiger.png";
 import sohoMenuBg from "../../assets/images/soho_menu_bg.jpg";
 
 const MenuSection: React.FC = () => {
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
