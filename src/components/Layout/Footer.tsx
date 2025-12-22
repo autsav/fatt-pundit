@@ -7,29 +7,17 @@ import {
 import sohoTexture from "../../assets/images/soho_texture.png";
 import sohoFooterBg from "../../assets/images/soho_footer_bg_final.jpg";
 import coventFooterBg from "../../assets/images/covent_footer_bg.jpg";
-import { useState, useEffect } from "react";
-import api from "../../services/api";
 
-interface OpeningHours {
-  text: string;
-  closed: boolean;
-}
 
-interface SiteSettings {
-  contact: {
-    addressSoho: string;
-    addressCovent: string;
-    email: string;
-    phone: string;
-  };
-  openingHours: {
-    soho: { [key: string]: OpeningHours };
-    covent: { [key: string]: OpeningHours };
-  };
-}
 
 const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
-  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  // Static Settings (formerly fetched)
+  const contact = {
+    addressSoho: "77 Berwick Street, W1F 8TH",
+    addressCovent: "6 Maiden Lane, WC2E 7NA",
+    email: "info@fattpundit.co.uk",
+    phone: "020 7287 7900" // Assuming common phone or specific one
+  };
 
   // Map URLs
   const MAP_URLS: Record<string, string> = {
@@ -39,13 +27,6 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
   };
 
   const currentMapSrc = MAP_URLS[activeLocation] || MAP_URLS["soho"];
-
-  useEffect(() => {
-    api
-      .get("/settings")
-      .then((res) => setSettings(res.data))
-      .catch(console.error);
-  }, []);
 
   return (
     <footer
@@ -113,8 +94,8 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                 textAlign: "center",
               }}
               onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "var(--color-accent-hover)")
+              (e.currentTarget.style.backgroundColor =
+                "var(--color-accent-hover)")
               }
               onMouseOut={(e) =>
                 (e.currentTarget.style.backgroundColor = "var(--color-accent)")
@@ -159,74 +140,60 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
             >
               OPENING HOURS
             </h5>
-            {settings && settings.openingHours ? (
-              <div
-                style={{
-                  fontSize: "1rem",
-                  lineHeight: "1.8",
-                  color: "#E0E0E0",
-                  fontFamily: "var(--font-heading)",
-                }}
-              >
-                {activeLocation === "covent-garden" ? (
-                  /* Covent Garden Hours */
-                  <>
-                    <span
-                      style={{
-                        display: "block",
-                        marginBottom: "0.2rem",
-                        color: "var(--color-accent)",
-                      }}
-                    >
-                      COVENT GARDEN
-                    </span>
-                    <span style={{ display: "block", marginBottom: "0.2rem" }}>
-                      Mon: Closed
-                    </span>
-                    <span style={{ display: "block", marginBottom: "0.2rem" }}>
-                      Tue – Thu:{" "}
-                      {settings.openingHours.covent?.tuesday?.text ||
-                        "12:00 - 14:15, 16:45 - 22:15"}
-                    </span>
-                    <span style={{ display: "block" }}>
-                      Fri – Sun:{" "}
-                      {settings.openingHours.covent?.friday?.text ||
-                        "12:00 - 22:15"}
-                    </span>
-                  </>
-                ) : (
-                  /* Soho Hours (Default) */
-                  <>
-                    <span
-                      style={{
-                        display: "block",
-                        marginBottom: "0.2rem",
-                        color: "var(--color-accent)",
-                      }}
-                    >
-                      SOHO
-                    </span>
-                    <span style={{ display: "block", marginBottom: "0.2rem" }}>
-                      Mon – Fri:{" "}
-                      {settings.openingHours.soho?.monday?.text ||
-                        "12:00 - 14:30, 17:00 - 22:30"}
-                    </span>
-                    <span style={{ display: "block", marginBottom: "0.2rem" }}>
-                      Sat:{" "}
-                      {settings.openingHours.soho?.saturday?.text ||
-                        "12:00 - 22:30"}
-                    </span>
-                    <span style={{ display: "block" }}>
-                      Sun:{" "}
-                      {settings.openingHours.soho?.sunday?.text ||
-                        "12:00 - 21:30"}
-                    </span>
-                  </>
-                )}
-              </div>
-            ) : (
-              <p>Loading hours...</p>
-            )}
+            <div
+              style={{
+                fontSize: "1rem",
+                lineHeight: "1.8",
+                color: "#E0E0E0",
+                fontFamily: "var(--font-heading)",
+              }}
+            >
+              {activeLocation === "covent-garden" ? (
+                /* Covent Garden Hours */
+                <>
+                  <span
+                    style={{
+                      display: "block",
+                      marginBottom: "0.2rem",
+                      color: "var(--color-accent)",
+                    }}
+                  >
+                    COVENT GARDEN
+                  </span>
+                  <span style={{ display: "block", marginBottom: "0.2rem" }}>
+                    Mon: Closed
+                  </span>
+                  <span style={{ display: "block", marginBottom: "0.2rem" }}>
+                    Tue – Thu: 12:00 - 14:15, 16:45 - 22:15
+                  </span>
+                  <span style={{ display: "block" }}>
+                    Fri – Sun: 12:00 - 22:15
+                  </span>
+                </>
+              ) : (
+                /* Soho Hours (Default) */
+                <>
+                  <span
+                    style={{
+                      display: "block",
+                      marginBottom: "0.2rem",
+                      color: "var(--color-accent)",
+                    }}
+                  >
+                    SOHO
+                  </span>
+                  <span style={{ display: "block", marginBottom: "0.2rem" }}>
+                    Mon – Fri: 12:00 - 14:30, 17:00 - 22:30
+                  </span>
+                  <span style={{ display: "block", marginBottom: "0.2rem" }}>
+                    Sat: 12:00 - 22:30
+                  </span>
+                  <span style={{ display: "block" }}>
+                    Sun: 12:00 - 21:30
+                  </span>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Column 4: Locations */}
@@ -283,12 +250,10 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                   color="var(--color-accent)"
                   style={{ flexShrink: 0 }}
                 />
-                {settings
-                  ? settings.contact.addressSoho
-                  : "77 Berwick Street, W1F 8TH"}
+                {contact.addressSoho}
               </a>
               <a
-                href={`mailto:${settings ? settings.contact.email : "info@fattpundit.co.uk"}`}
+                href={`mailto:${contact.email}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -308,7 +273,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                   color="var(--color-accent)"
                   style={{ flexShrink: 0 }}
                 />
-                {settings ? settings.contact.email : "info@fattpundit.co.uk"}
+                {contact.email}
               </a>
             </div>
 
@@ -352,9 +317,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                   color="var(--color-accent)"
                   style={{ flexShrink: 0 }}
                 />
-                {settings
-                  ? settings.contact.addressCovent
-                  : "6 Maiden Lane, WC2E 7NA"}
+                {contact.addressCovent}
               </a>
             </div>
           </div>
