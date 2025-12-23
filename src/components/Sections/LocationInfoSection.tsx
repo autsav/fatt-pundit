@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 import sohoVisitBg from "../../assets/images/soho_utility_bg.jpg";
