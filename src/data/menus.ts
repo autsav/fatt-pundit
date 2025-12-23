@@ -11,7 +11,7 @@ import vegHakka from "../assets/images/veg hakka.jpg";
 import brownie from "../assets/images/brownie.jpg";
 import rabbit from "../assets/images/rabbit.jpg";
 // Mockup imports
-import mixVegMomo from "../assets/images/mix_veg_momo.jpg";
+import mixVegMomo from "../assets/images/after-crackling.png";
 import cracklingSpinach from "../assets/images/crackling_spinach_mockup_1765787204079.png";
 import popcornCauliflower from "../assets/images/popcorn_cauliflower_mockup_1765787222926.png";
 import okraSaltPepper from "../assets/images/okra_salt_pepper_mockup_1765787251345.png";
