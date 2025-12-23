@@ -59,15 +59,31 @@ const MenuSection: React.FC = () => {
       style={{
         backgroundColor: "var(--color-bg-primary)",
         color: "var(--color-text-primary)",
-        backgroundImage: `linear-gradient(rgba(0,0,0,${overlayOpacity}), rgba(0,0,0,${overlayOpacity})), url(${currentBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        position: "relative",
         padding: "6rem 0",
-        minHeight: "100vh"
+        minHeight: "100vh",
+        overflow: "hidden" // Ensure no spillover
       }}
     >
-      <style>{`
+      {/* Mobile-friendly Parallax Background */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `linear-gradient(rgba(0,0,0,${overlayOpacity}), rgba(0,0,0,${overlayOpacity})), url(${currentBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: 0,
+          pointerEvents: "none"
+        }}
+      />
+
+      {/* Content Container - Ensure z-index is higher */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <style>{`
                 .menu-container {
                     display: grid;
                     grid-template-columns: 300px 1fr;
@@ -165,219 +181,220 @@ const MenuSection: React.FC = () => {
                 }
             `}</style>
 
-      <AnimatePresence>
-        {hoveredImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              background: 'rgba(0,0,0,0.95)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 9999,
-              padding: '2rem'
-            }}
-            onClick={() => setHoveredImage(null)}
-          >
+        <AnimatePresence>
+          {hoveredImage && (
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              style={{ position: 'relative', maxWidth: '90%', maxHeight: '90vh' }}
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'rgba(0,0,0,0.95)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 9999,
+                padding: '2rem'
+              }}
+              onClick={() => setHoveredImage(null)}
             >
-              <img
-                src={hoveredImage}
-                alt="Menu Item Full"
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '90vh',
-                  borderRadius: '8px',
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
-                }}
-              />
-              <button
-                onClick={() => setHoveredImage(null)}
-                style={{
-                  position: 'absolute',
-                  top: '-40px',
-                  right: '-40px',
-                  background: 'none',
-                  border: 'none',
-                  color: '#fff',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                style={{ position: 'relative', maxWidth: '90%', maxHeight: '90vh' }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <IoClose size={32} />
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div className="menu-container">
-        <div className="menu-sidebar">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '2rem', color: 'var(--color-accent)' }}>
-              MENU
-            </h2>
-
-            <div className="menu-filter" style={{ marginBottom: '2rem' }}>
-              <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Quick Filter
-              </p>
-              <button
-                onClick={() => setIsVegFilter(!isVegFilter)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.8rem',
-                  background: isVegFilter ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)' : 'rgba(255,255,255,0.05)',
-                  color: isVegFilter ? '#000' : '#fff',
-                  border: isVegFilter ? '2px solid #22c55e' : '2px solid rgba(74, 222, 128, 0.3)',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '12px',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  width: '100%',
-                  transition: 'all 0.3s ease',
-                  boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
-                  transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
-                }}
-              >
-                <IoLeaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
-                <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
-              </button>
-            </div>
-
-            <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {MENU_TYPES.map(menu => (
+                <img
+                  src={hoveredImage}
+                  alt="Menu Item Full"
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '90vh',
+                    borderRadius: '8px',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
+                  }}
+                />
                 <button
-                  key={menu}
-                  onClick={() => setActiveMenu(menu)}
-                  className={`menu-nav-btn ${activeMenu === menu ? 'active' : ''}`}
+                  onClick={() => setHoveredImage(null)}
+                  style={{
+                    position: 'absolute',
+                    top: '-40px',
+                    right: '-40px',
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
                 >
-                  {menu}
-                  {activeMenu === menu && (
-                    <motion.div
-                      layoutId="active-arrow"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                    >
-                      <IoChevronForward size={18} />
-                    </motion.div>
-                  )}
+                  <IoClose size={32} />
                 </button>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="menu-content">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeMenu}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '2rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '2px' }}>
-                {activeMenu}
-              </h3>
-
-              {activeMenuCategories.map((section, index) => {
-                // Handle vegetarian filtering
-                const filteredItems = isVegFilter
-                  ? section.items.filter(item => {
-                    // Need to check properties, but existing types in dataset might not strictly match isVegetarian
-                    // Checking if item has dietary tags or isVegetarian bool
-                    return (item as any).isVegetarian || (item as any).dietary?.includes('VEGETARIAN') || (item as any).dietary?.includes('VEGAN');
-                  })
-                  : section.items;
-
-                if (filteredItems.length === 0) return null;
-
-                return (
-                  <div key={index} style={{ marginBottom: '3rem' }}>
-                    {/* Category Title - Skip if it's just "PRICE" or generic unless needed */}
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--color-accent)' }}>
-                        {section.category}
-                      </h4>
-                      {section.description && (
-                        <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
-                          {section.description}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
-                      {filteredItems.map((item, idx) => (
-                        <div key={idx} className="menu-item-card">
-                          <div style={{ flex: 1 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                              <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#fff', letterSpacing: '0.5px', margin: 0 }}>
-                                {item.name}
-                              </h5>
-                              {item.price && (
-                                <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', flexShrink: 0, whiteSpace: 'nowrap', marginLeft: '1rem' }}>
-                                  £{item.price}
-                                </span>
-                              )}
-                            </div>
-                            <p style={{ color: '#aaa', fontSize: '0.95rem', lineHeight: '1.5', fontFamily: 'var(--font-body)', margin: 0 }}>
-                              {item.description}
-                            </p>
-                          </div>
-                          {item.image && (
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setHoveredImage(item.image || null);
-                              }}
-                              style={{
-                                width: '100px',
-                                height: '100px',
-                                objectFit: 'cover',
-                                borderRadius: '8px',
-                                cursor: 'pointer',
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                flexShrink: 0
-                              }}
-                            />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-
-              {activeMenuCategories.length === 0 && (
-                <p>No items found for this menu.</p>
-              )}
-
+              </motion.div>
             </motion.div>
-          </AnimatePresence>
+          )}
+        </AnimatePresence>
+
+        <div className="menu-container">
+          <div className="menu-sidebar">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '2rem', color: 'var(--color-accent)' }}>
+                MENU
+              </h2>
+
+              <div className="menu-filter" style={{ marginBottom: '2rem' }}>
+                <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Quick Filter
+                </p>
+                <button
+                  onClick={() => setIsVegFilter(!isVegFilter)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.8rem',
+                    background: isVegFilter ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)' : 'rgba(255,255,255,0.05)',
+                    color: isVegFilter ? '#000' : '#fff',
+                    border: isVegFilter ? '2px solid #22c55e' : '2px solid rgba(74, 222, 128, 0.3)',
+                    padding: '1rem 1.5rem',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    width: '100%',
+                    transition: 'all 0.3s ease',
+                    boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
+                    transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
+                  }}
+                >
+                  <IoLeaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
+                  <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
+                </button>
+              </div>
+
+              <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {MENU_TYPES.map(menu => (
+                  <button
+                    key={menu}
+                    onClick={() => setActiveMenu(menu)}
+                    className={`menu-nav-btn ${activeMenu === menu ? 'active' : ''}`}
+                  >
+                    {menu}
+                    {activeMenu === menu && (
+                      <motion.div
+                        layoutId="active-arrow"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                      >
+                        <IoChevronForward size={18} />
+                      </motion.div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="menu-content">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeMenu}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '2rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '2px' }}>
+                  {activeMenu}
+                </h3>
+
+                {activeMenuCategories.map((section, index) => {
+                  // Handle vegetarian filtering
+                  const filteredItems = isVegFilter
+                    ? section.items.filter(item => {
+                      // Need to check properties, but existing types in dataset might not strictly match isVegetarian
+                      // Checking if item has dietary tags or isVegetarian bool
+                      return (item as any).isVegetarian || (item as any).dietary?.includes('VEGETARIAN') || (item as any).dietary?.includes('VEGAN');
+                    })
+                    : section.items;
+
+                  if (filteredItems.length === 0) return null;
+
+                  return (
+                    <div key={index} style={{ marginBottom: '3rem' }}>
+                      {/* Category Title - Skip if it's just "PRICE" or generic unless needed */}
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                        <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--color-accent)' }}>
+                          {section.category}
+                        </h4>
+                        {section.description && (
+                          <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
+                            {section.description}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
+                        {filteredItems.map((item, idx) => (
+                          <div key={idx} className="menu-item-card">
+                            <div style={{ flex: 1 }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#fff', letterSpacing: '0.5px', margin: 0 }}>
+                                  {item.name}
+                                </h5>
+                                {item.price && (
+                                  <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', flexShrink: 0, whiteSpace: 'nowrap', marginLeft: '1rem' }}>
+                                    £{item.price}
+                                  </span>
+                                )}
+                              </div>
+                              <p style={{ color: '#aaa', fontSize: '0.95rem', lineHeight: '1.5', fontFamily: 'var(--font-body)', margin: 0 }}>
+                                {item.description}
+                              </p>
+                            </div>
+                            {item.image && (
+                              <img
+                                src={item.image}
+                                alt={item.name}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setHoveredImage(item.image || null);
+                                }}
+                                style={{
+                                  width: '100px',
+                                  height: '100px',
+                                  objectFit: 'cover',
+                                  borderRadius: '8px',
+                                  cursor: 'pointer',
+                                  border: '1px solid rgba(255,255,255,0.1)',
+                                  flexShrink: 0
+                                }}
+                              />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {activeMenuCategories.length === 0 && (
+                  <p>No items found for this menu.</p>
+                )}
+
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
