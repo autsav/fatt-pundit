@@ -13,7 +13,7 @@ import rabbit from "../assets/images/rabbit.jpg";
 // Mockup imports
 import mixVegMomo from "../assets/images/mix_veg_momo.jpg";
 import cracklingSpinach from "../assets/images/after-crackling.png";
-import popcornCauliflower from "../assets/images/popcorn_cauliflower_mockup_1765787222926.png";
+import popcornCauliflower from "../assets/images/popcorn_cauliflower_new.png";
 import okraSaltPepper from "../assets/images/okra_salt_pepper_mockup_1765787251345.png";
 import paneerCups from "../assets/images/paneer_lettuce_cups_mockup_1765787266229.png";
 import monkfish from "../assets/images/monkfish_curry_mockup_1765787280292.png";
