@@ -21,9 +21,9 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
 
   // Map URLs
   const MAP_URLS: Record<string, string> = {
-    soho: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.050478051792!2d-1.13745862351290322!3d51.512278971814346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d49f4b7a9b%3A0x6b772c7221d64391!2s77%20Berwick%20St%2C%20London%20W1F%208TH!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk",
+    soho: "https://maps.google.com/maps?q=77%20Berwick%20St%2C%20London%20W1F%208TH&t=&z=15&ie=UTF8&iwloc=&output=embed",
     "covent-garden":
-      "https://maps.google.com/maps?q=51.5107500,-0.1226390&z=15&output=embed",
+      "https://maps.google.com/maps?q=6%20Maiden%20Lane%2C%20London%20WC2E%207NA&t=&z=15&ie=UTF8&iwloc=&output=embed",
   };
 
   const currentMapSrc = MAP_URLS[activeLocation] || MAP_URLS["soho"];

@@ -1,7 +1,9 @@
 import momo from "../assets/images/momo.jpg";
+import chickenMomo from "../assets/images/chicken_momo_new.jpg";
 
 import vegMomo from "../assets/images/veg momo.jpg";
 import sticky from "../assets/images/sticky.jpg";
+import malabarPrawnsCovent from "../assets/images/malabar_prawns_covent.jpg";
 import mockChick from "../assets/images/mock chick.jpg";
 import malabar from "../assets/images/malabar curry.jpg";
 import prawns from "../assets/images/prawns.jpg";
@@ -14,19 +16,20 @@ import rabbit from "../assets/images/rabbit.jpg";
 import mixVegMomo from "../assets/images/mix_veg_momo_mockup_1765787182091.png";
 import cracklingSpinach from "../assets/images/crackling_spinach_mockup_1765787204079.png.png";
 import popcornCauliflower from "../assets/images/popcorn_cauliflower_mockup_1765787222926.png";
-import okraSaltPepper from "../assets/images/okra_salt_pepper_mockup_1765787251345.png";
-import paneerCups from "../assets/images/paneer_lettuce_cups_mockup_1765787266229.png";
-import monkfish from "../assets/images/monkfish_curry_mockup_1765787280292.png";
-import duck from "../assets/images/kolkata_chilli_duck_mockup_1765787301351.png";
-import lollypop from "../assets/images/lollypop_chicken_mockup_1765787317482.png";
-import venison from "../assets/images/shredded_venison_mockup_1765787331743.png";
-import ribeye from "../assets/images/ribeye_chilli_mockup_1765787346574.png";
+import okraSaltPepper from "../assets/images/okra_salt_pepper_updated.jpg";
+
+import monkfish from "../assets/images/malabar curry.jpg";
+import duck from "../assets/images/szechuan_honey_duck_new.jpg";
+import lollypop from "../assets/images/lollypop_chicken_new.jpg";
+import venison from "../assets/images/shredded_venison_new.jpg";
+import ribeye from "../assets/images/ribeye_dry_red_chilly_new.jpg";
 import bingBread from "../assets/images/bing_bread_mockup_1765787370253.png";
-import sweetPotato from "../assets/images/sweet_potato_fries_mockup_1765787387812.png";
-import ladyKenny from "../assets/images/lady_kenny_mockup_1765787403122.png";
+import sweetPotato from "../assets/images/sweet_potato_fries_new.jpg";
+import ladyKenny from "../assets/images/lady_kenny_new.png";
+import kolkataChillyChickenNew from "../assets/images/kolkata_chilli_chicken_new.jpg";
 import manchurian from "../assets/images/manchurian_chicken_mockup_1765787415945.png";
-import rabbitWontons from "../assets/images/rabbit_wontons_mockup_1765787437835.png";
-import broccoli from "../assets/images/stir_fry_broccoli_mockup_1765787458856.png";
+import rabbitWontons from "../assets/images/rabbit_wontons_new.jpg";
+import broccoli from "../assets/images/stir_fry_broccoli_new.jpg";
 import crunchyPepperCrab from "../assets/images/crunchy_pepper_crab.jpg";
 import goatMomo from "../assets/images/goat_momo.png";
 import sizzlingBrownie from "../assets/images/sizzling_brownie.jpg";
@@ -342,7 +345,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onions",
           price: "7.50",
-          image: goatMomo,
+          image: chickenMomo,
         },
         {
           name: "Beef Momo",
@@ -1635,7 +1638,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onions",
           price: "7.50",
-          image: momo,
+          image: chickenMomo,
         },
         {
           name: "Beef Momo",
@@ -1671,7 +1674,7 @@ export const MENU_DATA_COVENT: Menus = {
           description:
             "Cottage cheese, shallots, soy sauce, white & black pepper",
           price: "13.25",
-          image: paneerCups,
+          image: hakkaChillyPaneer,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -1700,7 +1703,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Malabar Curry (Tiger Prawns)",
           description: "Grilled in saffron butter with fresh coconut",
           price: "18.00",
-          image: malabar,
+          image: malabarPrawnsCovent,
         },
         {
           name: "Malabar Curry (Monkfish)",
@@ -1744,7 +1747,7 @@ export const MENU_DATA_COVENT: Menus = {
           description:
             "Caramelized onion, slit green chillies, smoked dark soya",
           price: "13.50",
-          image: manchurian,
+          image: kolkataChillyChickenNew,
         },
         {
           name: "Shredded Chilly Venison",
