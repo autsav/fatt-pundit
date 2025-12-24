@@ -34,6 +34,11 @@ const Navbar = () => {
       { name: "Click & Collect", href: "/click-and-collect" },
     ];
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -58,8 +63,6 @@ const Navbar = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    setIsMobileMenuOpen(false);
-
     if (href.startsWith("#")) {
       // Hash linking handling
       const targetId = href.substring(1);
@@ -79,20 +82,21 @@ const Navbar = () => {
         });
         // Update URL to reflect the section
         window.history.pushState(null, "", href);
+        // Explicitly close menu for hash links as location.pathname might not change
+        setIsMobileMenuOpen(false);
       } else {
         // If element not found, strict redirection logic
-        // If in a silo, we might want to go to the silo root first?
-        // But generally #menu implies local. If not found, previously we went to '/' + href.
-        // Now, if I am in /soho and click #menu (and it's not found?), should I go to /soho#menu?
         e.preventDefault();
         if (contextPrefix) {
           navigate(`${contextPrefix}/${href}`);
         } else {
           navigate("/" + href);
         }
+        // Menu will close via useEffect as pathname changes
       }
     } else if (href.startsWith("/")) {
       // Internal client-side routing
+      // Native Link behavior handles navigation, but if we use <a> or preventDefault:
       e.preventDefault();
       navigate(href);
       window.scrollTo({ top: 0, behavior: "smooth" });
