@@ -207,7 +207,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                 letterSpacing: "0.05em",
               }}
             >
-              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v1.1</span>
+              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v1.2</span>
             </h4>
 
             {/* Soho */}
