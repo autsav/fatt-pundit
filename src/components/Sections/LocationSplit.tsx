@@ -93,23 +93,23 @@ const LocationDuel = () => {
         animate={
           isMobile
             ? {
-                height:
-                  activeSide === "covent"
-                    ? "35%"
-                    : activeSide === "soho"
-                      ? "65%"
-                      : "50%",
-                width: "100%",
-              }
+              height:
+                activeSide === "covent"
+                  ? "35%"
+                  : activeSide === "soho"
+                    ? "65%"
+                    : "50%",
+              width: "100%",
+            }
             : {
-                width:
-                  activeSide === "covent"
-                    ? "35%"
-                    : activeSide === "soho"
-                      ? "65%"
-                      : "50%",
-                height: "100%",
-              }
+              width:
+                activeSide === "covent"
+                  ? "35%"
+                  : activeSide === "soho"
+                    ? "65%"
+                    : "50%",
+              height: "100%",
+            }
         }
         transition={transitionConfig}
         onMouseEnter={() => !isMobile && setActiveSide("soho")}
@@ -119,13 +119,13 @@ const LocationDuel = () => {
             ? setActiveSide(activeSide === "soho" ? null : "soho")
             : handleSelection("soho")
         }
-        // On mobile, tap to expand first? Or tap to navigate?
-        // User said "tapping one expands it".
-        // Then how to navigate? Double tap? Or "Select" button?
-        // I'll make title clickable or add a button if expanded.
-        // Or simplified: Click always navigates on Desktop.
-        // On Mobile: Click expands to 70%. If already 70%, Navigate?
-        // Let's implement: If active, navigate. Else expand.
+      // On mobile, tap to expand first? Or tap to navigate?
+      // User said "tapping one expands it".
+      // Then how to navigate? Double tap? Or "Select" button?
+      // I'll make title clickable or add a button if expanded.
+      // Or simplified: Click always navigates on Desktop.
+      // On Mobile: Click expands to 70%. If already 70%, Navigate?
+      // Let's implement: If active, navigate. Else expand.
       >
         <div
           onClick={(e) => {
@@ -174,7 +174,7 @@ const LocationDuel = () => {
                 color:
                   activeSide === "soho"
                     ? "var(--color-accent)"
-                    : "var(--color-text-primary)",
+                    : "#FFFFFF",
                 textShadow:
                   activeSide === "soho" ? "0 0 20px rgba(0,0,0,0.5)" : "none",
               }}
@@ -192,13 +192,13 @@ const LocationDuel = () => {
                 >
                   <p
                     className="motto-text"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    style={{ color: "#FFFFFF" }}
                   >
                     FROM GUANGDONG TO CALCUTTA
                   </p>
                   <p
                     className="address-text"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    style={{ color: "#FFFFFF" }}
                   >
                     77 Berwick Street, Soho
                   </p>
@@ -276,28 +276,28 @@ const LocationDuel = () => {
         animate={
           isMobile
             ? {
-                height:
-                  activeSide === "soho"
-                    ? "35%"
-                    : activeSide === "covent"
-                      ? "65%"
-                      : "50%",
-                width: "100%",
-              }
+              height:
+                activeSide === "soho"
+                  ? "35%"
+                  : activeSide === "covent"
+                    ? "65%"
+                    : "50%",
+              width: "100%",
+            }
             : {
-                width:
-                  activeSide === "soho"
-                    ? "35%"
-                    : activeSide === "covent"
-                      ? "65%"
-                      : "50%",
-                height: "100%",
-              }
+              width:
+                activeSide === "soho"
+                  ? "35%"
+                  : activeSide === "covent"
+                    ? "65%"
+                    : "50%",
+              height: "100%",
+            }
         }
         transition={transitionConfig}
         onMouseEnter={() => !isMobile && setActiveSide("covent")}
         onMouseLeave={() => !isMobile && setActiveSide(null)}
-        // Mobile logic
+      // Mobile logic
       >
         <div
           onClick={(e) => {
@@ -366,7 +366,7 @@ const LocationDuel = () => {
                 color:
                   activeSide === "covent"
                     ? "var(--color-accent)"
-                    : "var(--color-text-primary)",
+                    : "#FFFFFF",
                 textShadow:
                   activeSide === "covent" ? "0 0 20px rgba(0,0,0,0.5)" : "none",
                 transition: "color 0.5s",
@@ -386,13 +386,13 @@ const LocationDuel = () => {
                 >
                   <p
                     className="motto-text"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    style={{ color: "#FFFFFF" }}
                   >
                     FROM GUANGDONG TO CALCUTTA
                   </p>
                   <p
                     className="address-text"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    style={{ color: "#FFFFFF" }}
                   >
                     6 Maiden Lane, Covent Garden
                   </p>
