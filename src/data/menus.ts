@@ -11,7 +11,7 @@ import crab from "../assets/images/crab65.jpg";
 import lambchop from "../assets/images/lambchop.jpg";
 import vegHakka from "../assets/images/veg hakka.jpg";
 import brownie from "../assets/images/brownie.jpg";
-import rabbit from "../assets/images/rabbit.jpg";
+
 // Mockup imports
 import mixVegMomo from "../assets/images/mix_veg_momo_mockup_1765787182091.png";
 import cracklingSpinach from "../assets/images/crackling_spinach_mockup_1765787204079.png.png";
@@ -684,11 +684,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Purple & white, smoked, soya garlic dip",
           price: "10.20",
+          image: popcornCauliflower,
         },
         {
           name: "Crispy Okra Salt 'n' Pepper",
           description: "Pink salt, chillies, burnt garlic",
           price: "10.20",
+          image: okraSaltPepper,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -729,23 +731,27 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Kolkata Chilli Duck",
           description: "Lean strips, caramelised onion, slit green chilli",
           price: "17.25",
+          image: duck,
         },
         {
           name: "Lollypop Chicken",
           description:
             "Spicy + crispy chicken wings served with Szechuan chutney",
           price: "10.50",
+          image: lollypop,
         },
         {
           name: "Manchurian Chicken",
           description: "Shallots, coriander, soy glaze",
           price: "13.50",
+          image: manchurian,
         },
         {
           name: "Shredded Chilly Venison",
           description:
             "“Made famous at the Leopold café of Mumbai ” smoked dark soya",
           price: "15.50",
+          image: venison,
         },
         {
           name: "Lamb Chops - Black Bean Dust",
@@ -757,12 +763,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Rabbit Wontons",
           description: "Burnt garlic, black bean, chilli oil",
           price: "14.20",
-          image: rabbit,
+          image: rabbitWontons,
         },
         {
           name: "Ribeye Dry Red Chilly",
           description: "Beef strips, Kashmiri red chillies, roasted cashews",
           price: "19.00",
+          image: ribeye,
         },
       ],
     },
@@ -792,11 +799,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Sweet Potato Fries",
           description: "Smoked paprika, black pepper",
           price: "5.00",
+          image: sweetPotato,
         },
         {
           name: "Stir Fry Broccoli",
           description: "With roasted almonds",
           price: "5.50",
+          image: broccoli,
         },
       ],
     },
@@ -833,11 +842,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Purple & white, smoked, soya garlic dip",
           price: "10.20",
+          image: popcornCauliflower,
         },
         {
           name: "Crispy Okra Salt 'n' Pepper",
           description: "Pink salt, chillies, burnt garlic",
           price: "10.20",
+          image: okraSaltPepper,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -885,11 +896,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Sweet Potato Fries",
           description: "Smoked paprika, black pepper",
           price: "5.65",
+          image: sweetPotato,
         },
         {
           name: "Stir Fry Broccoli",
           description: "With roasted almonds",
           price: "6.20",
+          image: broccoli,
         },
       ],
     },
@@ -926,6 +939,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce, pomegranate",
           price: "",
+          image: cracklingSpinach,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -937,6 +951,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Purple & white, smoked, soya garlic dip",
           price: "",
+          image: popcornCauliflower,
         },
       ],
     },
@@ -1015,6 +1030,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce, pomegranate",
           price: "",
+          image: cracklingSpinach,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -1049,12 +1065,14 @@ export const MENU_DATA_SOHO: Menus = {
           description:
             "Spicy + crispy chicken wings served with Szechuan chutney",
           price: "",
+          image: lollypop,
         },
         {
           name: "Shredded Chilly Venison",
           description:
             "“Made famous at the Leopold café of Mumbai” sweet chilli reduction, mantou bread",
           price: "",
+          image: venison,
         },
       ],
     },
@@ -1090,22 +1108,26 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Purple & white, smoked, soya garlic dip",
           price: "10.20",
+          image: popcornCauliflower,
         },
         {
           name: "Crispy Okra Salt 'n' Pepper",
           description: "Pink salt, chillies, burnt garlic",
           price: "10.20",
+          image: okraSaltPepper,
         },
         {
           name: "Hakka Chilly Paneer Lettuce Cups",
           description:
             "Cottage cheese, shallots, soy sauce, white + black pepper",
           price: "13.25",
+          image: hakkaChillyPaneer,
         },
         {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce, pomegranate",
           price: "10.20",
+          image: cracklingSpinach,
         },
         {
           name: "Bombay Chilli Mock Chicken (Vegan)",
@@ -1139,12 +1161,14 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Kolkata Chilli Duck",
           description: "Lean strips, caramelised onion, slit green chilli",
           price: "14.95",
+          image: duck,
         },
         {
           name: "Shredded Chilly Venison",
           description:
             "“Made famous at the Leopold café of Mumbai ” smoked dark soya",
           price: "15.50",
+          image: venison,
         },
         {
           name: "Lamb Chops - Black Bean Dust",
@@ -1156,6 +1180,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Ribeye Dry Red Chilly",
           description: "Beef strips, Kashmiri red chillies, roasted cashews",
           price: "19.00",
+          image: ribeye,
         },
       ],
     },
@@ -1173,11 +1198,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Sweet Potato Fries",
           description: "Smoked paprika, black pepper, Szechuan mayo dip",
           price: "5.65",
+          image: sweetPotato,
         },
         {
           name: "Stir Fry Broccoli",
           description: "With roasted almonds",
           price: "6.20",
+          image: broccoli,
         },
       ],
     },
@@ -1275,17 +1302,20 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Smoked, soya garlic dip",
           price: "10.20",
+          image: popcornCauliflower,
         },
         {
           name: "Crispy Okra Salt 'n' Pepper",
           description: "Pink salt, chillies, burnt garlic",
           price: "10.20",
+          image: okraSaltPepper,
         },
         {
           name: "Hakka Chilly Paneer Lettuce Cups",
           description:
             "Cottage cheese, shallots, soy sauce, white + black pepper",
           price: "13.25",
+          image: hakkaChillyPaneer,
         },
         {
           name: "Bombay Chilli Mock Chicken",
@@ -1297,6 +1327,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce, pomegranate",
           price: "10.20",
+          image: cracklingSpinach,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -1361,11 +1392,13 @@ export const MENU_DATA_SOHO: Menus = {
           description:
             "Spicy + crispy chicken wings served with Szechuan chutney",
           price: "10.50",
+          image: lollypop,
         },
         {
           name: "Manchurian Chicken",
           description: "Shallots, coriander, soy glaze",
           price: "13.50",
+          image: manchurian,
         },
         {
           name: "Lamb Chops - Black Bean Dust",
@@ -1377,6 +1410,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Ribeye - Dry Red Chilli",
           description: "Beef strips, kashmiri red chillies, roasted cashews",
           price: "19.00",
+          image: ribeye,
         },
       ],
     },
@@ -1387,11 +1421,13 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Sweet Potato Fries",
           description: "Smoked, black pepper, Szechuan mayo dip",
           price: "5.65",
+          image: sweetPotato,
         },
         {
           name: "Stir Fry Broccoli",
           description: "With roasted almonds",
           price: "6.20",
+          image: broccoli,
         },
       ],
     },
@@ -1449,6 +1485,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce & pomegranate",
           price: "",
+          image: cracklingSpinach,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -1467,6 +1504,7 @@ export const MENU_DATA_SOHO: Menus = {
           description:
             "Spicy & crispy chicken wings served with Szechuan chutney",
           price: "",
+          image: lollypop,
         },
       ],
     },
@@ -1483,18 +1521,21 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Szechuan Honey Duck",
           description: "Crispy duck strips, five spice + pancakes",
           price: "",
+          image: duck,
         },
         {
           name: "Kolkata Chilly Chicken",
           description:
             "Caramelized onion, slit green chillies, smoked dark soya + side",
           price: "",
+          image: kolkataChillyChickenNew,
         },
         {
           name: "Ribeye Dry Red Chilly",
           description:
             "Beef strips, Kashmiri red chillies, roasted cashews + side",
           price: "",
+          image: ribeye,
         },
       ],
     },
@@ -1518,6 +1559,7 @@ export const MENU_DATA_SOHO: Menus = {
           description:
             "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning",
           price: "",
+          image: ladyKenny,
         },
         {
           name: "Snowflake Gelato Sizzling Brownie (to share)",
@@ -1552,6 +1594,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Crackling Spinach",
           description: "Sweet yogurt, date & plum sauce & pomegranate",
           price: "",
+          image: cracklingSpinach,
         },
         {
           name: "Sticky Sesame Vegetables",
@@ -1563,6 +1606,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Popcorn Cauliflower",
           description: "Smoked, soya garlic dip",
           price: "",
+          image: popcornCauliflower,
         },
         {
           name: "Crispy Okra Salt 'n' Pepper",
