@@ -174,7 +174,9 @@ const LocationDuel = () => {
                 color:
                   activeSide === "soho"
                     ? "var(--color-accent)"
-                    : "#FFFFFF",
+                    : activeSide
+                      ? "var(--color-text-primary)"
+                      : "#FFFFFF",
                 textShadow:
                   activeSide === "soho" ? "0 0 20px rgba(0,0,0,0.5)" : "none",
               }}
@@ -192,13 +194,21 @@ const LocationDuel = () => {
                 >
                   <p
                     className="motto-text"
-                    style={{ color: "#FFFFFF" }}
+                    style={{
+                      color: activeSide
+                        ? "var(--color-text-primary)"
+                        : "#FFFFFF",
+                    }}
                   >
                     FROM GUANGDONG TO CALCUTTA
                   </p>
                   <p
                     className="address-text"
-                    style={{ color: "#FFFFFF" }}
+                    style={{
+                      color: activeSide
+                        ? "var(--color-text-primary)"
+                        : "#FFFFFF",
+                    }}
                   >
                     77 Berwick Street, Soho
                   </p>
@@ -366,7 +376,9 @@ const LocationDuel = () => {
                 color:
                   activeSide === "covent"
                     ? "var(--color-accent)"
-                    : "#FFFFFF",
+                    : activeSide
+                      ? "var(--color-text-primary)"
+                      : "#FFFFFF",
                 textShadow:
                   activeSide === "covent" ? "0 0 20px rgba(0,0,0,0.5)" : "none",
                 transition: "color 0.5s",
@@ -386,13 +398,21 @@ const LocationDuel = () => {
                 >
                   <p
                     className="motto-text"
-                    style={{ color: "#FFFFFF" }}
+                    style={{
+                      color: activeSide
+                        ? "var(--color-text-primary)"
+                        : "#FFFFFF",
+                    }}
                   >
                     FROM GUANGDONG TO CALCUTTA
                   </p>
                   <p
                     className="address-text"
-                    style={{ color: "#FFFFFF" }}
+                    style={{
+                      color: activeSide
+                        ? "var(--color-text-primary)"
+                        : "#FFFFFF",
+                    }}
                   >
                     6 Maiden Lane, Covent Garden
                   </p>
