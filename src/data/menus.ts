@@ -1517,12 +1517,7 @@ export const MENU_DATA_SOHO: Menus = {
           price: "",
           image: malabar,
         },
-        {
-          name: "Szechuan Honey Duck",
-          description: "Crispy duck strips, five spice + pancakes",
-          price: "",
-          image: duck,
-        },
+
         {
           name: "Kolkata Chilly Chicken",
           description:
@@ -1883,6 +1878,121 @@ export const MENU_DATA_COVENT: Menus = {
             "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning",
           price: "7.50",
           image: ladyKenny,
+        },
+      ],
+    },
+  ],
+  "PRE - THEATRE MENU": [
+    {
+      category: "PRICE",
+      description: "£33.50 per person (2 courses) | £37 per person (3 courses)",
+      items: [],
+    },
+    {
+      category: "TO START (CHOOSE ONE)",
+      items: [
+        {
+          name: "Chicken Momo",
+          description: "Soy, garlic, spring onion",
+          price: "",
+          image: goatMomo,
+        },
+        {
+          name: "Kid Goat Momo",
+          description: "Gram Masala, cardamom, ginger & garlic",
+          price: "",
+          image: goatMomo,
+        },
+      ],
+    },
+    {
+      category: "( CHOOSE ONE / PER PERSON )",
+      items: [
+        {
+          name: "Crackling Spinach",
+          description: "Sweet yogurt, date & plum sauce & pomegranate",
+          price: "",
+          image: cracklingSpinach,
+        },
+        {
+          name: "Sticky Sesame Vegetables",
+          description: "Crispy vegetable fritters with sticky ginger",
+          price: "",
+          image: sticky,
+        },
+        {
+          name: "Bombay Chilly Prawns",
+          description: "Celery, Szechuan chilly & mixed peppers",
+          price: "",
+          image: prawns,
+        },
+        {
+          name: "Lollipop Chicken",
+          description:
+            "Spicy & crispy chicken wings served with Szechuan chutney",
+          price: "",
+          image: lollypop,
+        },
+      ],
+    },
+    {
+      category: "MAINS (CHOOSE ONE)",
+      items: [
+        {
+          name: "Malabar Monkfish Curry",
+          description: "Grilled in saffron butter with fresh coconut + side",
+          price: "",
+          image: malabar,
+        },
+        {
+          name: "Szechuan Honey Duck",
+          description: "Crispy duck strips, five spice + pancakes",
+          price: "",
+          image: duck,
+        },
+        {
+          name: "Kolkata Chilly Chicken",
+          description:
+            "Caramelized onion, slit green chillies, smoked dark soya + side",
+          price: "",
+          image: kolkataChillyChickenNew,
+        },
+        {
+          name: "Ribeye Dry Red Chilly",
+          description:
+            "Beef strips, Kashmiri red chillies, roasted cashews + side",
+          price: "",
+          image: ribeye,
+        },
+      ],
+    },
+    {
+      category: "SIDES ( CHOOSE ONE / PER PERSON )",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "",
+        },
+        { name: "Burnt Ginger Rice", description: "", price: "" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "" },
+      ],
+    },
+    {
+      category: "DESSERT",
+      items: [
+        {
+          name: "Lady Kenny",
+          description:
+            "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning",
+          price: "",
+          image: ladyKenny,
+        },
+        {
+          name: "Snowflake Gelato Sizzling Brownie (to share)",
+          description: "Vanilla with chocolate-covered honeycomb",
+          price: "",
+          image: sizzlingBrownie,
         },
       ],
     },
