@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { IoChevronForward, IoLeaf, IoClose } from 'react-icons/io5';
+import { IoChevronForward, IoClose } from 'react-icons/io5';
 import { useLocation } from 'react-router-dom';
 import { MENU_DATA_SOHO, MENU_DATA_COVENT, MENU_TYPES } from '../../data/menus';
 import type { MenuCategory } from '../../data/menus';
@@ -18,7 +18,7 @@ const MenuSection: React.FC = () => {
   const [activeLocation, setActiveLocation] = useState<'SOHO' | 'COVENT GARDEN'>('SOHO');
   const [activeMenu, setActiveMenu] = useState(MENU_TYPES[0]);
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-  const [isVegFilter, setIsVegFilter] = useState(false);
+
 
   // Determine location from URL or default
   useEffect(() => {
@@ -236,35 +236,7 @@ const MenuSection: React.FC = () => {
               MENU
             </h2>
 
-            <div className="menu-filter" style={{ marginBottom: '2rem' }}>
-              <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Quick Filter
-              </p>
-              <button
-                onClick={() => setIsVegFilter(!isVegFilter)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.8rem',
-                  background: isVegFilter ? 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)' : 'rgba(255,255,255,0.05)',
-                  color: isVegFilter ? '#000' : '#fff',
-                  border: isVegFilter ? '2px solid #22c55e' : '2px solid rgba(74, 222, 128, 0.3)',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '12px',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  width: '100%',
-                  transition: 'all 0.3s ease',
-                  boxShadow: isVegFilter ? '0 4px 15px rgba(74, 222, 128, 0.4)' : 'none',
-                  transform: isVegFilter ? 'scale(1.02)' : 'scale(1)'
-                }}
-              >
-                <IoLeaf size={20} style={{ color: isVegFilter ? '#000' : '#4ade80' }} />
-                <span>{isVegFilter ? '🌱 VEGETARIAN ONLY' : 'SHOW VEGETARIAN'}</span>
-              </button>
-            </div>
+
 
             <div className="menu-nav-items" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {MENU_TYPES.map(menu => (
@@ -304,13 +276,7 @@ const MenuSection: React.FC = () => {
 
               {activeMenuCategories.map((section, index) => {
                 // Handle vegetarian filtering
-                const filteredItems = isVegFilter
-                  ? section.items.filter(item => {
-                    // Need to check properties, but existing types in dataset might not strictly match isVegetarian
-                    // Checking if item has dietary tags or isVegetarian bool
-                    return (item as any).isVegetarian || (item as any).dietary?.includes('VEGETARIAN') || (item as any).dietary?.includes('VEGAN');
-                  })
-                  : section.items;
+                const filteredItems = section.items;
 
                 if (filteredItems.length === 0) return null;
 
