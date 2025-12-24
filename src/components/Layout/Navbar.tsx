@@ -148,26 +148,45 @@ const Navbar = () => {
             style={{ display: "none", gap: "2rem", alignItems: "center" }}
             className="desktop-nav"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                style={{
-                  color: "#1A1A1A", // Always dark text
-                  fontSize: "0.9rem",
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                  position: "relative",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-                className="nav-link"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isHash = link.href.startsWith("#");
+              const style = {
+                color: "#1A1A1A",
+                fontSize: "0.9rem",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase" as const, // Explicit cast for TS
+                position: "relative" as const,
+                fontWeight: 600,
+                textDecoration: "none",
+                cursor: "pointer",
+              };
+
+              if (isHash) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    style={style}
+                    className="nav-link"
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  // No need to close mobile menu on desktop, but harmless
+                  style={style}
+                  className="nav-link"
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
             <Link
               to={contextPrefix ? `${contextPrefix}/reserve` : "/reserve"}
               style={{
@@ -232,21 +251,43 @@ const Navbar = () => {
               gap: "2rem",
             }}
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "2rem",
-                  color: "#1A1A1A", // Dark text
-                  textDecoration: "none",
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isHash = link.href.startsWith("#");
+
+              if (isHash) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontSize: "2rem",
+                      color: "#1A1A1A",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "2rem",
+                    color: "#1A1A1A",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
             <div style={{ marginTop: "1rem" }}>
               {/* Theme toggle removed from mobile menu */}
             </div>
