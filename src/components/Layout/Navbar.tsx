@@ -18,21 +18,21 @@ const Navbar = () => {
   // Dynamic Navigation Links
   const navLinks = contextPrefix
     ? [
-        { name: "Home", href: contextPrefix },
-        { name: "About", href: `${contextPrefix}/about` },
-        { name: "Menu", href: "#menu" },
-        { name: "Gallery", href: "#gallery" },
-        { name: "Reserve", href: `${contextPrefix}/reserve` },
-        { name: "Vouchers", href: `${contextPrefix}/vouchers` },
-        { name: "Click & Collect", href: `${contextPrefix}/click-and-collect` },
-      ]
+      { name: "Home", href: contextPrefix },
+      { name: "About", href: `${contextPrefix}/about` },
+      { name: "Menu", href: "#menu" },
+      { name: "Gallery", href: "#gallery" },
+      { name: "Reserve", href: `${contextPrefix}/reserve` },
+      { name: "Vouchers", href: `${contextPrefix}/vouchers` },
+      { name: "Click & Collect", href: `${contextPrefix}/click-and-collect` },
+    ]
     : [
-        { name: "Home", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Vouchers", href: "/vouchers" },
-        { name: "Reserve", href: "/reserve" },
-        { name: "Click & Collect", href: "/click-and-collect" },
-      ];
+      { name: "Home", href: "/" },
+      { name: "About", href: "/about" },
+      { name: "Vouchers", href: "/vouchers" },
+      { name: "Reserve", href: "/reserve" },
+      { name: "Click & Collect", href: "/click-and-collect" },
+    ];
 
   // Handle scroll effect
   useEffect(() => {
@@ -58,6 +58,8 @@ const Navbar = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
+    setIsMobileMenuOpen(false);
+
     if (href.startsWith("#")) {
       // Hash linking handling
       const targetId = href.substring(1);
@@ -95,7 +97,6 @@ const Navbar = () => {
       navigate(href);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
