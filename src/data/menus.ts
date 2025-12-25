@@ -34,6 +34,7 @@ import crunchyPepperCrab from "../assets/images/crunchy_pepper_crab.jpg";
 import goatMomo from "../assets/images/goat_momo.png";
 import sizzlingBrownie from "../assets/images/sizzling_brownie.jpg";
 import hakkaChillyPaneer from "../assets/images/hakka_chilly_paneer.jpg";
+import tamarindPotatoes from "../assets/images/tamarind_potatoes_new.jpg";
 
 export type MenuItem = {
   name: string;
@@ -1822,7 +1823,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Tamarind Glazed Potatoes",
           description: "Baby potatoes, black salt",
           price: "6.75",
-          image: sweetPotato,
+          image: tamarindPotatoes,
         },
         {
           name: "Stir Fry Broccoli",
@@ -1973,6 +1974,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Tamarind Glazed Potatoes",
           description: "Baby potatoes, black salt",
           price: "",
+          image: tamarindPotatoes,
         },
         { name: "Burnt Ginger Rice", description: "", price: "" },
         { name: "Egg Szechuan Fried Rice", description: "", price: "" },
