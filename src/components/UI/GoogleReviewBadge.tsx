@@ -61,17 +61,7 @@ const RenderStars = ({
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: `${(rating % 1) * 100}%`, // IMPROVEMENT: Dynamic width based on decimal?
-                  // The original code used fixed 50%.
-                  // Original: width: "50%"
-                  // If I change rating to 4.8, I should probably keep it simple or make it precise.
-                  // User just asked for "rating should be 4.8".
-                  // Let's stick to the requesting text change first, but 4.8 with a 50% star looks wrong.
-                  // Let's modify the width to `${(rating % 1) * 100}%` for accuracy if possible, OR just leave it as "Half" if the user didn't ask for visual perfection, but 4.8 is basically 5.
-                  // Let's stick to the text update first and maybe slight visual tweak if easy.
-                  // Actually, the original code had `width: "50%"`.
-                  // I will update the text 4.5 -> 4.8.
-                  width: "50%",
+                  width: `${(rating % 1 || 1) * 100}%`, // Logic: If x.0, full width (100%). If x.8, 80%.
                   height: "100%",
                   overflow: "hidden",
                   zIndex: 1,
