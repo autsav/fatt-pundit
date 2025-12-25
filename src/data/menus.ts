@@ -1,4 +1,3 @@
-import momo from "../assets/images/momo.jpg";
 import chickenMomo from "../assets/images/chicken_momo_new.jpg";
 
 import vegMomo from "../assets/images/veg momo.jpg";
