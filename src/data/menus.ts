@@ -1019,8 +1019,8 @@ export const MENU_DATA_SOHO: Menus = {
         {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onions",
-          price: "",
-          image: goatMomo,
+          price: "7.50",
+          image: chickenMomo,
         },
       ],
     },
@@ -1469,7 +1469,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onion",
           price: "",
-          image: goatMomo,
+          image: chickenMomo,
         },
         {
           name: "Kid Goat Momo",
@@ -1896,7 +1896,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onion",
           price: "",
-          image: goatMomo,
+          image: chickenMomo,
         },
         {
           name: "Kid Goat Momo",
