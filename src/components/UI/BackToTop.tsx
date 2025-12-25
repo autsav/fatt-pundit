@@ -33,6 +33,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
+          aria-label="Scroll to top"
           style={{
             position: "fixed",
             bottom: "2rem",
