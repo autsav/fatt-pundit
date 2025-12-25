@@ -300,11 +300,11 @@ const Navbar = () => {
       </AnimatePresence>
 
       <style>{`
-        @media (min-width: 768px) {
+        @media (min-width: 1025px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle { display: none !important; }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 1024px) {
           .mobile-toggle { display: block !important; }
         }
           .nav-link:hover {
@@ -313,7 +313,7 @@ const Navbar = () => {
           .nav-logo { height: 85px; }
           
           /* Mobile Optimizations */
-          @media (max-width: 767px) {
+          @media (max-width: 1024px) {
             .mobile-toggle { display: block !important; }
             nav { padding: 0.8rem 0 !important; } /* Reduce container padding */
             .nav-logo { height: 55px !important; } /* Smaller logo */
