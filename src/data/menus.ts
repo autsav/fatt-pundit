@@ -1,4 +1,4 @@
-import chickenMomo from "../assets/images/chicken_momo_new.jpg";
+import chickenMomo from "../assets/images/chicken_momo_v2.jpg";
 
 import vegMomo from "../assets/images/veg momo.jpg";
 import sticky from "../assets/images/sticky.jpg";
@@ -668,7 +668,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onions",
           price: "7.50",
-          image: goatMomo,
+          image: chickenMomo,
         },
         {
           name: "Beef Momo",
@@ -1274,7 +1274,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Chicken Momo",
           description: "Soy, garlic, spring onions",
           price: "7.50",
-          image: goatMomo,
+          image: chickenMomo,
         },
         {
           name: "Kid Goat Momo",
