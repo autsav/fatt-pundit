@@ -32,7 +32,14 @@ const BackToTop = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{
+            scale: 1.1,
+            backgroundColor: "var(--color-accent-hover)",
+          }}
+          whileTap={{ scale: 0.9 }}
+          whileFocus={{ scale: 1.1, outline: "2px solid var(--color-text-primary)" }}
           onClick={scrollToTop}
+          aria-label="Scroll to top"
           style={{
             position: "fixed",
             bottom: "2rem",
@@ -50,12 +57,8 @@ const BackToTop = () => {
             cursor: "pointer",
             boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
           }}
-          whileHover={{
-            scale: 1.1,
-            backgroundColor: "var(--color-accent-hover)",
-          }}
         >
-          <IoArrowUp size={24} />
+          <IoArrowUp size={24} aria-hidden="true" />
         </motion.button>
       )}
     </AnimatePresence>
