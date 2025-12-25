@@ -35,6 +35,7 @@ import goatMomo from "../assets/images/goat_momo.png";
 import sizzlingBrownie from "../assets/images/sizzling_brownie.jpg";
 import hakkaChillyPaneer from "../assets/images/hakka_chilly_paneer.jpg";
 import tamarindPotatoes from "../assets/images/tamarind_potatoes_new.jpg";
+import beefMomo from "../assets/images/beef_momo_new.jpg";
 
 export type MenuItem = {
   name: string;
