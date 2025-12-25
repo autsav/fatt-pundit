@@ -1999,4 +1999,736 @@ export const MENU_DATA_COVENT: Menus = {
       ],
     },
   ],
+  "VEGETARIAN MENU": [
+    {
+      category: "MOMO'S",
+      description:
+        "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney.",
+      items: [
+        {
+          name: "Mix Vegetable Momo",
+          description: "Spinach, mushroom, courgette + tofu",
+          price: "7.00",
+          image: mixVegMomo,
+        },
+      ],
+    },
+    {
+      category: "VEG",
+      items: [
+        {
+          name: "Crackling Spinach",
+          description: "Sweet yoghurt, date & plum sauce, pomegranate",
+          price: "10.20",
+          image: cracklingSpinach,
+        },
+        {
+          name: "Popcorn Cauliflower",
+          description: "Purple & white, smoked, soya garlic dip",
+          price: "10.20",
+          image: popcornCauliflower,
+        },
+        {
+          name: "Crispy Okra Salt 'n' Pepper",
+          description: "Pink salt, chillies, burnt garlic",
+          price: "10.20",
+          image: okraSaltPepper,
+        },
+        {
+          name: "Hakka Chilly Paneer Lettuce Cups",
+          description:
+            "Cottage cheese, shallots, soy sauce, white + black pepper",
+          price: "13.25",
+          image: hakkaChillyPaneer,
+        },
+        {
+          name: "Sticky Sesame Vegetables",
+          description: "Crispy veg fritters, sticky ginger glaze",
+          price: "11.20",
+          image: sticky,
+        },
+      ],
+    },
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        {
+          name: "Bing Bread",
+          description: "Buttery, crisp and crunchy",
+          price: "5.20",
+          image: bingBread,
+        },
+        { name: "Burnt Ginger Rice", description: "", price: "5.65" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "6.65" },
+        {
+          name: "Vegetable Hakka Noodles",
+          description: "Bean sprouts, cabbage, green onion",
+          price: "10.00",
+          image: vegHakka,
+        },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "6.20",
+          image: broccoli,
+        },
+      ],
+    },
+    {
+      category: "DESSERT",
+      items: [
+        {
+          name: "Snowflake Gelato Sizzling Brownie",
+          description: "Vanilla with chocolate-covered honeycomb",
+          price: "11.50",
+          image: sizzlingBrownie,
+        },
+        {
+          name: "Lady Kenny",
+          description:
+            "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning",
+          price: "7.50",
+          image: ladyKenny,
+        },
+      ],
+    },
+  ],
+  "DAIRY FREE MENU": [
+    {
+      category: "MOMO'S",
+      description:
+        "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney, with influences from Bhutan ,Nepal, Tibet and other parts of India.",
+      items: [
+        {
+          name: "Kid Goat Momo",
+          description: "Garam masala, cardamom, ginger & garlic",
+          price: "8.50",
+          image: goatMomo,
+        },
+        {
+          name: "Mix Vegetable Momo",
+          description: "Spinach, mushroom, courgette + tofu",
+          price: "7.00",
+          image: vegMomo,
+        },
+        {
+          name: "Chicken Momo",
+          description: "Soy, garlic, spring onions",
+          price: "7.50",
+          image: chickenMomo,
+        },
+        {
+          name: "Beef Momo",
+          description: "Leeks, red chilli, coriander",
+          price: "8.00",
+          image: beefMomo,
+        },
+      ],
+    },
+    {
+      category: "VEG",
+      items: [
+        {
+          name: "Popcorn Cauliflower",
+          description: "Purple & white, smoked, soya garlic dip",
+          price: "10.20",
+          image: popcornCauliflower,
+        },
+        {
+          name: "Crispy Okra Salt 'n' Pepper",
+          description: "Pink salt, chillies, burnt garlic",
+          price: "10.20",
+          image: okraSaltPepper,
+        },
+        {
+          name: "Sticky Sesame Vegetables",
+          description: "Crispy veg fritters, sticky ginger glaze",
+          price: "11.20",
+          image: sticky,
+        },
+        {
+          name: "Bombay Chilli Mock Chicken (Vegan)",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "13.25",
+          image: mockChick,
+        },
+      ],
+    },
+    {
+      category: "SEAFOOD",
+      items: [
+        {
+          name: "Bombay Chilly Prawns",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "14.50",
+          image: prawns,
+        },
+        {
+          name: "Crunchy Pepper Crab",
+          description:
+            "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn",
+          price: "14.50",
+          image: crunchyPepperCrab,
+        },
+      ],
+    },
+    {
+      category: "MEAT, GAME + POULTRY",
+      items: [
+        {
+          name: "Kolkata Chilli Duck",
+          description: "Lean strips, caramelised onion, slit green chilli",
+          price: "17.25",
+          image: duck,
+        },
+        {
+          name: "Lollypop Chicken",
+          description:
+            "Spicy + crispy chicken wings served with Szechuan chutney",
+          price: "10.50",
+          image: lollypop,
+        },
+        {
+          name: "Manchurian Chicken",
+          description: "Shallots, coriander, soy glaze",
+          price: "13.50",
+          image: manchurian,
+        },
+        {
+          name: "Shredded Chilly Venison",
+          description:
+            "“Made famous at the Leopold café of Mumbai ” smoked dark soya",
+          price: "15.50",
+          image: venison,
+        },
+        {
+          name: "Lamb Chops - Black Bean Dust",
+          description: "Stone flower masala rub, charred to perfection",
+          price: "21.00",
+          image: lambchop,
+        },
+        {
+          name: "Rabbit Wontons",
+          description: "Burnt garlic, black bean, chilli oil",
+          price: "14.20",
+          image: rabbitWontons,
+        },
+        {
+          name: "Ribeye Dry Red Chilly",
+          description: "Beef strips, Kashmiri red chillies, roasted cashews",
+          price: "19.00",
+          image: ribeye,
+        },
+      ],
+    },
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        { name: "Bing Bread", description: "Crisp and crunchy", price: "5.20" },
+        { name: "Burnt Ginger Rice", description: "", price: "5.65" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "6.65" },
+        {
+          name: "Vegetable Hakka Noodles",
+          description: "Bean sprouts, cabbage, green onion",
+          price: "10.00",
+          image: vegHakka,
+        },
+        {
+          name: "Stir Fry Szechuan Noodles",
+          description: "Chicken or beef",
+          price: "12.20",
+        },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "5.50",
+          image: broccoli,
+        },
+      ],
+    },
+    {
+      category: "DESSERT",
+      items: [
+        {
+          name: "Vegan Sizzling Brownie",
+          description: "With Madagascan vanilla ice cream (v)",
+          price: "12.50",
+          image: sizzlingBrownie,
+        },
+      ],
+    },
+  ],
+  "VEGAN MENU": [
+    {
+      category: "MOMO'S",
+      description:
+        "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney with influences from Bhutan, Nepal, Tibet and other parts of India.",
+      items: [
+        {
+          name: "Mix Vegetable Momo",
+          description: "Spinach, mushroom, courgette + tofu",
+          price: "7.00",
+          image: vegMomo,
+        },
+      ],
+    },
+    {
+      category: "VEG",
+      items: [
+        {
+          name: "Popcorn Cauliflower",
+          description: "Purple & white, smoked, soya garlic dip",
+          price: "10.20",
+          image: popcornCauliflower,
+        },
+        {
+          name: "Crispy Okra Salt 'n' Pepper",
+          description: "Pink salt, chillies, burnt garlic",
+          price: "10.20",
+          image: okraSaltPepper,
+        },
+        {
+          name: "Sticky Sesame Vegetables",
+          description: "Crispy veg fritters, sticky ginger glaze",
+          price: "11.20",
+          image: sticky,
+        },
+        {
+          name: "Bombay Chilli Mock Chicken (Vegan)",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "13.25",
+          image: mockChick,
+        },
+        {
+          name: "Veg Manchurian",
+          description:
+            "Mix veg croquette with shallots, coriander and soya sauce",
+          price: "12.20",
+        },
+      ],
+    },
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        { name: "Bing Bread", description: "Crisp and crunchy", price: "5.20" },
+        { name: "Burnt Ginger Rice", description: "", price: "5.65" },
+        { name: "Veg Szechuan Fried Rice", description: "", price: "6.65" },
+        {
+          name: "Vegetable Hakka Noodles",
+          description: "Bean sprouts, cabbage, green onion",
+          price: "10.00",
+          image: vegHakka,
+        },
+        {
+          name: "Veg Stir Fry Szechuan Noodles",
+          description: "",
+          price: "12.20",
+        },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "6.20",
+          image: broccoli,
+        },
+      ],
+    },
+    {
+      category: "DESSERT",
+      items: [
+        {
+          name: "Vegan Sizzling Brownie",
+          description: "With Madagascan vanilla ice cream (v)",
+          price: "12.50",
+          image: sizzlingBrownie,
+        },
+      ],
+    },
+  ],
+  "GLUTEN FREE": [
+    {
+      category: "VEG",
+      items: [
+        {
+          name: "Popcorn Cauliflower",
+          description: "Purple & white, smoked, soya garlic dip",
+          price: "10.20",
+          image: popcornCauliflower,
+        },
+        {
+          name: "Crispy Okra Salt 'n' Pepper",
+          description: "Pink salt, chillies, burnt garlic",
+          price: "10.20",
+          image: okraSaltPepper,
+        },
+        {
+          name: "Hakka Chilly Paneer Lettuce Cups",
+          description:
+            "Cottage cheese, shallots, soy sauce, white + black pepper",
+          price: "13.25",
+          image: hakkaChillyPaneer,
+        },
+        {
+          name: "Crackling Spinach",
+          description: "Sweet yogurt, date & plum sauce, pomegranate",
+          price: "10.20",
+          image: cracklingSpinach,
+        },
+        {
+          name: "Bombay Chilli Mock Chicken (Vegan)",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "10.20",
+          image: mockChick,
+        },
+      ],
+    },
+    {
+      category: "SEAFOOD",
+      items: [
+        {
+          name: "Malabar Monkfish Curry",
+          description: "Grilled, saffron butter, fresh coconut",
+          price: "15.75",
+          image: malabar,
+        },
+        {
+          name: "Bombay Chilly Prawns",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "14.50",
+          image: prawns,
+        },
+      ],
+    },
+    {
+      category: "MEAT, GAME + POULTRY",
+      items: [
+        {
+          name: "Kolkata Chilli Duck",
+          description: "Lean strips, caramelised onion, slit green chilli",
+          price: "14.95",
+          image: duck,
+        },
+        {
+          name: "Shredded Chilly Venison",
+          description:
+            "“Made famous at the Leopold café of Mumbai ” smoked dark soya",
+          price: "15.50",
+          image: venison,
+        },
+        {
+          name: "Lamb Chops - Black Bean Dust",
+          description: "Stone flower masala rub, charred to perfection",
+          price: "21.00",
+          image: lambchop,
+        },
+        {
+          name: "Ribeye Dry Red Chilly",
+          description: "Beef strips, Kashmiri red chillies, roasted cashews",
+          price: "19.00",
+          image: ribeye,
+        },
+      ],
+    },
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        { name: "Burnt Ginger Rice", description: "", price: "5.00" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "6.00" },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "6.20",
+          image: broccoli,
+        },
+      ],
+    },
+  ],
+  "SIDES + DESSERTS": [
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        {
+          name: "Bing Bread",
+          description: "Buttery, crisp and crunchy",
+          price: "4.50",
+        },
+        { name: "Burnt Ginger Rice", description: "", price: "5.00" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "6.00" },
+        {
+          name: "Vegetable Hakka Noodles",
+          description: "Bean sprouts, cabbage, green onion",
+          price: "9.00",
+          image: vegHakka,
+        },
+        {
+          name: "Stir Fry Szechuan Noodles",
+          description: "Chicken or beef",
+          price: "11.00",
+        },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "5.50",
+        },
+      ],
+    },
+    {
+      category: "DESSERTS",
+      items: [
+        { name: "Lady Kenny", description: "", price: "7.00" },
+        {
+          name: "Sizzling Brownie",
+          description: "With vanilla ice cream",
+          price: "12.50",
+          image: sizzlingBrownie,
+        },
+      ],
+    },
+  ],
+  "HALAL MENU": [
+    {
+      category: "MOMO'S",
+      description:
+        "All meals in Tangra start with these hearty, flavoursome steamed dumplings coming straight from the Steel Steamers, served with a spicy chutney, with influences from Bhutan ,Nepal, Tibet and other parts of India.",
+      items: [
+        {
+          name: "Chicken Momo",
+          description: "Soy, garlic, spring onions",
+          price: "7.50",
+          image: chickenMomo,
+        },
+        {
+          name: "Kid Goat Momo",
+          description: "Garam Masala, cardamom, ginger + garlic",
+          price: "8.50",
+          image: goatMomo,
+        },
+        {
+          name: "Beef Momo",
+          description: "Leeks, red chilli, coriander",
+          price: "8.00",
+          image: beefMomo,
+        },
+        {
+          name: "Mix Vegetable Momo",
+          description: "Spinach, mushroom, courgette + tofu",
+          price: "7.00",
+          image: vegMomo,
+        },
+      ],
+    },
+    {
+      category: "VEG",
+      items: [
+        {
+          name: "Popcorn Cauliflower",
+          description: "Smoked, soya garlic dip",
+          price: "10.20",
+          image: popcornCauliflower,
+        },
+        {
+          name: "Crispy Okra Salt 'n' Pepper",
+          description: "Pink salt, chillies, burnt garlic",
+          price: "10.20",
+          image: okraSaltPepper,
+        },
+        {
+          name: "Hakka Chilly Paneer Lettuce Cups",
+          description:
+            "Cottage cheese, shallots, soy sauce, white + black pepper",
+          price: "13.25",
+          image: hakkaChillyPaneer,
+        },
+        {
+          name: "Bombay Chilli Mock Chicken",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "13.25",
+          image: mockChick,
+        },
+        {
+          name: "Crackling Spinach",
+          description: "Sweet yogurt, date & plum sauce, pomegranate",
+          price: "10.20",
+          image: cracklingSpinach,
+        },
+        {
+          name: "Sticky Sesame Vegetables",
+          description: "Crispy veg fritters, sticky ginger glaze",
+          price: "11.20",
+          image: sticky,
+        },
+      ],
+    },
+    {
+      category: "SEAFOOD",
+      items: [
+        {
+          name: "Malabar Monkfish Curry",
+          description: "Grilled, saffron butter, fresh coconut",
+          price: "15.75",
+          image: malabar,
+        },
+        {
+          name: "Bombay Chilly Prawns",
+          description: "Celery, Szechuan chilly, mixed peppers",
+          price: "14.50",
+          image: prawns,
+        },
+        {
+          name: "Crunchy Pepper Crab",
+          description:
+            "Soft shell crab, wok blistered sweet corn, charred scallion + Szechuan peppercorn",
+          price: "14.50",
+          image: crunchyPepperCrab,
+        },
+      ],
+    },
+    {
+      category: "BREAD, RICE & NOODLES",
+      items: [
+        {
+          name: "Bing Bread",
+          description: "Buttery, crisp and crunchy",
+          price: "5.20",
+        },
+        { name: "Burnt Ginger Rice", description: "", price: "5.65" },
+        { name: "Egg Szechuan Fried Rice", description: "", price: "6.65" },
+        {
+          name: "Vegetable Hakka Noodles",
+          description: "Bean sprout, cabbage, green onion",
+          price: "10.00",
+          image: vegHakka,
+        },
+        {
+          name: "Stir Fry Szechuan Noodles",
+          description: "Chicken or beef",
+          price: "12.20",
+        },
+      ],
+    },
+    {
+      category: "MEAT & POULTRY",
+      items: [
+        {
+          name: "Lollypop Chicken",
+          description:
+            "Spicy + crispy chicken wings served with Szechuan chutney",
+          price: "10.50",
+          image: lollypop,
+        },
+        {
+          name: "Manchurian Chicken",
+          description: "Shallots, coriander, soy glaze",
+          price: "13.50",
+          image: manchurian,
+        },
+        {
+          name: "Lamb Chops - Black Bean Dust",
+          description: "Stone flower masala rub, charred to perfection",
+          price: "21.00",
+          image: lambchop,
+        },
+        {
+          name: "Ribeye - Dry Red Chilli",
+          description: "Beef strips, kashmiri red chillies, roasted cashews",
+          price: "19.00",
+          image: ribeye,
+        },
+      ],
+    },
+    {
+      category: "SIDES",
+      items: [
+        {
+          name: "Tamarind Glazed Potatoes",
+          description: "Baby potatoes, black salt",
+          price: "6.75",
+          image: tamarindPotatoes,
+        },
+        {
+          name: "Stir Fry Broccoli",
+          description: "With roasted almonds",
+          price: "6.20",
+          image: broccoli,
+        },
+      ],
+    },
+    {
+      category: "DESSERT",
+      items: [
+        {
+          name: "Snowflake Gelato Sizzling Brownie",
+          description: "Vanilla with chocolate covered honeycomb",
+          price: "12.50",
+          image: sizzlingBrownie,
+        },
+        {
+          name: "Vegan Sizzling Brownie",
+          description: "With Madagascan vanilla ice cream (v)",
+          price: "12.50",
+          image: sizzlingBrownie,
+        },
+        {
+          name: "Lady Kenny",
+          description:
+            "Inspired by Ledikeni Bengali sweet named after Lady Charlotte Canning",
+          price: "7.50",
+        },
+      ],
+    },
+  ],
 };
