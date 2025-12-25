@@ -353,7 +353,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Beef Momo",
           description: "Leeks, red chilli, coriander",
           price: "8.00",
-          image: goatMomo,
+          image: beefMomo,
         },
         {
           name: "Kid Goat Momo",
@@ -675,7 +675,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Beef Momo",
           description: "Leeks, red chilli, coriander",
           price: "8.00",
-          image: goatMomo,
+          image: beefMomo,
         },
       ],
     },
@@ -1287,7 +1287,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Beef Momo",
           description: "Leeks, red chilli, coriander",
           price: "8.00",
-          image: goatMomo,
+          image: beefMomo,
         },
         {
           name: "Mix Vegetable Momo",
@@ -1685,7 +1685,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Beef Momo",
           description: "Leeks, red chilli, coriander",
           price: "8.00",
-          image: momo,
+          image: beefMomo,
         },
         {
           name: "Kid Goat Momo",
