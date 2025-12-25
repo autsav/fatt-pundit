@@ -63,6 +63,9 @@ const Navbar = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
+    // Always close mobile menu first
+    setIsMobileMenuOpen(false);
+
     if (href.startsWith("#")) {
       // Hash linking handling
       const targetId = href.substring(1);
@@ -82,8 +85,6 @@ const Navbar = () => {
         });
         // Update URL to reflect the section
         window.history.pushState(null, "", href);
-        // Explicitly close menu for hash links as location.pathname might not change
-        setIsMobileMenuOpen(false);
       } else {
         // If element not found, strict redirection logic
         e.preventDefault();
@@ -92,11 +93,9 @@ const Navbar = () => {
         } else {
           navigate("/" + href);
         }
-        // Menu will close via useEffect as pathname changes
       }
     } else if (href.startsWith("/")) {
       // Internal client-side routing
-      // Native Link behavior handles navigation, but if we use <a> or preventDefault:
       e.preventDefault();
       navigate(href);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -256,31 +255,11 @@ const Navbar = () => {
             }}
           >
             {navLinks.map((link) => {
-              const isHash = link.href.startsWith("#");
-
-              if (isHash) {
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "2rem",
-                      color: "#1A1A1A",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                );
-              }
-
               return (
-                <Link
+                <a
                   key={link.name}
-                  to={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   style={{
                     fontFamily: "var(--font-heading)",
                     fontSize: "2rem",
@@ -289,7 +268,7 @@ const Navbar = () => {
                   }}
                 >
                   {link.name}
-                </Link>
+                </a>
               );
             })}
             <div style={{ marginTop: "1rem" }}>
