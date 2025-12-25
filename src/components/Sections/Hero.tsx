@@ -64,7 +64,7 @@ const Hero = ({ location, backgroundImage, reserveLink }: HeroProps) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontSize: "clamp(2.5rem, 8vw, 6rem)",
             marginBottom: "var(--spacing-lg)",
             color: "var(--color-accent)", // Swapped to Red/Accent
             textShadow: "0 4px 30px rgba(0,0,0,0.8)",
