@@ -1691,7 +1691,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Kid Goat Momo",
           description: "Garam masala, cardamom, ginger & garlic",
           price: "8.50",
-          image: momo,
+          image: goatMomo,
         },
       ],
     },
