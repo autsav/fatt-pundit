@@ -4,6 +4,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import sohoTexture from "../../assets/images/soho_texture.png";
 import sohoFooterBg from "../../assets/images/soho_footer_bg_final.jpg";
 import coventFooterBg from "../../assets/images/covent_footer_bg.jpg";
@@ -76,10 +77,8 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
             >
               Book your table online for the best experience.
             </p>
-            <a
-              href="https://www.fattpundit.co.uk/reservations/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={activeLocation === "covent-garden" ? "/covent-garden/reserve" : "/soho/reserve"}
               style={{
                 display: "inline-block",
                 padding: "0.75rem 1.5rem",
@@ -102,7 +101,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
               }
             >
               BOOK A TABLE
-            </a>
+            </Link>
           </div>
 
           {/* Column 2: Interactive Map */}
