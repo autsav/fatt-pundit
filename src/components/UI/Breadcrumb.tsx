@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoChevronForward, IoHome } from "react-icons/io5";
 
 interface BreadcrumbItem {
@@ -8,7 +8,6 @@ interface BreadcrumbItem {
 
 const Breadcrumb = () => {
     const location = useLocation();
-    const params = useParams();
 
     const generateBreadcrumbs = (): BreadcrumbItem[] => {
         const pathSegments = location.pathname.split("/").filter(Boolean);
@@ -16,7 +15,7 @@ const Breadcrumb = () => {
 
         let currentPath = "";
 
-        pathSegments.forEach((segment, index) => {
+        pathSegments.forEach((segment) => {
             currentPath += `/${segment}`;
 
             // Capitalize and format segment
