@@ -2,7 +2,6 @@ import {
   createBrowserRouter,
   RouterProvider,
   redirect,
-  Navigate,
 } from "react-router-dom";
 import { lazy } from "react";
 import RootLayout from "./layouts/RootLayout";
@@ -21,33 +20,7 @@ const About = lazy(() => import("./pages/About"));
 const Vouchers = lazy(() => import("./pages/Voucher"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Admin Pages
-const AdminLayout = lazy(() => import("./layouts/AdminLayout"));
-const Login = lazy(() => import("./pages/admin/Login"));
-const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
-const MenuManager = lazy(() => import("./pages/admin/MenuManager"));
-const SettingsManager = lazy(() => import("./pages/admin/SettingsManager"));
-const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
-
 const router = createBrowserRouter([
-  // Admin Routes
-  {
-    path: "/admin",
-    children: [
-      { path: "login", element: <Login /> },
-      {
-        element: <AdminLayout />,
-        children: [
-          { index: true, element: <Navigate to="dashboard" /> },
-          { path: "dashboard", element: <Dashboard /> },
-          { path: "menu", element: <MenuManager /> },
-          { path: "settings", element: <SettingsManager /> },
-          { path: "media", element: <MediaLibrary /> },
-        ],
-      },
-    ],
-  },
-
   {
     path: "/",
     element: <RootLayout />,
