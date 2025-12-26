@@ -341,6 +341,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
               href="https://www.instagram.com/fattpundit"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
               style={{ color: "#FFFFFF", transition: "color 0.3s" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.color = "var(--color-accent)")
@@ -353,6 +354,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
               href="https://www.facebook.com/fattpundit"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Follow us on Facebook"
               style={{ color: "#FFFFFF", transition: "color 0.3s" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.color = "var(--color-accent)")
