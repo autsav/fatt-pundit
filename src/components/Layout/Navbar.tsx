@@ -283,10 +283,9 @@ const Navbar = () => {
                 boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.1)",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 alignItems: "center",
-                gap: "1.5rem",
-                padding: "2rem",
+                padding: "2rem 1.5rem",
               }}
             >
               <button
@@ -304,44 +303,60 @@ const Navbar = () => {
               >
                 <HiX />
               </button>
-              {mobileNavLinks.map((link) => {
-                const isHash = link.href.startsWith("#");
-                const itemStyle: React.CSSProperties = {
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "1.5rem",
-                  color: "#1A1A1A",
-                  textDecoration: "none",
-                  position: "relative",
-                  width: "100%",
-                  textAlign: "center",
-                  padding: "0.5rem 0",
-                  borderBottom: "1px solid rgba(0,0,0,0.05)"
-                };
 
-                if (isHash) {
+              {/* Navigation items container - centered */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "1.5rem",
+                  flex: 1,
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                {mobileNavLinks.map((link) => {
+                  const isHash = link.href.startsWith("#");
+                  const itemStyle: React.CSSProperties = {
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "1.5rem",
+                    color: "#1A1A1A",
+                    textDecoration: "none",
+                    position: "relative",
+                    width: "100%",
+                    textAlign: "center",
+                    padding: "0.5rem 0",
+                    borderBottom: "1px solid rgba(0,0,0,0.05)"
+                  };
+
+                  if (isHash) {
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        style={itemStyle}
+                      >
+                        {link.name}
+                      </a>
+                    );
+                  }
                   return (
-                    <a
+                    <Link
                       key={link.name}
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
+                      to={link.href}
                       style={itemStyle}
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   );
-                }
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    style={itemStyle}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-              <div style={{ marginTop: "auto", opacity: 0.5, textAlign: "center" }}>
-                <img src={logo} alt="Fatt Pundit" style={{ height: "40px", marginBottom: "1rem", filter: "grayscale(100%)" }} />
+                })}
+              </div>
+
+              {/* Logo at bottom */}
+              <div style={{ opacity: 0.5, textAlign: "center", paddingBottom: "1rem" }}>
+                <img src={logo} alt="Fatt Pundit" style={{ height: "40px", filter: "grayscale(100%)" }} />
               </div>
             </motion.div>
           </>
