@@ -28,3 +28,41 @@ body {
   min-height: 100vh;
   /* Removed display: flex; place-items: center; to fix full-page layout */
 }
+
+/* Global Transitions for Interactive Elements (Palette Polish) */
+a,
+button,
+input,
+select,
+textarea {
+  transition: var(--transition-global);
+}
+
+button:active,
+a:active {
+  transform: scale(0.98);
+}
+
+/* Skeleton Loading Animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    background-color: var(--color-bg-secondary);
+  }
+
+  50% {
+    opacity: 0.5;
+    background-color: var(--color-text-secondary);
+  }
+
+  100% {
+    opacity: 1;
+    background-color: var(--color-bg-secondary);
+  }
+}
+
+.skeleton {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  display: block;
+  background-color: var(--color-bg-secondary);
+}

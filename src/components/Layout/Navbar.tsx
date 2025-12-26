@@ -37,7 +37,7 @@ const Navbar = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [location]); // Listen to all location changes
 
   // Handle scroll effect
   useEffect(() => {
@@ -58,15 +58,14 @@ const Navbar = () => {
     },
   };
 
-  // Helper to handle navigation
+  // Helper to handle navigation (Legacy support for hash links and desktop)
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    // Always close mobile menu first
-    setIsMobileMenuOpen(false);
-
+    // Only handle hash links manually. Route links are handled by <Link> or global listener.
     if (href.startsWith("#")) {
+      setIsMobileMenuOpen(false);
       // Hash linking handling
       const targetId = href.substring(1);
       const element = document.getElementById(targetId);
@@ -94,11 +93,6 @@ const Navbar = () => {
           navigate("/" + href);
         }
       }
-    } else if (href.startsWith("/")) {
-      // Internal client-side routing
-      e.preventDefault();
-      navigate(href);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -255,11 +249,32 @@ const Navbar = () => {
             }}
           >
             {navLinks.map((link) => {
+              const isHash = link.href.startsWith("#");
+
+              if (isHash) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontSize: "2rem",
+                      color: "#1A1A1A",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
+
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  to={link.href}
+                  // Let global listener handle closing, but explicit onClick is safer UX
+                  onClick={() => setIsMobileMenuOpen(false)}
                   style={{
                     fontFamily: "var(--font-heading)",
                     fontSize: "2rem",
@@ -268,7 +283,7 @@ const Navbar = () => {
                   }}
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
             <div style={{ marginTop: "1rem" }}>

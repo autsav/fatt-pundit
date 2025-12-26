@@ -7,6 +7,7 @@ import { MENU_DATA_SOHO, MENU_DATA_COVENT, MENU_TYPES } from '../../data/menus';
 import type { MenuCategory } from '../../data/menus';
 import menuBgTiger from "../../assets/images/menu_bg_tiger.png";
 import sohoMenuBg from "../../assets/images/soho_menu_bg.jpg";
+import Skeleton from '../UI/Skeleton';
 
 const MenuSection: React.FC = () => {
   const { ref } = useInView({
@@ -18,6 +19,14 @@ const MenuSection: React.FC = () => {
   const [activeLocation, setActiveLocation] = useState<'SOHO' | 'COVENT GARDEN'>('SOHO');
   const [activeMenu, setActiveMenu] = useState(MENU_TYPES[0]);
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Simulate loading on menu switch
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 400);
+    return () => clearTimeout(timer);
+  }, [activeMenu]);
 
 
   // Determine location from URL or default
@@ -274,69 +283,98 @@ const MenuSection: React.FC = () => {
                 {activeMenu}
               </h3>
 
-              {activeMenuCategories.map((section, index) => {
-                // Handle vegetarian filtering
-                const filteredItems = section.items;
-
-                if (filteredItems.length === 0) return null;
-
-                return (
-                  <div key={index} style={{ marginBottom: '3rem' }}>
-                    {/* Category Title - Skip if it's just "PRICE" or generic unless needed */}
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--color-accent)' }}>
-                        {section.category}
-                      </h4>
-                      {section.description && (
-                        <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
-                          {section.description}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
-                      {filteredItems.map((item, idx) => (
-                        <div key={idx} className="menu-item-card">
-                          <div style={{ flex: 1 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                              <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#fff', letterSpacing: '0.5px', margin: 0 }}>
-                                {item.name}
-                              </h5>
-                              {item.price && (
-                                <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', flexShrink: 0, whiteSpace: 'nowrap', marginLeft: '1rem' }}>
-                                  £{item.price}
-                                </span>
-                              )}
+              {isLoading ? (
+                /* Skeleton Loading State */
+                <div style={{ padding: '0 0.5rem' }}>
+                  {/* Simulate 2 categories */}
+                  {[1, 2].map((i) => (
+                    <div key={i} style={{ marginBottom: '3rem' }}>
+                      <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                        <Skeleton width="200px" height="1.5rem" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
+                      </div>
+                      <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
+                        {[1, 2, 3, 4].map((j) => (
+                          <div key={j} className="menu-item-card" style={{ height: '180px' }}>
+                            <div style={{ flex: 1 }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                                <Skeleton width="60%" height="1.2rem" />
+                                <Skeleton width="20%" height="1.2rem" />
+                              </div>
+                              <Skeleton width="90%" height="0.9rem" />
+                              <Skeleton width="70%" height="0.9rem" />
                             </div>
-                            <p style={{ color: '#aaa', fontSize: '0.95rem', lineHeight: '1.5', fontFamily: 'var(--font-body)', margin: 0 }}>
-                              {item.description}
-                            </p>
+                            <Skeleton width="100px" height="100px" variant="rect" style={{ borderRadius: '8px' }} />
                           </div>
-                          {item.image && (
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setHoveredImage(item.image || null);
-                              }}
-                              style={{
-                                width: '100px',
-                                height: '100px',
-                                objectFit: 'cover',
-                                borderRadius: '8px',
-                                cursor: 'pointer',
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                flexShrink: 0
-                              }}
-                            />
-                          )}
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </div>
+              ) : (
+                activeMenuCategories.map((section, index) => {
+                  // Handle vegetarian filtering
+                  const filteredItems = section.items;
+
+                  if (filteredItems.length === 0) return null;
+
+                  return (
+                    <div key={index} style={{ marginBottom: '3rem' }}>
+                      {/* Category Title - Skip if it's just "PRICE" or generic unless needed */}
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                        <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--color-accent)' }}>
+                          {section.category}
+                        </h4>
+                        {section.description && (
+                          <span style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>
+                            {section.description}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="menu-category-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2rem' }}>
+                        {filteredItems.map((item, idx) => (
+                          <div key={idx} className="menu-item-card">
+                            <div style={{ flex: 1 }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#fff', letterSpacing: '0.5px', margin: 0 }}>
+                                  {item.name}
+                                </h5>
+                                {item.price && (
+                                  <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', flexShrink: 0, whiteSpace: 'nowrap', marginLeft: '1rem' }}>
+                                    £{item.price}
+                                  </span>
+                                )}
+                              </div>
+                              <p style={{ color: '#aaa', fontSize: '0.95rem', lineHeight: '1.5', fontFamily: 'var(--font-body)', margin: 0 }}>
+                                {item.description}
+                              </p>
+                            </div>
+                            {item.image && (
+                              <img
+                                src={item.image}
+                                alt={item.name}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setHoveredImage(item.image || null);
+                                }}
+                                style={{
+                                  width: '100px',
+                                  height: '100px',
+                                  objectFit: 'cover',
+                                  borderRadius: '8px',
+                                  cursor: 'pointer',
+                                  border: '1px solid rgba(255,255,255,0.1)',
+                                  flexShrink: 0
+                                }}
+                              />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })
+              )}
 
               {activeMenuCategories.length === 0 && (
                 <p>No items found for this menu.</p>
