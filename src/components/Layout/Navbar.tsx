@@ -53,7 +53,10 @@ const Navbar = () => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      // Explicit cleanup with setTimeout to ensure it runs after state update
+      setTimeout(() => {
+        document.body.style.overflow = "unset";
+      }, 0);
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -326,7 +329,6 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
                     style={itemStyle}
                   >
                     {link.name}
