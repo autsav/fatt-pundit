@@ -39,7 +39,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location]); // Listen to all location changes
 
-  // Handle scroll effect
+  // Handle scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -47,6 +47,18 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   const navbarVariants = {
     hidden: { y: -100 },
@@ -226,70 +238,106 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "#ffffff", // White background
-              // backgroundImage: 'url("https://www.fattpundit.co.uk/wp-content/uploads/2021/04/texture.jpg")', // Using CSS var instead
-              backgroundImage: "none", // Remove dark pattern
-              backgroundRepeat: "repeat",
-              zIndex: 40,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "2rem",
-            }}
-          >
-            {navLinks.map((link) => {
-              const isHash = link.href.startsWith("#");
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(0,0,0,0.4)",
+                zIndex: 998,
+                backdropFilter: "blur(4px)",
+              }}
+            />
+            <motion.div
+              initial={{ y: "-100%" }}
+              animate={{ y: "0%" }}
+              exit={{ y: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              style={{
+                position: "fixed",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                width: "50vw",
+                minWidth: "280px",
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                zIndex: 999,
+                borderLeft: "1px solid rgba(255, 255, 255, 0.3)",
+                boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.1)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "1.5rem",
+                padding: "2rem",
+              }}
+            >
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  position: "absolute",
+                  top: "1.5rem",
+                  right: "1.5rem",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#1A1A1A",
+                  fontSize: "2rem",
+                }}
+              >
+                <HiX />
+              </button>
+              {navLinks.map((link) => {
+                const isHash = link.href.startsWith("#");
+                const itemStyle: React.CSSProperties = {
+                  fontFamily: "var(--font-heading)",
+                  fontSize: "1.5rem",
+                  color: "#1A1A1A",
+                  textDecoration: "none",
+                  position: "relative",
+                  width: "100%",
+                  textAlign: "center",
+                  padding: "0.5rem 0",
+                  borderBottom: "1px solid rgba(0,0,0,0.05)"
+                };
 
-              if (isHash) {
+                if (isHash) {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      style={itemStyle}
+                    >
+                      {link.name}
+                    </a>
+                  );
+                }
                 return (
-                  <a
+                  <Link
                     key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "2rem",
-                      color: "#1A1A1A",
-                      textDecoration: "none",
-                    }}
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    style={itemStyle}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 );
-              }
-
-              return (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  // Let global listener handle closing, but explicit onClick is safer UX
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "2rem",
-                    color: "#1A1A1A",
-                    textDecoration: "none",
-                  }}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <div style={{ marginTop: "1rem" }}>
-              {/* Theme toggle removed from mobile menu */}
-            </div>
-          </motion.div>
+              })}
+              <div style={{ marginTop: "auto", opacity: 0.5, textAlign: "center" }}>
+                <img src={logo} alt="Fatt Pundit" style={{ height: "40px", marginBottom: "1rem", filter: "grayscale(100%)" }} />
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 

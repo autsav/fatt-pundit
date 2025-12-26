@@ -1,6 +1,6 @@
 import chickenMomo from "../assets/images/chicken_momo_v2.jpg";
 
-import vegMomo from "../assets/images/veg momo.jpg";
+
 import sticky from "../assets/images/sticky.jpg";
 import malabarPrawnsCovent from "../assets/images/malabar_prawns_covent.jpg";
 import mockChick from "../assets/images/mock chick.jpg";
@@ -662,7 +662,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
         {
           name: "Chicken Momo",
@@ -832,7 +832,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },
@@ -929,7 +929,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },
@@ -1014,7 +1014,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "",
-          image: vegMomo,
+          image: mixVegMomo,
         },
         {
           name: "Chicken Momo",
@@ -1292,7 +1292,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },
@@ -1579,7 +1579,7 @@ export const MENU_DATA_SOHO: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette & tofu",
           price: "",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },
@@ -2120,7 +2120,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
         {
           name: "Chicken Momo",
@@ -2290,7 +2290,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },
@@ -2567,7 +2567,7 @@ export const MENU_DATA_COVENT: Menus = {
           name: "Mix Vegetable Momo",
           description: "Spinach, mushroom, courgette + tofu",
           price: "7.00",
-          image: vegMomo,
+          image: mixVegMomo,
         },
       ],
     },

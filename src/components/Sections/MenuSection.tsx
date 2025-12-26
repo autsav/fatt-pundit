@@ -172,6 +172,23 @@ const MenuSection: React.FC = () => {
                         margin-bottom: 1rem;
                     }
                 }
+
+                /* Custom Hairline Scrollbar for Menu Nav */
+                .menu-nav-items::-webkit-scrollbar,
+                .menu-sidebar::-webkit-scrollbar {
+                    height: 2px; /* Hairline thickness */
+                }
+                
+                .menu-nav-items::-webkit-scrollbar-track,
+                .menu-sidebar::-webkit-scrollbar-track {
+                    background: rgba(255, 255, 255, 0.05);
+                }
+
+                .menu-nav-items::-webkit-scrollbar-thumb,
+                .menu-sidebar::-webkit-scrollbar-thumb {
+                    background: rgba(255, 255, 255, 0.5);
+                    border-radius: 10px;
+                }
             `}</style>
 
       <AnimatePresence>
