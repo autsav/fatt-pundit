@@ -8,6 +8,7 @@ import { useCart } from "../context/CartContext";
 import menuBgTiger from "../assets/images/menu_bg_tiger.png";
 import sohoUtilityBg from "../assets/images/soho_utility_bg.jpg";
 import coventTexture from "../assets/images/covent_texture.png";
+import Breadcrumb from "../components/UI/Breadcrumb";
 
 const ClickCollect = () => {
   const { location } = useParams();
@@ -45,6 +46,7 @@ const ClickCollect = () => {
 
   return (
     <>
+      <Breadcrumb />
       <div
         style={{
           paddingTop: "5rem",

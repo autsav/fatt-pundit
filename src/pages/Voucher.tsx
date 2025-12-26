@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGift } from "react-icons/fa";
 import sohoUtilityBg from "../assets/images/soho_utility_bg.jpg";
 import coventTexture from "../assets/images/covent_texture.png";
+import Breadcrumb from "../components/UI/Breadcrumb";
 
 const Vouchers = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,7 @@ const Vouchers = () => {
 
   return (
     <>
+      <Breadcrumb />
       <div
         style={{
           minHeight: "100vh",

@@ -9,6 +9,7 @@ import sohoUtilityBg from "../assets/images/soho_utility_bg.jpg";
 import coventTexture from "../assets/images/covent_texture.png";
 
 import "../styles/pages/Reserve.css";
+import Breadcrumb from "../components/UI/Breadcrumb";
 
 // OpenTable URLs
 const SOHO_URL = "https://www.opentable.co.uk/r/fatt-pundit-london";
@@ -40,6 +41,7 @@ const Reserve = () => {
 
   return (
     <>
+      <Breadcrumb />
       <section className="reserve-section" style={bgStyle}>
         <div className="container reserve-container">
           <motion.div

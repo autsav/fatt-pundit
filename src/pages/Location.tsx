@@ -7,6 +7,7 @@ import MenuSection from "../components/Sections/MenuSection";
 import GallerySection from "../components/Sections/GallerySection";
 import TestimonialsSection from "../components/Sections/TestimonialsSection";
 import LocationInfoSection from "../components/Sections/LocationInfoSection";
+import Breadcrumb from "../components/UI/Breadcrumb";
 
 // Import Images
 import heroFood from "../assets/images/hero_food.jpg";
@@ -89,6 +90,7 @@ const Location = () => {
         title={`Fatt Pundit ${displayLocation} | Indo Chinese Restaurant London`}
         description={data.description}
       />
+      <Breadcrumb />
       <Hero
         location={displayLocation}
         backgroundImage={data.heroImage}
