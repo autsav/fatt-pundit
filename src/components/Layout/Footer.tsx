@@ -9,6 +9,9 @@ import sohoTexture from "../../assets/images/soho_texture.png";
 import sohoFooterBg from "../../assets/images/soho_footer_bg_final.jpg";
 import coventFooterBg from "../../assets/images/covent_footer_bg.jpg";
 
+// Import version from package.json
+const APP_VERSION = __APP_VERSION__;
+
 
 
 const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
@@ -206,7 +209,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                 letterSpacing: "0.05em",
               }}
             >
-              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v1.7</span>
+              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v{APP_VERSION}</span>
             </h4>
 
             {/* Soho */}
