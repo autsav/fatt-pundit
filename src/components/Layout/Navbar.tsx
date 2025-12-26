@@ -34,8 +34,10 @@ const Navbar = () => {
       { name: "Click & Collect", href: "/click-and-collect" },
     ];
 
-  // Filter out Home for mobile menu
-  const mobileNavLinks = navLinks.filter((link) => link.name !== "Home");
+  // Filter out Home, Menu, and Gallery for mobile menu
+  const mobileNavLinks = navLinks.filter(
+    (link) => !["Home", "Menu", "Gallery"].includes(link.name)
+  );
 
   // Close mobile menu on route change
   useEffect(() => {
