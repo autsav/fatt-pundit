@@ -34,6 +34,9 @@ const Navbar = () => {
       { name: "Click & Collect", href: "/click-and-collect" },
     ];
 
+  // Filter out Home for mobile menu
+  const mobileNavLinks = navLinks.filter((link) => link.name !== "Home");
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -299,7 +302,7 @@ const Navbar = () => {
               >
                 <HiX />
               </button>
-              {navLinks.map((link) => {
+              {mobileNavLinks.map((link) => {
                 const isHash = link.href.startsWith("#");
                 const itemStyle: React.CSSProperties = {
                   fontFamily: "var(--font-heading)",
