@@ -98,21 +98,20 @@ const Vouchers = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
               style={{
-                position: "fixed", // Break out of container
+                position: "fixed",
                 top: "50%",
                 left: "50%",
-                x: "-50%",
-                y: "-50%",
+                transform: "translate(-50%, -50%)",
                 width: "90%",
                 maxWidth: "800px",
                 maxHeight: "80vh",
                 overflowY: "auto",
-                backgroundColor: "var(--color-bg-secondary)",
+                backgroundColor: "#ffffff",
                 padding: "2rem",
-                borderRadius: "var(--radius-lg)",
+                borderRadius: "12px",
                 boxShadow: "0 20px 50px rgba(0,0,0,0.8)",
-                zIndex: 60,
-                border: "1px solid var(--color-accent)",
+                zIndex: 1000,
+                border: "2px solid var(--color-accent)",
               }}
               className="voucher-modal"
             >
@@ -124,14 +123,37 @@ const Vouchers = () => {
                   marginBottom: "2rem",
                 }}
               >
-                <h2>Select Voucher</h2>
+                <h2 style={{ fontFamily: "var(--font-heading)", color: "#333", margin: 0 }}>Select Voucher</h2>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setIsOpen(false);
                   }}
+                  style={{
+                    background: "none",
+                    border: "2px solid #333",
+                    borderRadius: "50%",
+                    width: "40px",
+                    height: "40px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    fontSize: "1.5rem",
+                    color: "#333",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = "#333";
+                    e.currentTarget.style.color = "#fff";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "none";
+                    e.currentTarget.style.color = "#333";
+                  }}
+                  aria-label="Close modal"
                 >
-                  Close
+                  ×
                 </button>
               </div>
 
@@ -197,7 +219,8 @@ const Vouchers = () => {
               width: "100%",
               height: "100%",
               background: "rgba(0,0,0,0.8)",
-              zIndex: 55,
+              zIndex: 999,
+              backdropFilter: "blur(4px)",
             }}
           />
         )}
