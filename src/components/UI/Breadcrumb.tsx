@@ -59,7 +59,6 @@ const Breadcrumb = () => {
                 borderBottom: "2px solid #e5e5e5",
                 position: "relative",
                 zIndex: 10,
-                marginTop: "80px", // Account for fixed navbar
             }}
         >
             <div
@@ -147,7 +146,6 @@ const Breadcrumb = () => {
         @media (max-width: 1024px) {
           nav[aria-label="Breadcrumb"] {
             padding: 1rem 0;
-            margin-top: 70px;
           }
           nav[aria-label="Breadcrumb"] ol {
             font-size: 0.75rem;
