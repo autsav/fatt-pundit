@@ -208,7 +208,7 @@ export default Vouchers;
 
 // Add styles
 const styles = `
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .voucher-card { padding: 1rem !important; }
     h3 { font-size: 2rem !important; }
   }

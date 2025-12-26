@@ -1,6 +1,8 @@
 import SEO from "../components/SEO";
 import LocationSplit from "../components/Sections/LocationSplit";
 
+
+
 const Home = () => {
   return (
     <main>
@@ -9,6 +11,7 @@ const Home = () => {
         description="Experience the unique flavours of Indo-Chinese cuisine in London. Visit us at Soho or Covent Garden for Momos, Spicy Lollypop Chicken, and more."
       />
       <LocationSplit />
+
     </main>
   );
 };

@@ -125,7 +125,7 @@ const AboutSection = () => {
         </motion.div>
       </div>
       <style>{`
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     section > div {
                         flex-direction: column !important;
                         text-align: center !important;

@@ -8,7 +8,7 @@
   background-color: #000;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .split-container {
     flex-direction: column;
   }
@@ -29,7 +29,7 @@
 
 /* .covent-panel { } - No specific styles needed yet */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .soho-panel {
     border-right: none;
     border-bottom: 2px solid #d4af37;
@@ -77,7 +77,7 @@
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .location-title {
     font-size: 2.5rem;
   }

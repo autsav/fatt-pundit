@@ -354,8 +354,8 @@ const ClickCollect = () => {
                         transition: "background 0.2s",
                       }}
                       onMouseOver={(e) =>
-                        (e.currentTarget.style.backgroundColor =
-                          "var(--color-accent)")
+                      (e.currentTarget.style.backgroundColor =
+                        "var(--color-accent)")
                       }
                       onMouseOut={(e) =>
                         (e.currentTarget.style.backgroundColor = "#121212")
@@ -647,11 +647,11 @@ const ClickCollect = () => {
 };
 
 const styles = `
-  @media (min-width: 901px) {
+  @media (min-width: 1025px) {
     .mobile-nav { display: none !important; }
     .sidebar { display: block !important; }
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .mobile-nav { display: block !important; }
     .sidebar { display: none !important; }
     

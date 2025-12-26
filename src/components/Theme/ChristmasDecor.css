@@ -11,7 +11,7 @@
 }
 
 /* On mobile, adjust top position since navbar is smaller */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .christmas-navbar-decor {
     top: 55px;
   }
@@ -80,6 +80,7 @@
 }
 
 @keyframes flash {
+
   0%,
   100% {
     opacity: 1;

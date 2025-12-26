@@ -135,7 +135,7 @@ const GallerySection = ({ location }: { location?: string }) => {
         </div>
 
         <style>{`
-                    @media (max-width: 900px) {
+                    @media (max-width: 1024px) {
                         #gallery > div > div {
                             grid-template-columns: repeat(2, 1fr) !important;
                         }

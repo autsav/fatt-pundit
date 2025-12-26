@@ -206,7 +206,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                 letterSpacing: "0.05em",
               }}
             >
-              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v1.5</span>
+              LOCATIONS <span style={{ marginLeft: "10px", fontSize: "0.8rem", opacity: 0.7 }}>v1.6</span>
             </h4>
 
             {/* Soho */}
@@ -416,7 +416,7 @@ const Footer = ({ activeLocation = "soho" }: { activeLocation?: string }) => {
                     }
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     .location-block {
                         height: 100px !important;
                     }
