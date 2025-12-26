@@ -54,9 +54,12 @@ const Breadcrumb = () => {
         <nav
             aria-label="Breadcrumb"
             style={{
-                padding: "1rem 0",
-                backgroundColor: "#f9f9f9",
-                borderBottom: "1px solid #e5e5e5",
+                padding: "1.25rem 0",
+                backgroundColor: "#ffffff",
+                borderBottom: "2px solid #e5e5e5",
+                position: "relative",
+                zIndex: 10,
+                marginTop: "80px", // Account for fixed navbar
             }}
         >
             <div
@@ -102,8 +105,8 @@ const Breadcrumb = () => {
                                     <span
                                         style={{
                                             fontSize: "0.875rem",
-                                            color: "#666",
-                                            fontWeight: 500,
+                                            color: "#333",
+                                            fontWeight: 600,
                                             textTransform: "uppercase",
                                             letterSpacing: "0.05em",
                                         }}
@@ -116,7 +119,7 @@ const Breadcrumb = () => {
                                         to={crumb.path}
                                         style={{
                                             fontSize: "0.875rem",
-                                            color: "#333",
+                                            color: "#666",
                                             textDecoration: "none",
                                             fontWeight: 500,
                                             textTransform: "uppercase",
@@ -129,7 +132,7 @@ const Breadcrumb = () => {
                                         onMouseOver={(e) =>
                                             (e.currentTarget.style.color = "var(--color-accent)")
                                         }
-                                        onMouseOut={(e) => (e.currentTarget.style.color = "#333")}
+                                        onMouseOut={(e) => (e.currentTarget.style.color = "#666")}
                                     >
                                         {isHome ? <IoHome size={16} /> : crumb.label}
                                     </Link>
@@ -141,9 +144,10 @@ const Breadcrumb = () => {
             </div>
 
             <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           nav[aria-label="Breadcrumb"] {
-            padding: 0.75rem 0;
+            padding: 1rem 0;
+            margin-top: 70px;
           }
           nav[aria-label="Breadcrumb"] ol {
             font-size: 0.75rem;
