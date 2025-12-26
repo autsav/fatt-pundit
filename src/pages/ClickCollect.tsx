@@ -444,7 +444,7 @@ const ClickCollect = () => {
                   top: 0,
                   right: 0,
                   bottom: 0,
-                  width: "100%",
+                  width: "65%",
                   maxWidth: "400px",
                   backgroundColor: "#fff",
                   zIndex: 99,
